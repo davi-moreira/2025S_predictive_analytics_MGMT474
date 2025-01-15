@@ -1,31 +1,12 @@
 ---
 title: "Schedule"
 author: "Davi Moreira"
-# date-modified: "last-modified"
-# date: "2025-01-13"
-# date-format: "MMM D, YYYY"
-# listing:
-#   - id: schedule
-#     contents:
-#       - topics/topic-*.qmd
-#     type: table
-#     fields: [week, title, subtitle, date]
-#     field-display-names:
-#       week: "Week"
-#       title: "Topic"
-#       description: "Dates"
-#       subtitle: "Description"
-#     date-format: "MMMM DD, YYYY to MMMM DD, YYYY"
-#     sort: [filename]
-#     sort-ui: false
-#     filter-ui: false
- #tbl-colwidths: [5,20,50,25]
 editor: visual
 ---
 
 | Week | Topic | Readings [ISLP](#) | Material\* | Supplementary Materials |
 |------------|------------|------------|------------|--------------------------|
-| Week 1 | Syllabus, Logistics, and Introduction. | Ch. 1; Ch. 2; | [slides](/lecture_slides/02_data_organization_decision/02_data_organization_decision.html){target="_blank"}<br> | - [**Video**: Statistical Learning: 2.1 Introduction to Regression Models](https://www.youtube.com/watch?v=ox0cKk7h4o0&list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e&index=5){target="_blank"}|
+| Week 1 | Syllabus, Logistics, and Introduction. | Ch. 1; Ch. 2; | [slides](lecture_slides/02_data_organization_decision/02_data_organization_decision.html){target="_blank"}<br> | - [**Video**: Statistical Learning: 2.1 Introduction to Regression Models](https://www.youtube.com/watch?v=ox0cKk7h4o0&list=PLoROMvodv4rOzrYsAxzQyHb8n_RWNuS1e&index=5){target="_blank"}|
 | Week 2 | Linear Regression | Ch. 3. | [slides](#){target="_blank"} | .|
 
 \* The course slides and labs are based on the [**ISLP**](#) book, [*"An Introduction to Statistical Learning with Applications in Python"*](https://www.statlearning.com/){target="_blank"} by James, G., Witten, D., Hastie, T., and Tibshirani, R., and have been adapted to suit the specific needs of our course.
