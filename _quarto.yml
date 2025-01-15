@@ -13,7 +13,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/davi-moreira/2025S_predictive_analytics_purdue_MGMT474
+        href: https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474
         text: GitHub
     style: docked
     contents:
