@@ -292,7 +292,9 @@ $$
 
 <br>
 
--   Key metrics for model accuracy:
+Key metrics for model accuracy:
+
+<br>
 
 | Quantity                | Value |
 |-------------------------|-------|
@@ -330,7 +332,7 @@ $$
 
 -   The ideal scenario is when the predictors are uncorrelated — a *balanced design*:
     -   Each coefficient can be estimated and tested separately.
-    -   Interpretations such as *“a unit change in* $X_j$ is associated with a $\beta_j$ change in $Y$, while all the other variables stay fixed” are possible.
+    -   Interpretations such as "*a unit change in* $X_j$ is associated with a $\beta_j$ change in $Y$, while all the other variables stay fixed” are possible.
 -   Correlations amongst predictors cause problems:
     -   The variance of all coefficients tends to increase, sometimes dramatically.
     -   Interpretations become hazardous — when $X_j$ changes, everything else changes.
