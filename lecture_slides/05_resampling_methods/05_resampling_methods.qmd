@@ -882,8 +882,8 @@ knitr::include_graphics("figs/5_1_3-1.png")
 
 ### Cross-Validation
 - **K-Fold Cross-Validation**:
-  - Divides data into \(K\) folds for iterative training and testing.
-  - Balances bias and variance (e.g., \(K = 5\) or \(10\)).
+  - Divides data into $K$ folds for iterative training and testing.
+  - Balances bias and variance (e.g., $K = 5$ or $10$).
 - **Leave-One-Out Cross-Validation (LOOCV)**:
   - Uses one data point as validation in each iteration.
   - Low bias but high variance.
