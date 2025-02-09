@@ -2736,5 +2736,278 @@
     "title": " MGMT 47400: Predictive Analytics ",
     "section": "Dimension Reduction Methods",
     "text": "Dimension Reduction Methods\n\nNotice that from definition (1),\n\n\\[\n    \\sum_{m=1}^M \\theta_m z_{im} = \\sum_{m=1}^M \\theta_m \\sum_{j=1}^p \\phi_{mj} x_{ij} = \\sum_{j=1}^p \\sum_{m=1}^M \\theta_m \\phi_{mj} x_{ij} = \\sum_{j=1}^p \\beta_j x_{ij},\n\\] where\n\\[\n    \\beta_j = \\sum_{m=1}^M \\theta_m \\phi_{mj}. \\quad \\text{(3)}\n\\]\n\nHence model (2) can be thought of as a special case of the original linear regression model.\nDimension reduction serves to constrain the estimated \\(\\beta_j\\) coefficients, since now they must take the form (3).\nCan win in the bias-variance tradeoff."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#overview",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#overview",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nMoving Beyond Linearity\nPolynomial Regression\nStep Functions\nRegression Splines\n\n\n\nSmoothing Splines\nLocal Regression\nGeneralized Additive Models"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#moving-beyond-linearity",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#moving-beyond-linearity",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Moving Beyond Linearity",
+    "text": "Moving Beyond Linearity\n\nThe truth is never linear!\nOr almost never!\nBut often the linearity assumption is good enough.\nWhen it’s not…\n\npolynomials,\n\nstep functions,\n\nsplines,\n\nlocal regression, and\n\ngeneralized additive models\n\noffer a lot of flexibility, without losing the ease and interpretability of linear models."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Polynomial Regression",
+    "text": "Polynomial Regression\n\\[\ny_i = \\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\beta_3 x_i^3 + \\dots + \\beta_d x_i^d + \\epsilon_i\n\\]\nDegree-4 Polynomial"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#details",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details",
+    "text": "Details\n\nCreate new variables \\(X_1 = X, \\, X_2 = X^2\\), etc., and then treat as multiple linear regression.\nNot really interested in the coefficients; more interested in the fitted function values at any value \\(x_0\\):\n\\[\n\\hat{f}(x_0) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_0 + \\hat{\\beta}_2 x_0^2 + \\hat{\\beta}_3 x_0^3 + \\hat{\\beta}_4 x_0^4.\n\\]\nSince \\(\\hat{f}(x_0)\\) is a linear function of the \\(\\hat{\\beta}_\\ell\\), can get a simple expression for pointwise-variances ([(x_0)]) at any value \\(x_0\\). In the figure, we have computed the fit and pointwise standard errors on a grid of values for \\(x_0\\). We show \\(\\hat{f}(x_0) \\pm 2 \\cdot \\text{se}[\\hat{f}(x_0)]\\).\nWe either fix the degree \\(d\\) at some reasonably low value or use cross-validation to choose \\(d\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#details-continued",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#details-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details continued",
+    "text": "Details continued\n\nLogistic regression follows naturally. For example, in the figure we model\n\\[\n\\text{Pr}(y_i &gt; 250 \\mid x_i) = \\frac{\\exp(\\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\dots + \\beta_d x_i^d)}{1 + \\exp(\\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\dots + \\beta_d x_i^d)}.\n\\]\nTo get confidence intervals, compute upper and lower bounds on on the logit scale, and then invert to get on the probability scale.\nCan do separately on several variables—just stack the variables into one matrix, and separate out the pieces afterwards (see GAMs later).\nCaveat: Polynomials have notorious tail behavior — very bad for extrapolation.\nCan fit using \\(y \\sim \\text{poly}(x, \\text{degree} = 3)\\) in formula."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Step Functions",
+    "text": "Step Functions\nAnother way of creating transformations of a variable — cut the variable into distinct regions.\n\\[\nC_1(X) = I(X &lt; 35), \\quad C_2(X) = I(35 \\leq X &lt; 50), \\dots, C_3(X) = I(X \\geq 65)\n\\]\nPiecewise Constant"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-continued",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Step functions continued",
+    "text": "Step functions continued\n\nEasy to work with. Creates a series of dummy variables representing each group.\nUseful way of creating interactions that are easy to interpret. For example, interaction effect of \\(\\text{Year}\\) and \\(\\text{Age}\\):\n\\[\nI(\\text{Year} &lt; 2005) \\cdot \\text{Age}, \\quad I(\\text{Year} \\geq 2005) \\cdot \\text{Age}\n\\] would allow for different linear functions in each age category.\nIn R: I(year &lt; 2005) or cut(age, c(18, 25, 40, 65, 90)).\nChoice of cutpoints or knots can be problematic. For creating nonlinearities, smoother alternatives such as splines are available."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#piecewise-polynomials",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#piecewise-polynomials",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Piecewise Polynomials",
+    "text": "Piecewise Polynomials\n\nInstead of a single polynomial in \\(X\\) over its whole domain, we can rather use different polynomials in regions defined by knots.\n\n\\[\n    y_i =\n    \\begin{cases}\n    \\beta_{01} + \\beta_{11}x_i + \\beta_{21}x_i^2 + \\beta_{31}x_i^3 + \\epsilon_i & \\text{if } x_i &lt; c; \\\\\n    \\beta_{02} + \\beta_{12}x_i + \\beta_{22}x_i^2 + \\beta_{32}x_i^3 + \\epsilon_i & \\text{if } x_i \\geq c.\n    \\end{cases}\n\\]\n\nBetter to add constraints to the polynomials, e.g., continuity.\nSplines have the “maximum” amount of continuity."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#splines-visualization",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#splines-visualization",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Splines Visualization",
+    "text": "Splines Visualization\n\nDr. Moreira, here is a more refined and formally phrased description of each panel:\n\nTop-Left Panel: A third-degree polynomial is fitted to the data on the left side of the knot at \\(X = 50\\), and another (separate) third-degree polynomial is fitted on the right side. There is no continuity constraint imposed at the knot, meaning the two polynomials may not meet at the same function value at \\(X = 50\\).\nTop-Right Panel: Again, a third-degree polynomial is fitted on each side of \\(X = 50\\). However, in this case, the polynomials are forced to be continuous at the knot. In other words, they must share the same function value at \\(X = 50\\).\nBottom-Left Panel: As in the top-right panel, a third-degree polynomial is fitted on each side of \\(X = 50\\), but with an additional constraint that enforces continuity of the first and second derivatives at \\(X = 50\\). This ensures a smoother transition between the left and right segments of the piecewise function.\nBottom-Right Panel: A linear regression model is fitted on each side of \\(X = 50\\). The model is constrained to be continuous at the knot, so both linear segments meet at the same value at \\(X = 50\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#linear-splines",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#linear-splines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Linear Splines",
+    "text": "Linear Splines\nThe predictor space is partitioned at a set of specified points called knots \\(\\{\\xi_k\\}\\). A linear spline is a piecewise linear polynomial that remains continuous at each knot.\nWe construct linear spline models by augmenting a linear predictor with piecewise components that activate past designated knot locations, yielding a flexible yet interpretable approach to modeling relationships\nSpecifically:\n\nBasis-Function Representation: The model is written as\n\n\\[\n   y_i \\;=\\; \\beta_0 \\;+\\; \\beta_1 b_1(x_i) \\;+\\; \\beta_2 b_2(x_i) \\;+\\; \\cdots \\;+\\; \\beta_{K+1} b_{K+1}(x_i) \\;+\\; \\epsilon_i,\n\\]\nwhere each \\(b_k(\\cdot)\\) is a basis function.\nOne basis function, \\(b_1(x_i)\\), is simply \\(x_i\\). The others, \\(b_{k+1}(x_i) = (x_i - \\xi_k)_+\\), capture local deviations after each knot \\(\\xi_k\\).\nThe notation \\((\\cdot)_+\\) denotes the “positive part,” meaning \\(\\max\\{0, \\cdot\\}\\). Therefore, \\((x_i - \\xi_k)_+ = x_i - \\xi_k\\) if \\(x_i &gt; \\xi_k\\), and 0 otherwise.\n\nPiecewise Linear Behavior: Because \\(b_{k+1}(x_i)\\) only becomes non-zero when \\(x_i\\) exceeds the knot \\(\\xi_k\\), the spline behaves like a linear function with additional slopes kicking in after each knot.\n\nEssentially, below the smallest knot, the model is a simple linear function of \\(x_i\\). Once \\(x_i\\) passes a knot \\(\\xi_k\\), the corresponding term \\((x_i - \\xi_k)_+\\) begins to contribute, allowing the slope to change. This creates segments of potentially different slopes while maintaining continuity at the knots.\n\nContinuity at Knots: Despite having distinct linear segments, the spline remains continuous at each \\(\\xi_k\\). The continuity follows naturally from how \\((\\cdot)_+\\) is defined. At a knot, \\((x_i - \\xi_k)_+\\) transitions from 0 to a linear increase, ensuring no jumps in the fitted function.\nRelevance\n\n\nFlexibility: Linear splines allow for piecewise changes in slope rather than forcing a single global linear relationship. This can capture more nuanced relationships between predictors and responses.\nInterpretability: Each knot \\(\\xi_k\\) marks a point where the slope can adjust, making it straightforward to interpret how the effect of \\(x_i\\) differs below and above that knot.\nComparison to Polynomials: Unlike higher-order polynomials, splines can avoid the global distortion that arises from polynomial terms. A single outlier or a data pattern in one region does not overly influence the fit across the entire range of \\(x\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#linear-splines-visualization",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#linear-splines-visualization",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Linear Splines Visualization",
+    "text": "Linear Splines Visualization\n\n\nTop plot: shows two linear fits over the domain \\(0 \\le x \\le 1\\). The blue line represents a single global linear function (extending as the dashed line beyond the knot at \\(x = 0.6\\)), whereas the orange line demonstrates how adding a spline basis function allows the slope to change precisely at \\(x = 0.6\\).\nBottom plot: displays the corresponding basis function \\(b(x) = (x - 0.6)_{+}\\), which is defined to be zero for \\(x \\le 0.6\\) and increases linearly for \\(x &gt; 0.6\\). Because \\(b(x)\\) starts at zero at the knot, it does not introduce a jump—thus ensuring continuity—but it permits the slope to differ on either side of \\(x = 0.6\\).\n\nBy including this basis function (and a coefficient for it) in a linear model, one can capture a “bend” or change in slope at the specified knot. More generally, introducing additional such functions at different knots yields a piecewise linear model that remains continuous but adapts its slope in each region."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#cubic-splines",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#cubic-splines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Cubic Splines",
+    "text": "Cubic Splines\nA cubic spline with knots at \\(\\xi_k, \\, k = 1, \\dots, K\\) is a piecewise cubic polynomial with continuous derivatives up to order 2 at each knot.\nAgain we can represent this model with truncated power basis functions:\n\\[\ny_i = \\beta_0 + \\beta_1 b_1(x_i) + \\beta_2 b_2(x_i) + \\cdots + \\beta_{K+3} b_{K+3}(x_i) + \\epsilon_i,\n\\]\n\\[\nb_1(x_i) = x_i, \\quad b_2(x_i) = x_i^2, \\quad b_3(x_i) = x_i^3, \\quad b_{k+3}(x_i) = (x_i - \\xi_k)_+^3, \\quad k = 1, \\dots, K\n\\]\nwhere\n\\[\n(x_i - \\xi_k)_+^3 =\n\\begin{cases}\n(x_i - \\xi_k)^3 & \\text{if } x_i &gt; \\xi_k, \\\\\n0 & \\text{otherwise}.\n\\end{cases}\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#cubic-splines-visualization",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#cubic-splines-visualization",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Cubic Splines Visualization",
+    "text": "Cubic Splines Visualization"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#natural-cubic-splines",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#natural-cubic-splines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Natural Cubic Splines",
+    "text": "Natural Cubic Splines\nA natural cubic spline extrapolates linearly beyond the boundary knots. This adds \\(4 = 2 \\times 2\\) extra constraints, and allows us to put more internal knots for the same degrees of freedom as a regular cubic spline."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#fitting-splines-in-r",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#fitting-splines-in-r",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Fitting Splines in R",
+    "text": "Fitting Splines in R\nFitting splines in R is easy: bs(x, ...) for any degree splines, and ns(x, ...) for natural cubic splines, in package splines.\nNatural Cubic Spline"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#knot-placement",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#knot-placement",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Knot Placement",
+    "text": "Knot Placement\n\nOne strategy is to decide \\(K\\), the number of knots, and then place them at appropriate quantiles of the observed \\(X\\).\nA cubic spline with \\(K\\) knots has \\(K + 4\\) parameters or degrees of freedom.\nA natural spline with \\(K\\) knots has \\(K\\) degrees of freedom.\n\n\nComparison of a degree-14 polynomial and a natural cubic spline, each with 15df."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Smoothing Splines",
+    "text": "Smoothing Splines\nSmoothing splines are similar to regression splines, but arise in a slightly different situation. Smoothing splines result from minimizing a residual sum of squares criterion subject to a smoothness penalty.\nConsider this criterion for fitting a smooth function \\(g(x)\\) to some data:\n\\[\n\\text{minimize}_{g \\in S} \\sum_{i=1}^n (y_i - g(x_i))^2 + \\lambda \\int \\left( g''(t) \\right)^2 dt\n\\]\n\nThe first term is RSS, and tries to make \\(g(x)\\) match the data at each \\(x_i\\).\nThe second term is a roughness penalty and controls how wiggly \\(g(x)\\) is. It is modulated by the tuning parameter \\(\\lambda \\geq 0\\).\n\nThe smaller \\(\\lambda\\), the more wiggly the function, eventually interpolating \\(y_i\\) when \\(\\lambda = 0\\).\nAs \\(\\lambda \\to \\infty\\), the function \\(g(x)\\) becomes linear."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines-continued",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Smoothing Splines Continued",
+    "text": "Smoothing Splines Continued\nThe solution is a natural cubic spline, with a knot at every unique value of \\(x_i\\). The roughness penalty still controls the roughness via \\(\\lambda\\).\nSome details:\n\nSmoothing splines avoid the knot-selection issue, leaving a single \\(\\lambda\\) to be chosen.\n\n\n\nThe vector of \\(n\\) fitted values can be written as \\(\\hat{g}_\\lambda = \\mathbf{S}_\\lambda \\mathbf{y}\\), where \\(\\mathbf{S}_\\lambda\\) is a \\(n \\times n\\) matrix (determined by the \\(x_i\\) and \\(\\lambda\\)).\nThe effective degrees of freedom are given by\n\n\\[\n  \\text{df}_\\lambda = \\sum_{i=1}^n \\{ \\mathbf{S}_\\lambda \\}_{ii}.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines-continued-choosing-lambda",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-splines-continued-choosing-lambda",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Smoothing Splines Continued — Choosing \\(\\lambda\\)",
+    "text": "Smoothing Splines Continued — Choosing \\(\\lambda\\)\n\nWe can specify \\(\\text{df}\\) rather than \\(\\lambda\\)!\n\n\n\nThe leave-one-out (LOO) cross-validated error is given by\n\n\\[\n  \\text{RSS}_{\\text{cv}}(\\lambda) = \\sum_{i=1}^n \\left( y_i - \\hat{g}_\\lambda^{(-i)}(x_i) \\right)^2 = \\sum_{i=1}^n \\left[ \\frac{y_i - \\hat{g}_\\lambda(x_i)}{1 - \\{\\mathbf{S}_\\lambda\\}_{ii}} \\right]^2.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-spline",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-spline",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Smoothing Spline",
+    "text": "Smoothing Spline"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#local-regression",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#local-regression",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Local Regression",
+    "text": "Local Regression\n\nWith a sliding weight function, we fit separate linear fits over the range of \\(X\\) by weighted least squares.\nSee text for more details, and loess() function in R."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#generalized-additive-models",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#generalized-additive-models",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Generalized Additive Models",
+    "text": "Generalized Additive Models\nGeneralized additive models allow us to extend the methods covered in this lecture to deal with multiple predictors.\nAllows for flexible nonlinearities in several variables, but retains the additive structure of linear models.\n\\[\ny_i = \\beta_0 + f_1(x_{i1}) + f_2(x_{i2}) + \\cdots + f_p(x_{ip}) + \\epsilon_i.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#gam-details",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#gam-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "GAM Details",
+    "text": "GAM Details\n\nCan fit a GAM simply using, e.g., natural splines:\nCoefficients are not that interesting; fitted functions are.\n\n\n\nCan mix terms — some linear, some nonlinear — and compare models with ANOVA.\nCan use smoothing splines or local regression as well:\nGAMs are additive, although low-order interactions can be included in a natural way using, e.g., bivariate smoothers."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#gams-for-classification",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#gams-for-classification",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "GAMs for Classification",
+    "text": "GAMs for Classification\n\\[\n\\log\\left(\\frac{p(X)}{1 - p(X)}\\right) = \\beta_0 + f_1(X_1) + f_2(X_2) + \\cdots + f_p(X_p).\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\nSummary\nIn this video transcript, two statistics professors discuss the importance and methods of fitting non-linear functions and models in statistical analysis. They highlight that while linear models are straightforward and often sufficient for many applications, real-world data is rarely linear. The speakers introduce various non-linear modeling techniques, including polynomial regression, step functions, splines, local regression, and generalized additive models (GAMs). They explain how polynomial regression extends linear models by incorporating polynomial terms, allowing for a more flexible fit to data. The discussion also covers the implications of using polynomial regression, such as standard error estimation and the potential for overfitting or poor extrapolation. Step functions are presented as another non-linear modeling approach, particularly effective when natural cut points exist in the data. The professors conclude by emphasizing the need for careful consideration when selecting cut points and the advantages of using smoother alternatives for modeling non-linear relationships.\nHighlights\n\nNon-Linearity is the Norm: The speakers assert that real-world data is almost never linear, highlighting the need for non-linear modeling techniques.\nPolynomial Regression: They introduce polynomial regression as a straightforward method to capture non-linear relationships by adding polynomial terms to linear models.\nStandard Error Considerations: The professors explain how standard error bands can change based on data density, particularly in polynomial regression at the tails.\nStep Functions: They discuss the application of step functions, which divide continuous variables into discrete ranges, allowing for piecewise constant modeling.\nInteractions and Dummy Variables: The video illustrates how step functions can easily accommodate interaction effects in models through the creation of dummy variables.\nSmoothing Alternatives: The conversation addresses the potential pitfalls of selecting cut points for step functions and introduces smoother alternatives like splines.\nHistorical Context: The presenters reference their early work on generalized additive models, providing a historical backdrop to their discussion on non-linear modeling techniques.\n\nKey Insights\n\nReal-World Data Complexity: The assertion that “the truth is never linear” underscores the necessity for statisticians to adopt non-linear modeling techniques, as many relationships in data are inherently complex. This perspective encourages analysts to look beyond simple linear approximations and embrace more sophisticated models that can capture the subtleties of real-world phenomena.\nFlexibility of Polynomial Regression: Polynomial regression is not just a tool for fitting curves; it represents a significant advancement in modeling techniques, allowing analysts to flexibly adjust the degree of the polynomial to suit the data’s behavior. This flexibility, however, comes with the caveat of potential overfitting, particularly with higher-degree polynomials that might not generalize well to new data.\nUnderstanding Standard Errors: The discussion on standard error bands emphasizes the importance of understanding the statistical properties of fitted models. The wider standard errors at the ends of polynomial fits serve as a reminder that data sparsity can lead to less reliable estimates, especially in extrapolation scenarios, urging analysts to be cautious when interpreting results.\nChallenges of Step Functions: While step functions provide an intuitive way to model non-linear relationships, the choice of cut points can significantly influence the model’s performance. This insight highlights the need for careful consideration and domain knowledge when specifying these cut points, as poorly chosen boundaries can obscure meaningful non-linear trends.\nCreating Interactions with Ease: The capacity to create interaction terms through dummy variables with step functions allows for a nuanced understanding of how different factors may interact within a model. This approach simplifies the modeling process while enhancing interpretability, making it easier for practitioners to convey complex interactions in their analyses.\nSmooth Alternatives for Modeling: The introduction of smoother alternatives to step functions, such as splines, opens up new avenues for modeling non-linear relationships without the abrupt changes that step functions may introduce. This insight encourages analysts to consider these alternatives for a more refined approach to non-linear modeling.\nHistorical Significance of GAMs: The reference to the presenters’ historical work on generalized additive models (GAMs) not only provides context to their discussion but also illustrates the evolution of statistical modeling techniques. It serves as a reminder of the ongoing innovation in the field of statistics and the importance of adapting new methods to better understand complex data relationships.\n\nOverall, the discussion encapsulates essential concepts and techniques for fitting non-linear models, stressing the importance of flexibility, careful consideration of model specifications, and the historical context of these statistical methods. The insights provided serve as a valuable guide for anyone looking to deepen their understanding of non-linear modeling in statistics."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#moving-beyond-linearity-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#moving-beyond-linearity-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Moving Beyond Linearity",
+    "text": "Moving Beyond Linearity\n\nThe truth is never linear!\nOr almost never!\nBut often the linearity assumption is good enough.\nWhen it’s not…\n\npolynomials,\n\nstep functions,\n\nsplines,\n\nlocal regression, and\n\ngeneralized additive models\n\noffer a lot of flexibility, without losing the ease and interpretability of linear models."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-wage-data",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-wage-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Polynomial Regression: Wage Data",
+    "text": "Polynomial Regression: Wage Data\nPolynomial regression extends the linear model by adding extra predictors, obtained by raising each of the original predictors to a power. It provides a simple way to provide a non-linear fit to data.\n\\[\ny_i = \\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\beta_3 x_i^3 + \\dots + \\beta_d x_i^d + \\epsilon_i\n\\]\n\n\nLeft Plot: We fit a fourth-degree polynomial model to predict Wage using Age as the predictor. The data become sparse toward the higher end of Age, so there is relatively little information to guide the model’s fit in that region. As a result, the standard errors increase toward the tail—a phenomenon often referred to as “leverage.”\nRight Plot: We fit a fourth-degree polynomial model for a logistic regression. Similar to the left plot, the data diminish at the tail end of the predictor range, leaving fewer observations to inform the fit and leading to wider confidence intervals in that region."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-details",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Polynomial Regression: Details",
+    "text": "Polynomial Regression: Details\n\nCreate new variables \\(X_1 = X, \\, X_2 = X^2\\), etc., and then treat as multiple linear regression.\nIt is linear in the coefficients, but it is a non linear function of \\(x\\).\nNot really interested in the coefficients; more interested in the fitted function values at any value \\(x_0\\):\n\n\\[\n    \\hat{f}(x_0) = \\hat{\\beta}_0 + \\hat{\\beta}_1 x_0 + \\hat{\\beta}_2 x_0^2 + \\hat{\\beta}_3 x_0^3 + \\hat{\\beta}_4 x_0^4.\n\\]\n\nSince \\(\\hat{f}(x_0)\\) is a linear function of the \\(\\hat{\\beta}_\\ell\\), can get a simple expression for pointwise-variances (\\(\\text{Var}[\\hat{f}(x_0)]\\)) at any value \\(x_0\\).\n\nIn the figure, we have computed the fit and pointwise standard errors on a grid of values for \\(x_0\\). We show \\(\\hat{f}(x_0) \\pm 2 \\cdot \\text{se}[\\hat{f}(x_0)]\\).\n\nHow to choose \\(d\\), the polinomial degree? We either fix the degree \\(d\\) at some reasonably low value or use cross-validation to choose \\(d\\)."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-details-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#polynomial-regression-details-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Polynomial Regression: Details",
+    "text": "Polynomial Regression: Details\n\nLogistic regression follows naturally. For example, in the figure we model\n\n\n\\[\n    \\text{Pr}(y_i &gt; 250 \\mid x_i) = \\frac{\\exp(\\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\dots + \\beta_d x_i^d)}{1 + \\exp(\\beta_0 + \\beta_1 x_i + \\beta_2 x_i^2 + \\dots + \\beta_d x_i^d)}.\n\\] - To get confidence intervals, compute upper and lower bounds on on the logit scale, and then invert to get on the probability scale.\n\nCan do separately on several variables—just stack the variables into one matrix, and separate out the pieces afterwards (see GAMs later).\nCaveat: Polynomials have notorious tail behavior — very bad for extrapolation. So, it is not recommended to trust predictions near the end of the data."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Step Functions",
+    "text": "Step Functions\nStep functions cut the range of a variable into \\(K\\) distinct regions in order to produce a qualitative variable. This has the effect of fitting a piecewise constant function.\n\\[\nC_1(X) = I(X &lt; 35), \\quad C_2(X) = I(35 \\leq X &lt; 50), \\dots, C_3(X) = I(X \\geq 65)\n\\]\n\nA step function model partitions the range of a predictor variable \\(X\\) into multiple intervals and creates a set of dummy (0/1) indicators—one for each interval. By fitting a standard linear model with these dummy variables, the resulting function is piecewise constant: within each interval, the fitted value remains the same.\n\nLocal (Step Functions): Because each interval in a step function acts independently, changes in one interval have minimal or no effect on the fitted values in other intervals. Consequently, step functions allow a locally controlled fit, where data in a specific region of \\(X\\) only affect the parameters corresponding to that interval.\nGlobal (Polynomials): In contrast, polynomial models rely on parameters that apply across the entire range of \\(X\\). Consequently, if you alter a single data point or a small set of points in one region, those changes can influence the fitted function everywhere else. This global dependence can lead to dramatic shifts in the estimated curve.\nSimplicity: Step functions are conceptually straightforward and easy to implement, requiring only the definition of intervals and fitting dummy variables.\nLocal Control: Their piecewise nature can be beneficial when the true relationship changes abruptly or when you want to minimize the effect of outliers in one region on the fit elsewhere.\nBut there are some Drawbacks:\n\nBlocky Appearance: The fitted function may appear abrupt or “blocky,” as it is piecewise constant rather than smooth.\n\nBoundary Sensitivity: Choosing the number and location of breakpoints is somewhat subjective and can significantly impact the model’s fit.\n\nOverall, step functions provide an intuitive, locally controlled alternative to global polynomial models. However, the abrupt transitions and the need to specify breakpoints can limit their practical appeal—particularly for applications where a smooth or continuous functional form is desired."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-2",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#step-functions-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Step functions",
+    "text": "Step functions\n\nEasy to work with. Creates a series of dummy variables representing each group.\nUseful way of creating interactions that are easy to interpret. For example, interaction effect of \\(\\text{Year}\\) and \\(\\text{Age}\\):\n\n\n\\[\n    I(\\text{Year} &lt; 2005) \\cdot \\text{Age}, \\quad I(\\text{Year} \\geq 2005) \\cdot \\text{Age}\n\\]\nwould allow for different linear functions in each age category.\n\nChoice of cutpoints or knots can be problematic. For creating nonlinearities, smoother alternatives such as splines are available."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#regression-splines-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#regression-splines-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Regression Splines",
+    "text": "Regression Splines\nRegression splines are an extension and more flexible than polynomials and step functions.\nThey involve dividing the range of \\(X\\) into \\(K\\) distinct regions. Within each region, a polynomial function is fit to the data.\nHowever, these polynomials are constrained so that they join smoothly at the region boundaries, or knots. Provided that the interval is divided into enough regions, this can produce an extremely flexible fit."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary-2",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\nSummary\nIn this video, the discussion revolves around advanced methods for data fitting using piecewise polynomials, specifically focusing on linear and cubic splines. The presenter explains how piecewise polynomials extend the idea of piecewise constant functions by utilizing different polynomial functions in various segments of the data instead of using a single polynomial across the entire domain. The concept of continuity is emphasized, where splines are defined to ensure smooth transitions at the knots, improving fit quality. The presenter contrasts global polynomials with piecewise methods, illustrating the benefits of splines in terms of local fitting and smoothness. The video details how to construct linear and cubic splines, the significance of adding constraints for continuity, and the use of natural cubic splines, which constrain the behavior at boundaries. Additionally, the video covers practical applications of splines in statistical modeling, including usage examples in R programming, and highlights considerations for knot placement. Overall, the video presents splines as a more effective and flexible alternative to traditional polynomial fitting methods.\nHighlights\n\nPiecewise Polynomials: Introduces the concept of using multiple polynomials in different regions for better data fitting.\nContinuity Constraints: Discusses the importance of continuity at knots in ensuring smooth transitions between polynomial segments.\nCubic Splines: Defines cubic splines and their properties, including continuous first and second derivatives at knots.\nNatural Cubic Splines: Explains natural cubic splines, which impose additional constraints for improved behavior at boundaries.\nFitting in R: Provides practical information on how to fit splines using R programming with specific functions.\nKnot Placement: Emphasizes strategies for effective knot placement to optimize the fitting process.\nAdvantages of Splines: Concludes that splines offer better behavior and local fitting compared to traditional global polynomial methods.\n\nKey Insights\n\nFlexibility of Piecewise Polynomials: Piecewise polynomials allow for greater flexibility in modeling complex data patterns. By segmenting the data and applying different polynomial equations to each segment, analysts can achieve a more tailored fit that adapts to the local behavior of the data. This adaptability is crucial when dealing with datasets that exhibit non-linear trends or abrupt changes.\nImportance of Continuity: The concept of continuity at knots is vital for ensuring that the resultant function does not exhibit abrupt changes that could misrepresent the underlying data. By enforcing continuity of the function and its first and second derivatives, cubic splines provide a smooth transition that aligns more closely with the expected behavior of natural phenomena.\nCubic vs. Linear Splines: The distinction between cubic and linear splines highlights the trade-off between simplicity and smoothness. While linear splines offer a straightforward piecewise linear fit, cubic splines enhance the model’s complexity by allowing for curvature, which can significantly improve the fit for data that is not strictly linear.\nNatural Cubic Splines for Boundary Control: Natural cubic splines improve spline fitting by incorporating constraints at the boundaries, effectively controlling how the function behaves outside the range of the data. This is particularly useful in preventing overfitting at the extremes, which can lead to misleading interpretations of the data.\nEase of Implementation in R: The video emphasizes the accessibility of spline fitting techniques in R, making it easy for statisticians and data scientists to implement these advanced methods in their analyses without needing extensive programming knowledge. The bs and ns functions simplify the process of applying basis splines and natural splines, respectively.\nStrategic Knot Placement: The placement of knots plays a critical role in the effectiveness of spline fitting. Strategically placing knots at quantiles of the observed variable ensures that each segment of the spline has a sufficient amount of data, leading to more robust and reliable estimates.\nOverall Superiority of Splines: The overarching conclusion drawn from the discussion is that while polynomial functions are foundational in statistical modeling, splines offer significant advantages in terms of local fitting and smoothness. As such, splines are often the preferred method for data fitting in modern statistical analysis, allowing for more accurate and interpretable models that reflect the true nature of the data.\n\nIn summary, the video provides a comprehensive overview of piecewise polynomial methods, with a specific focus on splines, showcasing their advantages and practical applications in statistical modeling. The detailed explanation of various spline types, along with insights into their implementation in R and considerations for effective usage, positions splines as an essential tool in the data analyst’s toolkit."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#lienar-splines-example",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#lienar-splines-example",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Lienar Splines: Example",
+    "text": "Lienar Splines: Example\nTo illustrate a linear spline with one knot at \\(x = 50\\), suppose we have a response variable \\(y\\) (e.g., a person’s yearly wage) and a single predictor \\(x\\) (e.g., age):\n\nDefine the Basis Functions: We choose to place a single knot at \\(x = 50\\). According to the slide’s notation, the basis functions are:\n\n\\[\n   b_1(x_i) = x_i, \\quad\n   b_2(x_i) = (x_i - 50)_{+} \\,=\\,\n   \\begin{cases}\n     x_i - 50, & \\text{if } x_i &gt; 50,\\\\\n     0, & \\text{if } x_i \\le 50.\n   \\end{cases}\n\\]\n\nSpecify the Model: The corresponding linear spline model is:\n\n\\[\n   y_i \\;=\\; \\beta_0 \\;+\\; \\beta_1 \\, b_1(x_i) \\;+\\; \\beta_2 \\, b_2(x_i) \\;+\\; \\epsilon_i,\n\\] - or more explicitly:\n\\[\n   y_i \\;=\\; \\beta_0 \\;+\\; \\beta_1 \\, x_i \\;+\\; \\beta_2 \\, (x_i - 50)_{+} \\;+\\; \\epsilon_i.\n\\]\n\nInterpretation\n\n\nFor \\(x_i \\le 50\\):\n\\((x_i - 50)_+ = 0\\). Hence, the model reduces to\n\n\\[\n     y_i \\;=\\; \\beta_0 \\;+\\; \\beta_1 \\, x_i \\;+\\; \\epsilon_i,\n\\]\n- which is a simple linear relationship with slope \\(\\beta_1\\) for ages up to 50.\n\nFor \\(x_i &gt; 50\\):\n\\((x_i - 50)_+ = x_i - 50\\). Thus, the model becomes\n\n\\[\n     y_i \\;=\\; \\beta_0 \\;+\\; \\beta_1 x_i \\;+\\; \\beta_2 (x_i - 50) \\;+\\; \\epsilon_i\n          \\;=\\; [\\beta_0 - 50 \\beta_2] \\;+\\; (\\beta_1 + \\beta_2) x_i \\;+\\; \\epsilon_i,\n\\]\n\nmeaning the slope for ages beyond 50 is \\(\\beta_1 + \\beta_2\\). The intercept adjusts accordingly to ensure the function remains continuous at \\(x=50\\).\nLocal Flexibility: Below 50, the effect of age on wage is governed by \\(\\beta_1\\). Above 50, the slope can change to \\(\\beta_1 + \\beta_2\\).\nContinuity at 50: Because the spline is forced to match up at \\(x = 50\\), there is no abrupt jump in the fitted curve.\nSimplicity of Implementation: We only introduced one additional term \\((x_i - 50)_+\\) to capture the potential change in slope after age 50."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#natural-cubic-spline",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#natural-cubic-spline",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Natural Cubic Spline",
+    "text": "Natural Cubic Spline"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-spline-degrees-of-freedom",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#smoothing-spline-degrees-of-freedom",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Smoothing Spline: Degrees of Freedom",
+    "text": "Smoothing Spline: Degrees of Freedom"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#local-regression-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#local-regression-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Local Regression",
+    "text": "Local Regression\nLocal regression is similar to splines, but differs in an important way. The regions are allowed to overlap, and indeed they do so in a very smooth way.\n\nWith a sliding weight function, we fit separate linear fits over the range of \\(X\\) by weighted least squares.\nIn sum, it is a popular way to fit non-linear functions by fitting local linear functions on the data."
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary-4",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#summary-4",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\n\nXXXX\n\n\n\n\n\nXXXX"
+  },
+  {
+    "objectID": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#generalized-additive-models-1",
+    "href": "lecture_slides/07_beyond_linearity/07_beyond_linearity.html#generalized-additive-models-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Generalized Additive Models",
+    "text": "Generalized Additive Models\nGeneralized additive models allow us to extend the methods covered in this lecture to deal with multiple predictors.\nAllows for flexible nonlinearities in several variables, but retains the additive structure of linear models.\n\\[\ny_i = \\beta_0 + f_1(x_{i1}) + f_2(x_{i2}) + \\cdots + f_p(x_{ip}) + \\epsilon_i.\n\\]"
   }
 ]

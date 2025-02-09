@@ -1,0 +1,614 @@
+---
+title: "<span style = 'font-size: 100%;'> MGMT 47400: Predictive Analytics </span>"
+subtitle: "<span style = 'font-size: 150%;'> Beyond Linearity </span>"
+author: "Professor: Davi Moreira"
+# date: "2024-08-01"
+date-format: "MMMM DD, YYYY"
+format:
+  revealjs: 
+    transition: slide
+    background-transition: fade
+    width: 1600
+    height: 900
+    center: true
+    slide-number: true
+    incremental: true
+    chalkboard: 
+      buttons: false
+    preview-links: auto
+    #logo: images/quarto.png
+    footer: "Predictive Analytics"
+    theme: [simple,custom.scss]
+html-math-method:
+  method: mathjax
+  url: "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+---
+
+## Overview
+
+:::::: nonincremental
+::::: columns
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+
+- Moving Beyond Linearity
+- Polynomial Regression
+- Step Functions
+- Regression Splines
+
+:::
+
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+
+- Smoothing Splines
+- Local Regression
+- Generalized Additive Models
+
+:::
+:::::
+::::::
+
+# Moving Beyond Linearity {background-color="#cfb991"}
+
+## Moving Beyond Linearity
+
+- The truth is never linear!
+- Or almost never!
+
+- But often the linearity assumption is good enough.
+
+- When it's not...
+
+    -   polynomials,\
+    -   step functions,\
+    -   splines,\
+    -   local regression, and\
+    -   generalized additive models
+
+- offer a lot of flexibility, without losing the ease and interpretability of linear models.
+
+# Polynomial Regression
+
+## Polynomial Regression: Wage Data
+
+Polynomial regression extends the linear model by adding extra predictors, obtained by raising each of the original predictors to a power. It provides a simple way to provide a non-linear fit to data.
+
+$$
+y_i = \beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \beta_3 x_i^3 + \dots + \beta_d x_i^d + \epsilon_i
+$$
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_1-1.png") 
+```
+
+
+- **Left Plot**: We fit a fourth-degree polynomial model to predict Wage using Age as the predictor. The data become sparse toward the higher end of Age, so there is relatively little information to guide the model’s fit in that region. As a result, the standard errors increase toward the tail—a phenomenon often referred to as “leverage.”
+
+- **Right Plot**: We fit a fourth-degree polynomial model for a logistic regression. Similar to the left plot, the data diminish at the tail end of the predictor range, leaving fewer observations to inform the fit and leading to wider confidence intervals in that region.
+
+## Polynomial Regression: Details
+
+-   Create new variables $X_1 = X, \, X_2 = X^2$, etc., and then treat as multiple linear regression.
+
+- It is linear in the coefficients, but it is a non linear function of $x$.
+
+-   Not really interested in the coefficients; more interested in the fitted function values at any value $x_0$:
+
+$$
+    \hat{f}(x_0) = \hat{\beta}_0 + \hat{\beta}_1 x_0 + \hat{\beta}_2 x_0^2 + \hat{\beta}_3 x_0^3 + \hat{\beta}_4 x_0^4.
+$$
+
+-   Since $\hat{f}(x_0)$ is a linear function of the $\hat{\beta}_\ell$, can get a simple expression for *pointwise-variances* ($\text{Var}[\hat{f}(x_0)]$) at any value $x_0$. 
+    
+    - In the figure, we have computed the fit and pointwise standard errors on a grid of values for $x_0$. We show $\hat{f}(x_0) \pm 2 \cdot \text{se}[\hat{f}(x_0)]$.
+
+- How to choose $d$, the polinomial degree? We either fix the degree $d$ at some reasonably low value or use cross-validation to choose $d$.
+
+## Polynomial Regression: Details
+
+-   Logistic regression follows naturally. For example, in the figure we model\
+
+$$
+    \text{Pr}(y_i > 250 \mid x_i) = \frac{\exp(\beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \dots + \beta_d x_i^d)}{1 + \exp(\beta_0 + \beta_1 x_i + \beta_2 x_i^2 + \dots + \beta_d x_i^d)}.
+$$
+-   To get confidence intervals, compute upper and lower bounds on *on the logit scale*, and then invert to get on the probability scale.
+
+-   Can do separately on several variables—just stack the variables into one matrix, and separate out the pieces afterwards (see GAMs later).
+
+-   **Caveat**: Polynomials have notorious tail behavior — very bad for extrapolation. So, it is not recommended to trust predictions near the end of the data.
+
+# Step Functions
+
+
+## Step Functions
+
+Step functions cut the range of a variable into $K$ distinct regions in order to produce a qualitative variable. This has the effect of fitting a piecewise constant function.
+
+$$
+C_1(X) = I(X < 35), \quad C_2(X) = I(35 \leq X < 50), \dots, C_3(X) = I(X \geq 65)
+$$
+
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_2-1.png") 
+```
+
+
+A step function model partitions the range of a predictor variable $X$ into multiple intervals and creates a set of dummy (0/1) indicators—one for each interval. By fitting a standard linear model with these dummy variables, the resulting function is piecewise constant: within each interval, the fitted value remains the same.
+
+- **Local (Step Functions)**: Because each interval in a step function acts independently, changes in one interval have minimal or no effect on the fitted values in other intervals. Consequently, step functions allow a locally controlled fit, where data in a specific region of $X$ only affect the parameters corresponding to that interval.  
+
+- **Global (Polynomials)**: In contrast, polynomial models rely on parameters that apply across the entire range of $X$. Consequently, if you alter a single data point or a small set of points in one region, those changes can influence the fitted function everywhere else. This global dependence can lead to dramatic shifts in the estimated curve.
+
+- **Simplicity**: Step functions are conceptually straightforward and easy to implement, requiring only the definition of intervals and fitting dummy variables.  
+
+- **Local Control**: Their piecewise nature can be beneficial when the true relationship changes abruptly or when you want to minimize the effect of outliers in one region on the fit elsewhere.  
+
+- But there are some Drawbacks:  
+
+     - **Blocky Appearance**: The fitted function may appear abrupt or “blocky,” as it is piecewise constant rather than smooth.  
+     - **Boundary Sensitivity**: Choosing the number and location of breakpoints is somewhat subjective and can significantly impact the model’s fit.  
+
+- Overall, step functions provide an intuitive, locally controlled alternative to global polynomial models. However, the abrupt transitions and the need to specify breakpoints can limit their practical appeal—particularly for applications where a smooth or continuous functional form is desired.
+
+<!---
+you create a bunch of dummy variables, zero/one variables, and you just fit those with a linear model. The advantage this has over over polynomials is that it \is local, while polynomials it's a single function for the whole range of the of the x variable. So for example if i change a point on the left side it could potentially change the fit on the right side quite a bit for polynomials. For step functions a fit a point only affects the the fit in in the partition it's sitting in and not the other partitions. The polynomial parameters affect the function everywhere and and can have dramatic effects here we've done the same thing as we did before for the logistic regression but with a piecewise constant function everything else is the same but the fitted function is kind of blocky and you know maybe considered not as attractive step functions are easy to work with.
+--->
+
+## Step functions
+
+-   Easy to work with. Creates a series of dummy variables representing each group.
+
+-   Useful way of creating interactions that are easy to interpret. For example, interaction effect of $\text{Year}$ and $\text{Age}$:\
+
+$$
+    I(\text{Year} < 2005) \cdot \text{Age}, \quad I(\text{Year} \geq 2005) \cdot \text{Age}
+$$ 
+
+would allow for different linear functions in each age category.
+
+-   Choice of cutpoints or *knots* can be problematic. For creating nonlinearities, smoother alternatives such as *splines* are available.
+
+## Summary
+
+### Summary
+In this video transcript, two statistics professors discuss the importance and methods of fitting non-linear functions and models in statistical analysis. They highlight that while linear models are straightforward and often sufficient for many applications, real-world data is rarely linear. The speakers introduce various non-linear modeling techniques, including polynomial regression, step functions, splines, local regression, and generalized additive models (GAMs). They explain how polynomial regression extends linear models by incorporating polynomial terms, allowing for a more flexible fit to data. The discussion also covers the implications of using polynomial regression, such as standard error estimation and the potential for overfitting or poor extrapolation. Step functions are presented as another non-linear modeling approach, particularly effective when natural cut points exist in the data. The professors conclude by emphasizing the need for careful consideration when selecting cut points and the advantages of using smoother alternatives for modeling non-linear relationships.
+
+### Highlights
+- **Non-Linearity is the Norm**: The speakers assert that real-world data is almost never linear, highlighting the need for non-linear modeling techniques.
+- **Polynomial Regression**: They introduce polynomial regression as a straightforward method to capture non-linear relationships by adding polynomial terms to linear models.
+- **Standard Error Considerations**: The professors explain how standard error bands can change based on data density, particularly in polynomial regression at the tails.
+- **Step Functions**: They discuss the application of step functions, which divide continuous variables into discrete ranges, allowing for piecewise constant modeling.
+- **Interactions and Dummy Variables**: The video illustrates how step functions can easily accommodate interaction effects in models through the creation of dummy variables.
+- **Smoothing Alternatives**: The conversation addresses the potential pitfalls of selecting cut points for step functions and introduces smoother alternatives like splines.
+- **Historical Context**: The presenters reference their early work on generalized additive models, providing a historical backdrop to their discussion on non-linear modeling techniques.
+
+### Key Insights
+- **Real-World Data Complexity**: The assertion that "the truth is never linear" underscores the necessity for statisticians to adopt non-linear modeling techniques, as many relationships in data are inherently complex. This perspective encourages analysts to look beyond simple linear approximations and embrace more sophisticated models that can capture the subtleties of real-world phenomena.
+
+-  **Flexibility of Polynomial Regression**: Polynomial regression is not just a tool for fitting curves; it represents a significant advancement in modeling techniques, allowing analysts to flexibly adjust the degree of the polynomial to suit the data's behavior. This flexibility, however, comes with the caveat of potential overfitting, particularly with higher-degree polynomials that might not generalize well to new data.
+
+- **Understanding Standard Errors**: The discussion on standard error bands emphasizes the importance of understanding the statistical properties of fitted models. The wider standard errors at the ends of polynomial fits serve as a reminder that data sparsity can lead to less reliable estimates, especially in extrapolation scenarios, urging analysts to be cautious when interpreting results.
+
+- **Challenges of Step Functions**: While step functions provide an intuitive way to model non-linear relationships, the choice of cut points can significantly influence the model's performance. This insight highlights the need for careful consideration and domain knowledge when specifying these cut points, as poorly chosen boundaries can obscure meaningful non-linear trends.
+
+- **Creating Interactions with Ease**: The capacity to create interaction terms through dummy variables with step functions allows for a nuanced understanding of how different factors may interact within a model. This approach simplifies the modeling process while enhancing interpretability, making it easier for practitioners to convey complex interactions in their analyses.
+
+- **Smooth Alternatives for Modeling**: The introduction of smoother alternatives to step functions, such as splines, opens up new avenues for modeling non-linear relationships without the abrupt changes that step functions may introduce. This insight encourages analysts to consider these alternatives for a more refined approach to non-linear modeling.
+
+- **Historical Significance of GAMs**: The reference to the presenters' historical work on generalized additive models (GAMs) not only provides context to their discussion but also illustrates the evolution of statistical modeling techniques. It serves as a reminder of the ongoing innovation in the field of statistics and the importance of adapting new methods to better understand complex data relationships.
+
+Overall, the discussion encapsulates essential concepts and techniques for fitting non-linear models, stressing the importance of flexibility, careful consideration of model specifications, and the historical context of these statistical methods. The insights provided serve as a valuable guide for anyone looking to deepen their understanding of non-linear modeling in statistics.
+
+# Regression Splines
+
+## Regression Splines
+
+Regression splines are an extension and more flexible than polynomials and step functions. 
+
+They involve dividing the range of $X$ into $K$ distinct regions. Within each region, a polynomial function is fit to the data. 
+
+However, these polynomials are constrained so that they join smoothly at the region boundaries, or knots. Provided that the interval is divided into enough regions, this can produce an extremely flexible fit.
+
+## Piecewise Polynomials
+
+-   Instead of a single polynomial in $X$ over its whole domain, we can rather use different polynomials in regions defined by knots. 
+
+$$
+    y_i =
+    \begin{cases} 
+    \beta_{01} + \beta_{11}x_i + \beta_{21}x_i^2 + \beta_{31}x_i^3 + \epsilon_i & \text{if } x_i < c; \\
+    \beta_{02} + \beta_{12}x_i + \beta_{22}x_i^2 + \beta_{32}x_i^3 + \epsilon_i & \text{if } x_i \geq c.
+    \end{cases}
+$$
+
+-   Better to add constraints to the polynomials, e.g., continuity.
+
+-   *Splines* have the "maximum" amount of continuity.
+
+## Splines Visualization
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_3-1.png") 
+```
+
+
+Dr. Moreira, here is a more refined and formally phrased description of each panel:
+
+1. **Top-Left Panel**: A third-degree polynomial is fitted to the data on the left side of the knot at $X = 50$, and another (separate) third-degree polynomial is fitted on the right side. There is no continuity constraint imposed at the knot, meaning the two polynomials may not meet at the same function value at $X = 50$.
+
+2. **Top-Right Panel**: Again, a third-degree polynomial is fitted on each side of $X = 50$. However, in this case, the polynomials are forced to be continuous at the knot. In other words, they must share the same function value at $X = 50$.
+
+3. **Bottom-Left Panel**: As in the top-right panel, a third-degree polynomial is fitted on each side of $X = 50$, but with an additional constraint that enforces continuity of the first and second derivatives at $X = 50$. This ensures a smoother transition between the left and right segments of the piecewise function.
+
+4. **Bottom-Right Panel**:  A linear regression model is fitted on each side of $X = 50$. The model is constrained to be continuous at the knot, so both linear segments meet at the same value at $X = 50$.
+
+## Linear Splines
+
+The predictor space is partitioned at a set of specified points called **knots** $\{\xi_k\}$. A linear spline is a **piecewise linear polynomial** that remains **continuous** at each knot. 
+
+We construct **linear spline models** by augmenting a linear predictor with piecewise components that activate past designated knot locations, yielding a flexible yet interpretable approach to modeling relationships
+
+Specifically:
+
+1. **Basis-Function Representation**: The model is written as 
+   
+$$
+   y_i \;=\; \beta_0 \;+\; \beta_1 b_1(x_i) \;+\; \beta_2 b_2(x_i) \;+\; \cdots \;+\; \beta_{K+1} b_{K+1}(x_i) \;+\; \epsilon_i,
+$$
+   
+where each $b_k(\cdot)$ is a *basis function*. 
+
+One basis function, $b_1(x_i)$, is simply $x_i$. The others, $b_{k+1}(x_i) = (x_i - \xi_k)_+$, capture **local deviations** after each knot $\xi_k$. 
+
+The notation $(\cdot)_+$ denotes the “positive part,” meaning $\max\{0, \cdot\}$. Therefore, $(x_i - \xi_k)_+ = x_i - \xi_k$ if $x_i > \xi_k$, and 0 otherwise.
+
+2. **Piecewise Linear Behavior**: Because $b_{k+1}(x_i)$ only becomes non-zero when $x_i$ exceeds the knot $\xi_k$, the spline behaves like a linear function with *additional slopes* kicking in after each knot. 
+
+Essentially, below the smallest knot, the model is a simple linear function of $x_i$. Once $x_i$ passes a knot $\xi_k$, the corresponding term $(x_i - \xi_k)_+$ begins to contribute, allowing the slope to change. This creates **segments** of potentially different slopes while maintaining continuity at the knots.
+
+3. **Continuity at Knots**: Despite having distinct linear segments, the spline remains **continuous** at each $\xi_k$. The continuity follows naturally from how $(\cdot)_+$ is defined. At a knot, $(x_i - \xi_k)_+$ transitions from 0 to a linear increase, ensuring no jumps in the fitted function.
+
+4. **Relevance**  
+
+- **Flexibility**: Linear splines allow for **piecewise changes** in slope rather than forcing a single global linear relationship. This can capture more nuanced relationships between predictors and responses.  
+
+- **Interpretability**: Each knot $\xi_k$ marks a point where the slope can adjust, making it straightforward to interpret how the effect of $x_i$ differs below and above that knot.  
+
+- **Comparison to Polynomials**: Unlike higher-order polynomials, splines can avoid the global distortion that arises from polynomial terms. A single outlier or a data pattern in one region does not overly influence the fit across the entire range of $x$.  
+
+## Lienar Splines: Example
+
+To illustrate a linear spline with **one knot** at $x = 50$, suppose we have a response variable $y$ (e.g., a person’s yearly wage) and a single predictor $x$ (e.g., age):
+
+1. **Define the Basis Functions**:  We choose to place a **single knot** at $x = 50$. According to the slide’s notation, the basis functions are:
+
+$$
+   b_1(x_i) = x_i, \quad 
+   b_2(x_i) = (x_i - 50)_{+} \,=\, 
+   \begin{cases}
+     x_i - 50, & \text{if } x_i > 50,\\
+     0, & \text{if } x_i \le 50.
+   \end{cases}
+$$
+
+2. **Specify the Model**: The corresponding linear spline model is:
+
+$$
+   y_i \;=\; \beta_0 \;+\; \beta_1 \, b_1(x_i) \;+\; \beta_2 \, b_2(x_i) \;+\; \epsilon_i,
+$$
+- or more explicitly:
+
+$$
+   y_i \;=\; \beta_0 \;+\; \beta_1 \, x_i \;+\; \beta_2 \, (x_i - 50)_{+} \;+\; \epsilon_i.
+$$
+
+3. **Interpretation**
+
+- For $x_i \le 50$:  
+
+- $(x_i - 50)_+ = 0$. Hence, the model reduces to  
+
+$$
+     y_i \;=\; \beta_0 \;+\; \beta_1 \, x_i \;+\; \epsilon_i,
+$$  
+- which is a simple linear relationship with slope $\beta_1$ for **ages up to 50**.
+
+- For $x_i > 50$:  
+
+- $(x_i - 50)_+ = x_i - 50$. Thus, the model becomes  
+
+$$
+     y_i \;=\; \beta_0 \;+\; \beta_1 x_i \;+\; \beta_2 (x_i - 50) \;+\; \epsilon_i 
+          \;=\; [\beta_0 - 50 \beta_2] \;+\; (\beta_1 + \beta_2) x_i \;+\; \epsilon_i,
+$$  
+
+- meaning the slope for **ages beyond 50** is $\beta_1 + \beta_2$. The intercept adjusts accordingly to ensure the function remains continuous at $x=50$.
+
+- **Local Flexibility**: Below 50, the effect of age on wage is governed by $\beta_1$. Above 50, the slope can change to $\beta_1 + \beta_2$.  
+
+- **Continuity at 50**: Because the spline is forced to match up at $x = 50$, there is no abrupt jump in the fitted curve.  
+
+- **Simplicity of Implementation**: We only introduced one additional term $(x_i - 50)_+$ to capture the potential change in slope after age 50.
+
+<!---
+## Linear Splines
+
+*A linear spline with knots at* $\xi_k, \, k = 1, \dots, K$ *is a piecewise linear polynomial continuous at each knot.*
+
+We can represent this model as
+
+$$
+y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + \cdots + \beta_{K+1} b_{K+1}(x_i) + \epsilon_i,
+$$
+
+where the $b_k$ are *basis functions*.
+
+$$
+b_1(x_i) = x_i
+$$
+
+$$
+b_{k+1}(x_i) = (x_i - \xi_k)_+, \quad k = 1, \dots, K
+$$
+
+Here the $()_+$ means *positive part*; i.e.,
+
+$$
+(x_i - \xi_k)_+ =
+\begin{cases}
+x_i - \xi_k & \text{if } x_i > \xi_k \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+--->
+
+## Linear Splines Visualization
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_1_1-1.png") 
+```
+
+
+- **Top plot**: shows two linear fits over the domain $0 \le x \le 1$. The blue line represents a *single global* linear function (extending as the dashed line beyond the knot at $x = 0.6$), whereas the orange line demonstrates how *adding* a spline basis function allows the slope to change precisely at $x = 0.6$. 
+
+- **Bottom plot**: displays the corresponding basis function $b(x) = (x - 0.6)_{+}$, which is defined to be zero for $x \le 0.6$ and increases linearly for $x > 0.6$. Because $b(x)$ starts at zero at the knot, it does not introduce a jump—thus ensuring *continuity*—but it permits the slope to differ on either side of $x = 0.6$. 
+  
+    - By including this basis function (and a coefficient for it) in a linear model, one can capture a “bend” or change in slope at the specified knot. More generally, introducing additional such functions at different knots yields a piecewise linear model that remains continuous but adapts its slope in each region.
+
+<!---
+the blue curve is a is a just a global linear function. yes we've only got one not here so here's one of these basis functions see it starts off at zero at the knot and then it goes up linearly so this is is x minus 0.6 positive part below 0.6 it's zero so now when you fit a linear model with with a global linear function plus one of these in and each of them gets a coefficient what you get is you get a function that's allowed to change its slope at the knot so if you add in some mix of this to a linear function it'll change the slope of this point and so here we see it over here okay and because this starts off at zero it makes sure it's continuous here very handy and you can make a bunch of these functions for however many knots 
+
+--->
+
+## Cubic Splines
+
+*A cubic spline with knots at* $\xi_k, \, k = 1, \dots, K$ *is a piecewise cubic polynomial with continuous derivatives up to order 2 at each knot.*
+
+Again we can represent this model with truncated power basis functions:
+
+$$
+y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + \cdots + \beta_{K+3} b_{K+3}(x_i) + \epsilon_i,
+$$
+
+$$
+b_1(x_i) = x_i, \quad b_2(x_i) = x_i^2, \quad b_3(x_i) = x_i^3, \quad b_{k+3}(x_i) = (x_i - \xi_k)_+^3, \quad k = 1, \dots, K
+$$
+
+where
+
+$$
+(x_i - \xi_k)_+^3 =
+\begin{cases}
+(x_i - \xi_k)^3 & \text{if } x_i > \xi_k, \\
+0 & \text{otherwise}.
+\end{cases}
+$$
+
+## Cubic Splines Visualization
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_1_2-1.png") 
+```
+
+## Natural Cubic Splines
+
+A natural cubic spline extrapolates linearly beyond the boundary knots. This adds $4 = 2 \times 2$ extra constraints, and allows us to put more internal knots for the same degrees of freedom as a regular cubic spline.
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_4-1.png") 
+```
+
+## Natural Cubic Spline
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_5-1.png") 
+```
+
+## Knot Placement
+
+-   One strategy is to decide $K$, the number of knots, and then place them at appropriate quantiles of the observed $X$.
+
+-   A cubic spline with $K$ knots has $K + 4$ parameters or degrees of freedom.
+
+-   A natural spline with $K$ knots has $K$ degrees of freedom.
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_7-1.png") 
+```
+
+Comparison of a degree-14 polynomial and a natural cubic spline, each with 15df.
+
+## Summary
+
+### Summary
+
+In this video, the discussion revolves around advanced methods for data fitting using piecewise polynomials, specifically focusing on linear and cubic splines. The presenter explains how piecewise polynomials extend the idea of piecewise constant functions by utilizing different polynomial functions in various segments of the data instead of using a single polynomial across the entire domain. The concept of continuity is emphasized, where splines are defined to ensure smooth transitions at the knots, improving fit quality. The presenter contrasts global polynomials with piecewise methods, illustrating the benefits of splines in terms of local fitting and smoothness. The video details how to construct linear and cubic splines, the significance of adding constraints for continuity, and the use of natural cubic splines, which constrain the behavior at boundaries. Additionally, the video covers practical applications of splines in statistical modeling, including usage examples in R programming, and highlights considerations for knot placement. Overall, the video presents splines as a more effective and flexible alternative to traditional polynomial fitting methods.
+
+### Highlights
+
+- **Piecewise Polynomials**: Introduces the concept of using multiple polynomials in different regions for better data fitting.
+- **Continuity Constraints**: Discusses the importance of continuity at knots in ensuring smooth transitions between polynomial segments.
+- **Cubic Splines**: Defines cubic splines and their properties, including continuous first and second derivatives at knots.
+- **Natural Cubic Splines**: Explains natural cubic splines, which impose additional constraints for improved behavior at boundaries.
+-  **Fitting in R**: Provides practical information on how to fit splines using R programming with specific functions.
+- **Knot Placement**: Emphasizes strategies for effective knot placement to optimize the fitting process.
+- **Advantages of Splines**: Concludes that splines offer better behavior and local fitting compared to traditional global polynomial methods.
+
+### Key Insights
+
+- **Flexibility of Piecewise Polynomials**: Piecewise polynomials allow for greater flexibility in modeling complex data patterns. By segmenting the data and applying different polynomial equations to each segment, analysts can achieve a more tailored fit that adapts to the local behavior of the data. This adaptability is crucial when dealing with datasets that exhibit non-linear trends or abrupt changes.
+
+- **Importance of Continuity**: The concept of continuity at knots is vital for ensuring that the resultant function does not exhibit abrupt changes that could misrepresent the underlying data. By enforcing continuity of the function and its first and second derivatives, cubic splines provide a smooth transition that aligns more closely with the expected behavior of natural phenomena.
+
+- **Cubic vs. Linear Splines**: The distinction between cubic and linear splines highlights the trade-off between simplicity and smoothness. While linear splines offer a straightforward piecewise linear fit, cubic splines enhance the model's complexity by allowing for curvature, which can significantly improve the fit for data that is not strictly linear.
+
+- **Natural Cubic Splines for Boundary Control**: Natural cubic splines improve spline fitting by incorporating constraints at the boundaries, effectively controlling how the function behaves outside the range of the data. This is particularly useful in preventing overfitting at the extremes, which can lead to misleading interpretations of the data.
+
+- **Ease of Implementation in R**: The video emphasizes the accessibility of spline fitting techniques in R, making it easy for statisticians and data scientists to implement these advanced methods in their analyses without needing extensive programming knowledge. The `bs` and `ns` functions simplify the process of applying basis splines and natural splines, respectively.
+
+- **Strategic Knot Placement**: The placement of knots plays a critical role in the effectiveness of spline fitting. Strategically placing knots at quantiles of the observed variable ensures that each segment of the spline has a sufficient amount of data, leading to more robust and reliable estimates.
+
+- **Overall Superiority of Splines**: The overarching conclusion drawn from the discussion is that while polynomial functions are foundational in statistical modeling, splines offer significant advantages in terms of local fitting and smoothness. As such, splines are often the preferred method for data fitting in modern statistical analysis, allowing for more accurate and interpretable models that reflect the true nature of the data.
+
+In summary, the video provides a comprehensive overview of piecewise polynomial methods, with a specific focus on splines, showcasing their advantages and practical applications in statistical modeling. The detailed explanation of various spline types, along with insights into their implementation in R and considerations for effective usage, positions splines as an essential tool in the data analyst's toolkit.
+
+# Smoothing Splines: bringing more math
+
+## Smoothing Splines
+
+Smoothing splines are similar to regression splines, but arise in a slightly different situation. Smoothing splines result from minimizing a residual sum of squares criterion subject to a smoothness penalty.
+
+Consider this criterion for fitting a smooth function $g(x)$ to some data:
+
+$$
+\text{minimize}_{g \in S} \sum_{i=1}^n (y_i - g(x_i))^2 + \lambda \int \left( g''(t) \right)^2 dt
+$$
+
+-   The first term is RSS, and tries to make $g(x)$ match the data at each $x_i$.
+-   The second term is a *roughness penalty* and controls how wiggly $g(x)$ is. It is modulated by the *tuning parameter* $\lambda \geq 0$.
+    -   The smaller $\lambda$, the more wiggly the function, eventually interpolating $y_i$ when $\lambda = 0$.
+    -   As $\lambda \to \infty$, the function $g(x)$ becomes linear.
+
+## Smoothing Splines Continued
+
+The solution is a natural cubic spline, with a knot at every unique value of $x_i$. The roughness penalty still controls the roughness via $\lambda$.
+
+Some details:
+
+-   Smoothing splines avoid the knot-selection issue, leaving a single $\lambda$ to be chosen.
+
+<!---
+-   The algorithmic details are too complex to describe here. In R, the function `smooth.spline()` will fit a smoothing spline.
+--->
+
+-   The vector of $n$ fitted values can be written as $\hat{g}_\lambda = \mathbf{S}_\lambda \mathbf{y}$, where $\mathbf{S}_\lambda$ is a $n \times n$ matrix (determined by the $x_i$ and $\lambda$).
+
+-   The *effective degrees of freedom* are given by
+
+$$
+  \text{df}_\lambda = \sum_{i=1}^n \{ \mathbf{S}_\lambda \}_{ii}.
+$$
+
+## Smoothing Splines Continued — Choosing $\lambda$
+
+-   We can specify $\text{df}$ rather than $\lambda$!
+
+<!---    
+In R: `smooth.spline(age, wage, df = 10)` 
+--->
+
+-   The leave-one-out (LOO) cross-validated error is given by
+
+$$
+  \text{RSS}_{\text{cv}}(\lambda) = \sum_{i=1}^n \left( y_i - \hat{g}_\lambda^{(-i)}(x_i) \right)^2 = \sum_{i=1}^n \left[ \frac{y_i - \hat{g}_\lambda(x_i)}{1 - \{\mathbf{S}_\lambda\}_{ii}} \right]^2.
+$$
+
+<!---
+In R: `smooth.spline(age, wage)`
+--->
+
+## Smoothing Spline: Degrees of Freedom
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_8-1.png") 
+```
+
+# Local Regression
+
+## Local Regression
+
+Local regression is similar to splines, but differs in an important way. The regions are allowed to overlap, and indeed they do so in a very smooth way.
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_9-1.png") 
+```
+
+With a sliding weight function, we fit separate linear fits over the range of $X$ by weighted least squares.
+
+In sum, it is a popular way to fit non-linear functions by fitting local linear functions on the data.
+
+# Generalized Additive Models
+## Generalized Additive Models
+
+Generalized additive models allow us to extend the methods covered in this lecture to deal with multiple predictors.
+
+Allows for flexible nonlinearities in several variables, but retains the additive structure of linear models.
+
+$$
+y_i = \beta_0 + f_1(x_{i1}) + f_2(x_{i2}) + \cdots + f_p(x_{ip}) + \epsilon_i.
+$$
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_11-1.png") 
+```
+
+## GAM Details
+
+-   Can fit a GAM simply using, e.g., natural splines:
+
+-   Coefficients are not that interesting; fitted functions are. 
+
+<!---
+The previous plot was produced using `plot.gam`.
+--->
+
+-   Can mix terms — some linear, some nonlinear — and compare models with ANOVA.
+
+-   Can use smoothing splines or local regression as well:
+
+-   GAMs are additive, although low-order interactions can be included in a natural way using, e.g., bivariate smoothers.
+
+## GAMs for Classification
+
+$$
+\log\left(\frac{p(X)}{1 - p(X)}\right) = \beta_0 + f_1(X_1) + f_2(X_2) + \cdots + f_p(X_p).
+$$
+
+```{r  echo=FALSE, out.width = "65%", fig.align="center"}
+knitr::include_graphics("figs/7_13-1.png") 
+```
+
+<!---
+`gam(I(wage > 250) ~ year + s(age, df = 5) + education, family = binomial)`
+--->
+
+## Summary
+
+:::::::: nonincremental
+::::::: columns
+:::: {.column width="50%"}
+::: {style="font-size: 80%;"}
+-   XXXX
+:::
+::::
+
+:::: {.column width="50%"}
+::: {style="font-size: 80%;"}
+-   XXXX
+:::
+::::
+:::::::
+::::::::
+
+# Thank you! {background-color="#cfb991"}
