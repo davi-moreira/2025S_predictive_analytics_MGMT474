@@ -517,11 +517,11 @@ p + (p - 1) + (p - 2) + \dots + 1 = \frac{p(p + 1)}{2}
 <section id="credit-data-example" class="slide level2 center">
 <h2>Credit data example</h2>
 <p>The first four selected models for best subset selection and forward stepwise selection on the Credit data set.</p>
-<table class="caption-top" style="width:100%;">
+<table class="caption-top">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 35%">
-<col style="width: 41%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 40%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -617,7 +617,7 @@ p + (p - 1) + (p - 2) + \dots + 1 = \frac{p(p + 1)}{2}
 <ul>
 <li class="fragment"><p>Like forward stepwise selection, the backward selection approach searches through only <span class="math inline">\(1 + p(p+1)/2\)</span> models, and so can be applied in settings where <span class="math inline">\(p\)</span> is too large to apply best subset selection.</p></li>
 <li class="fragment"><p>Like forward stepwise selection, backward stepwise selection is not guaranteed to yield the <em>best</em> model containing a subset of the <span class="math inline">\(p\)</span> predictors.</p></li>
-<li class="fragment"><p>Backward selection requires that the <strong>number of samples <span class="math inline">\(n\)</span> is larger than the number of variables <span class="math inline">\(p\)</span></strong> (so that the full model can be fit). In contrast, forward stepwise can be used even when <span class="math inline">\(n &lt; p\)</span>, and so is the only viable subset method when <span class="math inline">\(p\)</span> is very large.</p></li>
+<li class="fragment"><p>Backward selection requires that the <strong>number of samples</strong> <span class="math inline">\(n\)</span> is larger than the number of variables <span class="math inline">\(p\)</span> (so that the full model can be fit). In contrast, forward stepwise can be used even when <span class="math inline">\(n &lt; p\)</span>, and so is the only viable subset method when <span class="math inline">\(p\)</span> is very large.</p></li>
 </ul>
 </section>
 <section id="summary-backward-stepwise-selection" class="slide level2 center">
@@ -697,13 +697,13 @@ C_p = \frac{1}{n} \left( \text{RSS} + 2d\hat{\sigma}^2 \right)
 \]</span></p>
 <p>where:</p>
 <ul>
-<li><strong><span class="math inline">\(d\)</span>:</strong> Total number of parameters used in the model (including the intercept).<br>
+<li><span class="math inline">\(d\)</span>: Total number of parameters used in the model (including the intercept).<br>
 </li>
-<li><strong><span class="math inline">\(\hat{\sigma}^2\)</span>:</strong> Estimate of the error variance <span class="math inline">\(\epsilon\)</span>, associated with each response measurement.<br>
+<li><span class="math inline">\(\hat{\sigma}^2\)</span>: Estimate of the error variance <span class="math inline">\(\epsilon\)</span>, associated with each response measurement.<br>
 </li>
-<li><strong><span class="math inline">\(\text{RSS}\)</span>:</strong> Residual Sum of Squares, measuring the error between observed and predicted values.<br>
+<li><span class="math inline">\(\text{RSS}\)</span>: Residual Sum of Squares, measuring the error between observed and predicted values.<br>
 </li>
-<li><strong><span class="math inline">\(n\)</span>:</strong> Number of observations in the dataset.</li>
+<li><span class="math inline">\(n\)</span>: Number of observations in the dataset.</li>
 </ul>
 <p><strong>Explanation</strong></p>
 <ul>
@@ -776,9 +776,9 @@ C_p = \frac{1}{n} \left( \text{RSS} + 2d\hat{\sigma}^2 \right)
 <li><p><strong>Test Error Estimation</strong>: Accurate test error estimation is vital for model evaluation. It helps choose the best model among multiple options, ensuring reliability in predictions.</p></li>
 <li><p><strong>Indirect vs.&nbsp;Direct Methods</strong>: Understanding both indirect (adjusting training error) and direct (cross-validation) methods provides flexibility in model evaluation, catering to different scenarios in data analysis.</p></li>
 <li><p><strong>Model Selection Criteria</strong>: <span class="math inline">\(C_p\)</span>, AIC, BIC, and adjusted <span class="math inline">\(R^2\)</span> serve as essential criteria for model selection. They help quantify model performance and complexity, aiding in decision-making.</p></li>
-<li><p><strong>Minimizing <span class="math inline">\(C_p\)</span> and BIC</strong>: Aiming for lower <span class="math inline">\(C_p\)</span> and BIC values suggests a more parsimonious model, which is often preferred for its simplicity and interpretability while still capturing the necessary relationships.</p></li>
+<li><p><strong>Minimizing</strong> <span class="math inline">\(C_p\)</span> and BIC: Aiming for lower <span class="math inline">\(C_p\)</span> and BIC values suggests a more parsimonious model, which is often preferred for its simplicity and interpretability while still capturing the necessary relationships.</p></li>
 <li><p><strong>Cross-Validation Versatility</strong>: Cross-validation is a powerful tool applicable to a wide range of models, including non-linear ones, making it a preferred method for estimating test error in various contexts.</p></li>
-<li><p><strong>Adjusted <span class="math inline">\(R^2\)</span> Utility</strong>: Unlike traditional <span class="math inline">\(R^2\)</span>, adjusted <span class="math inline">\(R^2\)</span> provides a way to compare models with differing numbers of predictors, addressing the limitations of model evaluation in regression analysis.</p></li>
+<li><p><strong>Adjusted</strong> <span class="math inline">\(R^2\)</span> Utility: Unlike traditional <span class="math inline">\(R^2\)</span>, adjusted <span class="math inline">\(R^2\)</span> provides a way to compare models with differing numbers of predictors, addressing the limitations of model evaluation in regression analysis.</p></li>
 <li><p><strong>Simplicity Preference</strong>: Favoring simpler models with fewer predictors can lead to better generalization and reduced risk of overfitting, aligning with the principle of Occam’s Razor in statistical modeling.</p></li>
 </ul>
 </div></div>
@@ -795,7 +795,7 @@ C_p = \frac{1}{n} \left( \text{RSS} + 2d\hat{\sigma}^2 \right)
 <ul>
 <li class="fragment"><p>Each of the procedures returns a sequence of models <span class="math inline">\(\mathcal{M}_k\)</span> indexed by model size <span class="math inline">\(k = 0, 1, 2, \ldots\)</span>. Our job here is to select <span class="math inline">\(\hat{k}\)</span>. Once selected, we will return model <span class="math inline">\(\mathcal{M}_{\hat{k}}\)</span>.</p></li>
 <li class="fragment"><p>We compute the validation set error or the cross-validation error for each model <span class="math inline">\(\mathcal{M}_k\)</span> under consideration, and then select the <span class="math inline">\(k\)</span> for which the resulting estimated test error is smallest.</p></li>
-<li class="fragment"><p><strong>This procedure has an advantage relative to AIC, BIC, <span class="math inline">\(C_p\)</span>, and adjusted <span class="math inline">\(R^2\)</span></strong>, in that it provides a direct estimate of the test error, and <em>doesn’t require an estimate of the error variance</em> <span class="math inline">\(\sigma^2\)</span>.</p></li>
+<li class="fragment"><p><strong>This procedure has an advantage relative to AIC, BIC,</strong> <span class="math inline">\(C_p\)</span>, and adjusted <span class="math inline">\(R^2\)</span>, in that it provides a direct estimate of the test error, and <em>doesn’t require an estimate of the error variance</em> <span class="math inline">\(\sigma^2\)</span>.</p></li>
 <li class="fragment"><p>It can also be used in a wider range of model selection tasks, even in cases where it is hard to pinpoint the model degrees of freedom (e.g., the number of predictors in the model) or hard to estimate the error variance <span class="math inline">\(\sigma^2\)</span>.</p></li>
 </ul>
 </section>
@@ -1084,7 +1084,7 @@ C_p = \frac{1}{n} \left( \text{RSS} + 2d\hat{\sigma}^2 \right)
 <h3 id="key-insights-5"><strong>Key Insights</strong></h3>
 <ul>
 <li><p><strong>Lasso vs.&nbsp;Ridge</strong>: Lasso regression not only shrinks coefficients but also sets some to zero, enabling simpler models through variable selection. This property makes it particularly valuable in high-dimensional settings where many variables may be irrelevant.</p></li>
-<li><p><strong><span class="math inline">\(L_1\)</span> vs.&nbsp;<span class="math inline">\(L_2\)</span> Penalty</strong>: The <span class="math inline">\(L_1\)</span> penalty used in Lasso creates a constraint that promotes sparsity, while the <span class="math inline">\(L_2\)</span> penalty in ridge regression tends to retain all variables with smaller coefficients. This difference is crucial for effective model building.</p></li>
+<li><p><span class="math inline">\(L_1\)</span> vs.&nbsp;<span class="math inline">\(L_2\)</span> Penalty: The <span class="math inline">\(L_1\)</span> penalty used in Lasso creates a constraint that promotes sparsity, while the <span class="math inline">\(L_2\)</span> penalty in ridge regression tends to retain all variables with smaller coefficients. This difference is crucial for effective model building.</p></li>
 <li><p><strong>Sparsity</strong>: The concept of sparsity refers to models that only include a small subset of variables. Sparse models are easier to interpret and can enhance predictive performance when only a few predictors are relevant.</p></li>
 <li><p><strong>Computational Advances</strong>: Recent improvements in computational power and techniques in convex optimization have made applying Lasso feasible even on large datasets, broadening its applicability across various fields.</p></li>
 <li><p><strong>Real-World Applications</strong>: In situations like medical diagnostics, where finding a minimal number of significant predictors is vital, Lasso provides a practical solution by efficiently identifying key variables among thousands of measurements.</p></li>
@@ -1170,10 +1170,11 @@ C_p = \frac{1}{n} \left( \text{RSS} + 2d\hat{\sigma}^2 \right)
 <div>
 <div style="font-size: 80%;">
 <ul>
-<li>Let <span class="math inline">\(Z_1, Z_2, \ldots, Z_M\)</span> represent <span class="math inline">\(M &lt; p\)</span> <em>linear combinations</em> of our original <span class="math inline">\(p\)</span> predictors. That is, <span class="math display">\[
-Z_m = \sum_{j=1}^p \phi_{mj} X_j \quad \text{(1)}
-\]</span></li>
+<li>Let <span class="math inline">\(Z_1, Z_2, \ldots, Z_M\)</span> represent <span class="math inline">\(M &lt; p\)</span> <em>linear combinations</em> of our original <span class="math inline">\(p\)</span> predictors. That is,</li>
 </ul>
+<p><span class="math display">\[
+    Z_m = \sum_{j=1}^p \phi_{mj} X_j \quad \text{(1)}
+\]</span></p>
 <p>for some constants <span class="math inline">\(\phi_{m1}, \ldots, \phi_{mp}\)</span>.</p>
 <ul>
 <li>We can then fit the linear regression model,</li>
@@ -1190,8 +1191,10 @@ Z_m = \sum_{j=1}^p \phi_{mj} X_j \quad \text{(1)}
 </section>
 <section id="dimension-reduction-methods-2" class="slide level2 center">
 <h2>Dimension Reduction Methods</h2>
+<div>
+<div style="font-size: 80%;">
 <ul>
-<li class="fragment">Notice that from definition (1),</li>
+<li>Notice that from definition (1),</li>
 </ul>
 <p><span class="math display">\[
     \sum_{m=1}^M \theta_m z_{im} = \sum_{m=1}^M \theta_m \sum_{j=1}^p \phi_{mj} x_{ij} = \sum_{j=1}^p \sum_{m=1}^M \theta_m \phi_{mj} x_{ij} = \sum_{j=1}^p \beta_j x_{ij},
@@ -1200,10 +1203,12 @@ Z_m = \sum_{j=1}^p \phi_{mj} X_j \quad \text{(1)}
     \beta_j = \sum_{m=1}^M \theta_m \phi_{mj}. \quad \text{(3)}
 \]</span></p>
 <ul>
-<li class="fragment"><p>Hence model (2) can be thought of as a special case of the original linear regression model.</p></li>
-<li class="fragment"><p>Dimension reduction serves to constrain the estimated <span class="math inline">\(\beta_j\)</span> coefficients, since now they must take the form (3).</p></li>
-<li class="fragment"><p>Can win in the bias-variance tradeoff.</p></li>
+<li><p>Hence model (2) can be thought of as a special case of the original linear regression model.</p></li>
+<li><p>Dimension reduction serves to constrain the estimated <span class="math inline">\(\beta_j\)</span> coefficients, since now they must take the form (3).</p></li>
+<li><p>Can win in the bias-variance tradeoff.</p></li>
 </ul>
+</div>
+</div>
 </section>
 <section id="summary-dimension-reduction" class="slide level2 center">
 <h2>Summary: Dimension reduction</h2>
