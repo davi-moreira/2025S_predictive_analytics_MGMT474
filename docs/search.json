@@ -2336,7 +2336,7 @@
     "href": "lecture_slides/06_model_selection/06_model_selection.html#pictures-of-pca",
     "title": " MGMT 47400: Predictive Analytics ",
     "section": "Pictures of PCA",
-    "text": "Pictures of PCA\n\nThe population size (pop) and ad spending (ad) for 100 different cities are shown as purple circles. The green solid line indicates the first principal component, and the blue dashed line indicates the second principal component.\nNote that these two principal componenets are uncorrelated!"
+    "text": "Pictures of PCA\n\nThe population size (pop) and ad spending (ad) for 100 different cities are shown as purple circles. The green solid line indicates the first principal component, and the blue dashed line indicates the second principal component.\nNote that these two principal components are uncorrelated!"
   },
   {
     "objectID": "lecture_slides/06_model_selection/06_model_selection.html#pictures-of-pca-continued",

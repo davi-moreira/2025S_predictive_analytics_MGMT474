@@ -980,7 +980,7 @@ knitr::include_graphics("figs/6_14-1.png")
 
 The population size (`pop`) and ad spending (`ad`) for 100 different cities are shown as purple circles. The green solid line indicates the first principal component, and the blue dashed line indicates the second principal component.
 
-Note that these two principal componenets are uncorrelated!
+Note that these two principal components are uncorrelated!
 
 ## Pictures of PCA
 
