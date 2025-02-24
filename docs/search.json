@@ -3688,5 +3688,313 @@
     "title": " MGMT 47400: Predictive Analytics ",
     "section": "BART: Bayesian Additive Regression Trees",
     "text": "BART: Bayesian Additive Regression Trees\n\nRecall that bagging and random forests make predictions from an average of regression trees, each of which is built using a random sample of data and/or predictors. Each tree is built separately from the others.\nBy contrast, boosting uses a weighted sum of trees, each of which is constructed by fitting a tree to the residual of the current fit. Thus, each new tree attempts to capture signal that is not yet accounted for by the current set of trees.\nBayesian additive regression trees (BART), an ensemble method that uses decision trees as its building blocks, is related to both random forests and boosting:\n\nEach tree is constructed in a random manner as in bagging and random forests, and each tree tries to capture signal not yet accounted for by the current model, as in boosting.\n\nThe main novelty in BART is the way in which new trees are generated.\nBART can be applied to regression, classification, and other problems; we will focus here just on regression."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#overview",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#overview",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nSupport Vector Classifier\nSVM with Nonlinear Boundary\nNonlinearities and Kernels\n\n\n\nSVMs: More Than 2 Classes\nSupport Vector versus Logistic Regression\n\n\n\n\n\n\nThis lecture content is inspired by and replicates the material from An Introduction to Statistical Learning."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-machines",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-machines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Machines",
+    "text": "Support Vector Machines\nHere we approach the two-class classification problem in a direct way:\n\nWe try and find a plane that separates the classes in feature space.\nIf we cannot, we get creative in two ways:\n\nWe soften what we mean by “separates”, and\nWe enrich and enlarge the feature space so that separation is possible."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#what-is-a-hyperplane",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#what-is-a-hyperplane",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "What is a Hyperplane?",
+    "text": "What is a Hyperplane?\nA hyperplane in \\(p\\) dimensions is a flat affine subspace of dimension \\(p - 1\\).\nIn general, the equation for a hyperplane has the form\n\\[\n  \\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\cdots + \\beta_p X_p = 0\n\\]\n\nIn \\(p = 2\\) dimensions, a hyperplane is a line.\nIf \\(\\beta_0 = 0\\), the hyperplane goes through the origin; otherwise, it does not.\nThe vector \\(\\beta = (\\beta_1, \\beta_2, \\dots, \\beta_p)\\) is called the normal vector — it points in a direction orthogonal to the surface of the hyperplane."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hyperplane in 2 Dimensions",
+    "text": "Hyperplane in 2 Dimensions"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Separating Hyperplanes",
+    "text": "Separating Hyperplanes\n\n\nIf \\(f(X) = \\beta_0 + \\beta_1 X_1 + \\cdots + \\beta_p X_p\\), then \\(f(X) &gt; 0\\) for points on one side of the hyperplane, and \\(f(X) &lt; 0\\) for points on the other.\nIf we code the colored points as \\(Y_i = +1\\) for blue and \\(Y_i = -1\\) for purple, then if \\(Y_i \\cdot f(X_i) &gt;0\\) for all \\(i\\), \\(f(X) = 0\\) defines a separating hyperplane."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#maximal-margin-classifier",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#maximal-margin-classifier",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Maximal Margin Classifier",
+    "text": "Maximal Margin Classifier\nThe idea is: Among all separating hyperplanes, find the one that makes the biggest gap or margin between the two classes.\n\n\n\n\n\n\n\n\n\n\n\n\n\nConstrained optimization problem:\n\\[\n\\text{maximize } M \\quad \\beta_0, \\beta_1, \\dots, \\beta_p\n\\]\nsubject to:\n\\[\n\\sum_{j=1}^p \\beta_j^2 = 1,\n\\]\n\\[\ny_i (\\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_p x_{ip}) \\geq M \\quad \\text{for all } i = 1, \\dots, N.\n\\]\nThus, we determine the hyperplane parameters that yield the largest possible margin \\(m\\) while ensuring that every data point lies at least \\(m\\) units away from the hyperplane. This guarantees a maximum separation between the two classes, leading to a robust classification model."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#non-separable-data",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#non-separable-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Non-separable Data",
+    "text": "Non-separable Data\n\nThe data are not separable by a linear boundary. This is often the case, unless \\(N &lt; p\\)."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#noisy-data",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#noisy-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Noisy Data",
+    "text": "Noisy Data\n\nSometimes the data are separable, but noisy. In the right plot we add only one new data point in it results in a big change in the hyperplane that separates the two classes. This can lead to a poor solution for the maximal-margin classifier.\n\nThe support vector classifier maximizes a soft margin and is a good option to deal both with non-separable and noisy data."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Classifier",
+    "text": "Support Vector Classifier\n\n\\[\n\\text{maximize } M \\quad \\beta_0, \\beta_1, \\dots, \\beta_p, \\epsilon_1, \\dots, \\epsilon_n\n\\]\nsubject to:\n\\[\n\\sum_{j=1}^p \\beta_j^2 = 1,\n\\]\n\\[\ny_i (\\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_p x_{ip}) \\geq M(1 - \\epsilon_i),\n\\]\n\\[\n\\epsilon_i \\geq 0, \\quad \\sum_{i=1}^n \\epsilon_i \\leq C.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "\\(C\\) is a Regularization Parameter",
+    "text": "\\(C\\) is a Regularization Parameter\n\nThis layout demonstrates the effect of the regularization parameter \\(C\\) on the SVM classifier with four subplots, each representing a different \\(C\\) value. Adjustments to annotations or layout can be made as needed. Let me know if further modifications are required!"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#linear-boundary-can-fail",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#linear-boundary-can-fail",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Linear Boundary Can Fail",
+    "text": "Linear Boundary Can Fail\nSometimes a linear boundary simply won’t work, no matter what value of \\(C\\). What to do?"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#feature-expansion",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#feature-expansion",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Feature Expansion",
+    "text": "Feature Expansion\n\nEnlarge the space of features by including transformations; e.g. \\(X_1^2, X_1^3, X_1X_2, X_1X_2^2, \\dots\\). Hence go from a \\(p\\)-dimensional space to a \\(M &gt; p\\)-dimensional space (not the same \\(M\\) as we used for margin).\nFit a support-vector classifier in the enlarged space.\nThis results in non-linear decision boundaries in the original space.\nExample: Suppose we use \\((X_1, X_2, X_1^2, X_2^2, X_1X_2)\\) instead of just \\((X_1, X_2)\\). Then the decision boundary would be of the form: \\[\n\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\beta_3 X_1^2 + \\beta_4 X_2^2 + \\beta_5 X_1X_2 = 0\n\\]\n\nThis leads to nonlinear decision boundaries in the original space (quadratic conic sections)."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#cubic-polynomials",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#cubic-polynomials",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Cubic Polynomials",
+    "text": "Cubic Polynomials\nHere we use a basis expansion of cubic polynomials. From 2 variables to 9:\n\\[\n\\beta_0 + \\beta_1 X_1 + \\beta_2 X_2 + \\beta_3 X_1^2 + \\beta_4 X_2^2 + \\beta_5 X_1 X_2 + \\beta_6 X_1^3 + \\beta_7 X_2^3 + \\beta_8 X_1^2 X_2 + \\beta_9 X_1 X_2^2 = 0\n\\]\n\n\nThe support-vector classifier in the enlarged space solves the problem in the lower-dimensional space."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#nonlinearities-and-kernels",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#nonlinearities-and-kernels",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Nonlinearities and Kernels",
+    "text": "Nonlinearities and Kernels\n\nPolynomials (especially high-dimensional ones) get wild rather fast.\nThere is a more elegant and controlled way to introduce nonlinearities in support-vector classifiers — through the use of kernels.\nBefore we discuss these, we must understand the role of inner products in support-vector classifiers."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#inner-products-and-support-vectors",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#inner-products-and-support-vectors",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Inner Products and Support Vectors",
+    "text": "Inner Products and Support Vectors\n\nThe decision function of a Linear SVC is expressed as:\n\\[\nf(x) = \\beta_0 + \\sum_{i=1}^{n} \\alpha_i \\langle x, x_i \\rangle\n\\]\nwhere:\n\n\\(f(x)\\) represents the classification function that determines whether a new point \\(x\\) belongs to one class or another.\n\\(\\beta_0\\) is the intercept (bias term).\n\\(\\alpha_i\\) are the Lagrange multipliers, which determine the influence of each training example on the decision boundary.\n\\(x_i\\): Training Data Points: \\(x_i\\) represents a training example**, which is one of the points in the training dataset.\n\nEach \\(x_i\\) is a feature vector in a \\(p\\)-dimensional space \\(x_i = (x_{i1}, x_{i2}, \\dots, x_{ip})\\)\n\n\\(x\\): A New Input Example (Test Point): \\(x\\) is a new data point** (not necessarily in the training set) for which we want to make a prediction.\n\nLike \\(x_i\\), it is also a feature vector in the same \\(p\\)-dimensional space \\(x = (x_1, x_2, \\dots, x_p)\\)\nThe classifier evaluates \\(f(x)\\) to determine the class of \\(x\\).\nThe decision function \\(f(x)\\) compares this new point to all training points \\(x_i\\) using their inner products.\n\n\\(\\langle x, x_i \\rangle\\) represents the inner product (dot product) between the input vector \\(x\\) and each training point \\(x_i\\), which captures the similarity between them.\n\\(n\\) is the total number of training points."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#kernels-and-support-vector-machines",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#kernels-and-support-vector-machines",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Kernels and Support Vector Machines",
+    "text": "Kernels and Support Vector Machines\n\nIf we can compute inner products between observations, we can fit a SV classifier.\nSome special kernel functions can do this for us. E.g., \\[\nK(x_i, x_{i'}) = \\left(1 + \\sum_{j=1}^p x_{ij} x_{i'j}\\right)^d\n\\] computes the inner products needed for \\(d\\)-dimensional polynomials — \\(\\binom{p+d}{d}\\) basis functions!\nThe solution has the form: \\[\nf(x) = \\beta_0 + \\sum_{i \\in S} \\hat{\\alpha}_i K(x, x_i).\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#radial-kernel",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#radial-kernel",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Radial Kernel",
+    "text": "Radial Kernel\n\nOne of the most popular kernel!\n\\[\nK(x_i, x_{i'}) = \\exp\\left(-\\gamma \\sum_{j=1}^p (x_{ij} - x_{i'j})^2 \\right).\n\\]\nwhere \\(\\gamma\\) is a tuning parameter.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\\[\nf(x) = \\beta_0 + \\sum_{i \\in S} \\hat{\\alpha}_i K(x, x_i).\n\\] - The solid black line encloses a region classified as one class (pink points).\n\nThe dashed lines in the image represent decision boundaries created by the Radial Basis Function (RBF) kernel in a Support Vector Machine (SVM). These boundaries separate different regions of classification based on the nonlinear transformation performed by the Radial Kernel.\nImplicit feature space; very high dimensional.\nControls variance by squashing down most dimensions severely."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: Heart Data",
+    "text": "Example: Heart Data\n\nROC curve is obtained by changing the threshold \\(t\\) in \\(\\hat{f}(X) &gt; t\\), and recording false positive and true positive rates as \\(t\\) varies. Here we see ROC curves on training data."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-continued-heart-test-data",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-continued-heart-test-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example Continued: Heart Test Data",
+    "text": "Example Continued: Heart Test Data"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#svms-more-than-2-classes",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#svms-more-than-2-classes",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "SVMs: More Than 2 Classes?",
+    "text": "SVMs: More Than 2 Classes?\nThe SVM as defined works for \\(K = 2\\) classes. What do we do if we have \\(K &gt; 2\\) classes?\nOVA\nOne versus All. Fit \\(K\\) different 2-class SVM classifiers \\(\\hat{f}_k(x)\\), \\(k = 1, \\dots, K\\); each class versus the rest. Classify \\(x^*\\) to the class for which \\(\\hat{f}_k(x^*)\\) is largest.\nOVO\nOne versus One. Fit all \\(\\binom{K}{2}\\) pairwise classifiers \\(\\hat{f}_{k\\ell}(x)\\). Classify \\(x^*\\) to the class that wins the most pairwise competitions.\nWhich to choose? If \\(K\\) is not too large, use OVO."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector versus Logistic Regression?",
+    "text": "Support Vector versus Logistic Regression?\nWith \\(f(X) = \\beta_0 + \\beta_1 X_1 + \\dots + \\beta_p X_p\\), we can rephrase support-vector classifier optimization as:\n\\[\n\\text{minimize}_{\\beta_0, \\beta_1, \\dots, \\beta_p} \\left\\{ \\sum_{i=1}^n \\max \\big[ 0, 1 - y_i f(x_i) \\big] + \\lambda \\sum_{j=1}^p \\beta_j^2 \\right\\}\n\\]\n\nThis has the form loss plus penalty.\n\nThe loss is known as the hinge loss.\n\nVery similar to the loss in logistic regression (negative log-likelihood)."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#which-to-use-svm-or-logistic-regression",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#which-to-use-svm-or-logistic-regression",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Which to Use: SVM or Logistic Regression",
+    "text": "Which to Use: SVM or Logistic Regression\n\nWhen classes are (nearly) separable, SVM does better than Logistic Regression. So does LDA.\nWhen not, Logistic Regression (with ridge penalty) and SVM are very similar.\nIf you wish to estimate probabilities, Logistic Regression is the choice.\nFor nonlinear boundaries, kernel SVMs are popular. Can use kernels with Logistic Regression and LDA as well, but computations are more expensive."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#summary",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#summary",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\n\nHyperplanes and Normal Vectors\n\nA hyperplane is a \\((p-1)\\)-dimensional boundary in \\(p\\)-dimensional space.\n\nIts orientation is determined by the normal vector \\(\\beta\\), which is orthogonal to the hyperplane.\n\nMaximal Margin and Soft Margins\n\nThe maximal margin classifier seeks the widest possible gap between classes.\n\nSoft margins allow some misclassifications (via slack variables \\(\\epsilon_i\\)) when data are not perfectly separable.\n\n\\(C\\) as a Regularization Parameter\n\nLarge \\(C\\) → Strict margin (less regularization), fewer misclassifications, but higher risk of overfitting.\n\nSmall \\(C\\) → Softer margin (more regularization), more misclassifications allowed, but often better generalization.\n\nKernels for Nonlinear Boundaries\n\nKernel functions (e.g., polynomial, radial basis) map data into higher-dimensional spaces for nonlinear decision boundaries.\n\nThe inner product \\(\\langle x, x_i \\rangle\\) becomes \\(K(x, x_i)\\) in kernel SVMs, enabling complex separations.\n\n\n\n\n\n\nSupport Vectors and Sparsity\n\nOnly a subset of training points (support vectors) have \\(\\alpha_i &gt; 0\\).\n\nThis sparsity makes SVMs computationally efficient and robust to outliers.\n\nSVM vs. Logistic Regression\n\nSVM uses hinge loss (piecewise linear), focusing on margin violations.\n\nLogistic Regression uses log-likelihood loss, penalizing all misclassifications smoothly.\n\nWhen classes are nearly separable, SVM often outperforms logistic regression (and LDA).\n\nLogistic regression provides probabilistic outputs; SVM is more geometric.\n\nMulticlass Extensions\n\nImplemented via One-vs-All (OVA) or One-vs-One (OVO) schemes for \\(K&gt;2\\) classes.\n\nStandardization\n\nStandardize features so that no single variable dominates the margin.\n\nSimilar to Ridge and Lasso, SVM is sensitive to feature scales.\n\n\nKey Message:\nSVMs excel at maximizing margins and can handle complex decision boundaries via kernels. The choice of \\(C\\), kernel, and feature scaling profoundly affects performance and generalization."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hyperplane in 2 Dimensions",
+    "text": "Hyperplane in 2 Dimensions\n\n\n\n\n\n\n\n\n\n\n\n\nThe figure demonstrates how hyperplanes separate data in classification or regression contexts: each point’s location relative to the hyperplane is captured by the signed distance.\n\nHyperplane in 2D (Blue Line)\n\nIn two dimensions, a hyperplane is simply a straight line.\n\nThe blue line in the figure is defined by the equation\n\\[\n\\beta_1 x_1 + \\beta_2 x_2 - 6 = 0.\n\\]\nAll points \\((x_1, x_2)\\) satisfying this equation lie exactly on the hyperplane.\n\n\n\n\nNormal Vector (Red Arrow)\n\nThe red arrow represents the normal vector \\(\\beta = (\\beta_1, \\beta_2)\\).\n\nThis vector is orthogonal (perpendicular) to the hyperplane, meaning it points in the direction that is shortest from the line to any point off the line.\nThe values \\(\\beta_1 = 0.8\\) and \\(\\beta_2 = 0.6\\) are displayed in the bottom right corner.\n\nSince the sum of their squares equals one (\\(0.8^2 + 0.6^2 = 1\\)), this vector is a unit vector.\n\nRole of the Normal Vector in Classification\n\n\nThe normal vector determines:\n\nThe orientation of the hyperplane (i.e., which way it is “tilted” in space).\nWhich side of the hyperplane a point belongs to.\nThe shortest distance of a point from the hyperplane.\nIf we substitute a point \\(X = (X_1, X_2, ..., X_p)\\) into the hyperplane equation: \\[\nf(X) = \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p - 6\n\\]\n\nIf \\(f(X) &gt; 0\\) → The point is on one side of the hyperplane.\nIf \\(f(X) &lt; 0\\) → The point is on the opposite side.\nIf \\(f(X) = 0\\) → The point lies on the hyperplane.\n\n\nIllustrated Examples\n\nOne point is 1.6, meaning it is 1.6 units away from the hyperplane in the direction of the normal vector.\n\nAnother point is -4, indicating it is 4 units away on the opposite side of the hyperplane.\n\nPoints on the blue line always have a function value of 0 because they satisfy \\(\\beta_1 x_1 + \\beta_2 x_2 - 6 = 0\\).\n\nKey Insight\n\n\nIn higher dimensions, the same idea generalizes: a hyperplane is a \\((p-1)\\)-dimensional flat surface in \\(p\\)-dimensional space, and its normal vector determines both orientation and distance computations."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Separating Hyperplanes",
+    "text": "Separating Hyperplanes\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft Plot:\n\nThe dataset contains two classes (blue and mauve points).\nMultiple candidate hyperplanes are shown as black lines.\nThese hyperplanes attempt to separate the two classes, but not all do so optimally.\nRight Plot:\n\nA single separating hyperplane is shown.\nThe background is shaded to indicate decision regions:\n\nThe blue-shaded region contains points classified as blue.\nThe mauve-shaded region contains points classified as mauve.\n\n\n\n\nA general equation of a hyperplane in a \\(p\\)-dimensional space: \\[\n  f(X) = \\beta_0 + \\beta_1 X_1 + \\dots + \\beta_p X_p\n\\]\n\nThis function \\(f(X)\\) determines which side of the hyperplane a data point falls on:\n\nIf \\(f(X) &gt; 0\\) → The point lies on one side of the hyperplane.\nIf \\(f(X) &lt; 0\\) → The point lies on the other side.\nIf \\(f(X) = 0\\) → The point lies exactly on the hyperplane.\n\n\nDefining a Separating Hyperplane in Classification\n\nIn SVM classification, each data point \\(X_i\\) has a corresponding label \\(Y_i\\), where:\n\n\\(Y_i = +1\\) for one class (blue).\n\\(Y_i = -1\\) for the other class (mauve).\n\nA perfectly separating hyperplane must satisfy the condition: \\[\nY_i \\cdot f(X_i) &gt; 0 \\quad \\text{for all } i\n\\]\nThis means:\n\nIf \\(Y_i = +1\\), then \\(f(X_i)\\) must be positive (point is on the correct side).\nIf \\(Y_i = -1\\), then \\(f(X_i)\\) must be negative (point is on the correct side).\nIf this condition holds for all points, then the hyperplane separates the two classes."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Classifier",
+    "text": "Support Vector Classifier\n\n\\[\n\\text{maximize } M \\quad \\beta_0, \\beta_1, \\dots, \\beta_p, \\epsilon_1, \\dots, \\epsilon_n\n\\]\nsubject to:\n\\[\n\\sum_{j=1}^p \\beta_j^2 = 1,\n\\]\n\\[\ny_i (\\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_p x_{ip}) \\geq M(1 - \\epsilon_i),\n\\]\n\\[\n\\epsilon_i \\geq 0, \\quad \\sum_{i=1}^n \\epsilon_i \\leq C.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier-2",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Classifier",
+    "text": "Support Vector Classifier\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft Plot: Data is Separable, but Soft Margin is Used\nInstead of using the narrowest possible margin, a wider margin has been enforced.\n\nSome points end up on the wrong side of their margin.\nSpecifically, point 8 (blue) and another pink point violate their respective margin constraints.\n\nThis illustrates the trade-off of using a soft margin: a wider margin often improves generalization but allows for some classification errors.\n\nThe margin is determined by more than just the closest support vectors, incorporating the influence of points slightly beyond the margin.\n\nRight Plot: Data is Not Linearly Separable\nA soft-margin classifier is essential, as we must allow some misclassification.\n\nSome blue points are inside the margin or even misclassified (wrong side of the decision boundary).\nSome pink points also violate the margin.\n\nThe soft margin formulation enables a balance between margin width and classification accuracy, allowing the model to find a reasonable decision boundary even when perfect separation is not possible.\n\n\n\nMathematical Formulation of the Soft-Margin SVM \\[\n\\max_{β_0, β_1, ..., β_p, \\epsilon_1, ..., \\epsilon_n} M\n\\]\nSubject to the constraints:\n\n\nNormalization Constraint:\n\\[\n\\sum_{j=1}^{p} \\beta_j^2 = 1\n\\]\n\nEnsures that the normal vector \\(\\beta\\) is a unit vector, standardizing the optimization process.\n\nMargin Constraint with Slack Variables:\n\\[\ny_i (\\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_p x_{ip}) \\geq M(1 - \\epsilon_i)\n\\]\n\nNormally, we require that each point lies at least \\(M\\) units away from the hyperplane.\nHowever, the slack variables \\(\\epsilon_i\\) allow some flexibility:\n\nIf \\(\\epsilon_i = 0\\), the point is correctly classified outside the margin.\nIf \\(0 &lt; \\epsilon_i &lt; 1\\), the point is inside the margin but still on the correct side.\nIf \\(\\epsilon_i \\geq 1\\), the point is misclassified.\n\n\nTotal Slack Budget Constraint:\n\\[\n\\sum_{i=1}^{n} \\epsilon_i \\leq C, \\quad \\epsilon_i \\geq 0\n\\]\n\nThe parameter \\(C\\) controls the total amount of slack allowed in the model:\n\nLarge \\(C\\) → Less tolerance for margin violations (closer to hard-margin SVM).\nSmall \\(C\\) → More tolerance for misclassification and margin violations.\n\n\n\n\nIntuition Behind Soft Margins:\n\nIn a hard-margin SVM, no points are allowed inside the margin.\nIn soft-margin SVM, we introduce slack variables \\(\\epsilon_i\\) to allow some violations of the margin.\nThis provides a regularization effect:\n\nPrevents overfitting in cases where a perfect separation exists but may be too rigid.\nAllows classification in non-linearly separable cases by balancing misclassification and margin width."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier---ilustration",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier---ilustration",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Classifier - Ilustration",
+    "text": "Support Vector Classifier - Ilustration\n\n\n\n\n\nLeft Plot: Data is Separable, but Soft Margin is Used\nInstead of using the narrowest possible margin, a wider margin has been enforced.\n\nSome points end up on the wrong side of their margin.\nSpecifically, point 8 (blue) and another pink point violate their respective margin constraints.\n\nThis illustrates the trade-off of using a soft margin: a wider margin often improves generalization but allows for some classification errors.\n\nThe margin is determined by more than just the closest support vectors, incorporating the influence of points slightly beyond the margin.\n\n\n\n\nRight Plot: Data is Not Linearly Separable\nA soft-margin classifier is essential, as we must allow some misclassification.\n\nSome blue points are inside the margin or even misclassified (wrong side of the decision boundary).\nSome pink points also violate the margin.\n\nThe soft margin formulation enables a balance between margin width and classification accuracy, allowing the model to find a reasonable decision boundary even when perfect separation is not possible."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier---ilustration-details",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-classifier---ilustration-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Classifier - Ilustration Details",
+    "text": "Support Vector Classifier - Ilustration Details\n\n\n\n\nMathematical Formulation of the Soft-Margin SVM \\[\n\\max_{β_0, β_1, ..., β_p, \\epsilon_1, ..., \\epsilon_n} M\n\\]\nSubject to the 3 constraints:\n\n\nNormalization Constraint:\n\\[\n\\sum_{j=1}^{p} \\beta_j^2 = 1\n\\]\n\nEnsures that the normal vector \\(\\beta\\) is a unit vector, standardizing the optimization process.\n\nMargin Constraint with Slack Variables:\n\\[\ny_i (\\beta_0 + \\beta_1 x_{i1} + \\dots + \\beta_p x_{ip}) \\geq M(1 - \\epsilon_i)\n\\]\n\nNormally, we require that each point lies at least \\(M\\) units away from the hyperplane.\nHowever, the slack variables \\(\\epsilon_i\\) allow some flexibility:\n\nIf \\(\\epsilon_i = 0\\), the point is correctly classified outside the margin.\nIf \\(0 &lt; \\epsilon_i &lt; 1\\), the point is inside the margin but still on the correct side.\nIf \\(\\epsilon_i \\geq 1\\), the point is misclassified.\n\n\n\n\n\nTotal Slack Budget Constraint:\n\\[\n\\sum_{i=1}^{n} \\epsilon_i \\leq C, \\quad \\epsilon_i \\geq 0\n\\]\n\nThe parameter \\(C\\) controls the total amount of slack allowed in the model:\n\nLarge \\(C\\) → Less tolerance for margin violations (closer to hard-margin SVM).\nSmall \\(C\\) → More tolerance for misclassification and margin violations.\n\n\n\n\nIntuition Behind Soft Margins:\n\nIn a hard-margin SVM, no points are allowed inside the margin.\nIn soft-margin SVM, we introduce slack variables \\(\\epsilon_i\\) to allow some violations of the margin.\nThis provides a regularization effect:\n\nPrevents overfitting in cases where a perfect separation exists but may be too rigid.\nAllows classification in non-linearly separable cases by balancing misclassification and margin width."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter---ilustration",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter---ilustration",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "\\(C\\) is a Regularization Parameter - Ilustration",
+    "text": "\\(C\\) is a Regularization Parameter - Ilustration"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter---ilustration-details",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#c-is-a-regularization-parameter---ilustration-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "\\(C\\) is a Regularization Parameter - Ilustration Details",
+    "text": "\\(C\\) is a Regularization Parameter - Ilustration Details\n\n\n\nThe four plots illustrate different values of \\(C\\), showing the trade-off between margin width and classification flexibility.\n\nTop-Left Plot (Largest \\(C\\))\n\nHere, \\(C\\) is very large, meaning the model strongly penalizes misclassified points.\nAs a result, the decision boundary is rigid, and only a few points violate the margin.\nMany points are on the wrong side of their respective margins, but the model still prioritizes keeping the margin as wide as possible while satisfying the constraint.\n\nTop-Right & Bottom-Left Plots (Intermediate \\(C\\))\n\nAs \\(C\\) is decreased, the model allows more margin violations (misclassified or within-margin points).\nThe margin becomes tighter because the optimization prioritizes correcting misclassified points rather than maximizing margin width.\nMore points now contribute to determining the decision boundary, leading to increased stability.\n\nBottom-Right Plot (Smallest \\(C\\))\n\nWith a small \\(C\\), the model tolerates many margin violations and allows points to be misclassified.\nThe decision boundary adjusts to reduce the number of misclassified points, even at the cost of a narrower margin.\nThis results in a more flexible model that is less sensitive to small variations in data.\n\n\n\n\nThe Bias-Variance Trade-off in SVM\nLarge \\(C\\) (Less Regularization, Harder Margin) → Low Bias, High Variance\n\nFewer margin violations → Less flexibility, but possibly overfitting.\nModel depends on a few critical support vectors, making it more sensitive to small changes in data.\n\nSmall \\(C\\) (More Regularization, Softer Margin) → High Bias, Low Variance\n\nMore margin violations → More flexibility, but possibly underfitting.\nMany points influence the decision boundary, leading to a more stable model.\n\nStandardizing Variables is Important in SVM\nSVM treats all variables equally, meaning features with different scales can disproportionately influence the margin.\nStandardizing (e.g., transforming variables to have zero mean and unit variance) ensures that:\n\nThe distance metric (Euclidean distance) is meaningful.\nThe optimization process does not favor one feature due to its larger magnitude.\n\nThis is the same reason why standardization is important in Ridge and Lasso regression.\nConclusion\n\\(C\\) controls the trade-off between margin width and misclassification tolerance.\nA higher \\(C\\) enforces a stricter margin (less regularization) but may overfit the data.\nA lower \\(C\\) allows more misclassification (more regularization) but may generalize better.\nStandardization is crucial for SVM to ensure fair treatment of all variables."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#linear-boundary-can-fail-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#linear-boundary-can-fail-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Linear Boundary Can Fail",
+    "text": "Linear Boundary Can Fail\nSometimes a linear boundary simply won’t work, no matter what value of \\(C\\). What to do?"
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#nonlinearities-and-kernels-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#nonlinearities-and-kernels-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Nonlinearities and Kernels",
+    "text": "Nonlinearities and Kernels\n\nPolynomials are not always the greatest choice (especially high-dimensional ones) as they get wild rather fast.\nThere is a more elegant and controlled way to introduce nonlinearities in support-vector classifiers — through the use of kernels.\nBefore we discuss these, we must understand the role of inner products in support-vector classifiers."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#inner-products",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#inner-products",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Inner Products",
+    "text": "Inner Products\n\nThe inner product (dot product) between two vectors \\(x_i\\) and \\(x_i'\\):\n\\[\n\\langle x_i, x_i' \\rangle = \\sum_{j=1}^{p} x_{ij} x_{i'j}\n\\]\nwhere:\n\n\\(x_i\\) and \\(x_i'\\) are two vectors in \\(p\\)-dimensional space.\nThe summation runs over all dimensions \\(j\\) from 1 to \\(p\\).\nEach term \\(x_{ij} x_{i'j}\\) represents the product of corresponding components of the two vectors.\nInterpretation: The inner product (dot product) measures the similarity between two vectors in a given space. It is computed by multiplying corresponding elements of the two vectors and summing up the results.\nIf \\(x_i\\) and \\(x_i'\\) are aligned (pointing in the same direction) → The inner product is large and positive.\nIf \\(x_i\\) and \\(x_i'\\) are perpendicular (orthogonal) → The inner product is zero.\nIf \\(x_i\\) and \\(x_i'\\) point in opposite directions → The inner product is negative."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#computational-efficiency-using-inner-products",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#computational-efficiency-using-inner-products",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Computational Efficiency: Using Inner Products",
+    "text": "Computational Efficiency: Using Inner Products\nInstead of directly computing \\(\\beta\\) coefficients for each feature, the SVC relies only on pairwise inner products between training points. This reduces the complexity of parameter estimation.\n\nTo estimate \\(\\alpha_1, \\dots, \\alpha_n\\) and \\(\\beta_0\\), we only need the \\(\\binom{n}{2}\\) pairwise inner products \\(\\langle x_i, x_i \\rangle\\).\nThis simplifies the optimization problem, making it computationally feasible even for high-dimensional datasets."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#the-role-of-support-vectors",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#the-role-of-support-vectors",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "The Role of Support Vectors",
+    "text": "The Role of Support Vectors\n\n\nOne of the key properties of Support Vector Machines (SVMs) is sparsity in the solution.\nMost of the \\(\\hat{\\alpha}_i\\) values will be zero, because the SVM optimization process ignores non-critical points.\n\nOnly a small subset of training points (the support vectors) have \\(\\alpha_i &gt; 0\\) and influence the decision boundary. This sparsity property makes SVMs both efficient and interpretable.\n\nThus, the decision function simplifies to: \\[\nf(x) = \\beta_0 + \\sum_{i \\in S} \\hat{\\alpha}_i \\langle x, x_i \\rangle\n\\]\nwhere:\n\n\\(S\\) is the support set, the set of indices \\(i\\) such that \\(\\hat{\\alpha}_i &gt; 0\\).\nThese points, called support vectors, are the only points that determine the optimal hyperplane.\n\nThis means that most training points do not influence the classifier, making SVMs computationally efficient because only a small subset of training points (the support vectors) needs to be stored and used for classification.\nWhy is This Important?\n\nSparsity: Since only a few points contribute to the final decision boundary, SVMs are efficient and robust to noise.\nComputational Simplicity: Instead of solving for \\(n\\) parameters explicitly, we only compute the inner products for support vectors, making the method scalable to large datasets.\nExtensibility to Nonlinear SVMs: This formulation is the foundation for Kernel SVMs, where the inner product \\(\\langle x, x_i \\rangle\\) is replaced by a nonlinear kernel function to allow nonlinear decision boundaries."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: Heart Data",
+    "text": "Example: Heart Data\n\nHere we see ROC curves on training data.\n\n\n\n\n\n\n\n\n\n\nLeft: We compare a Linear Suport Vector Machine with Linear Discriminant Analysis (LDA).\nRight: We compare a Linear Suport Vector Machine with the SVM using a radial kernel with different values of \\(\\gamma\\).The larger \\(\\gamma\\) the more wiggly the decision boundary."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data-2",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#example-heart-data-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: Heart Data",
+    "text": "Example: Heart Data\nHere we see ROC curves on testing data."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#svms-more-than-2-classes-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#svms-more-than-2-classes-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "SVMs: More Than 2 Classes?",
+    "text": "SVMs: More Than 2 Classes?\nThe SVM as defined works for \\(K = 2\\) classes. What do we do if we have \\(K &gt; 2\\) classes?\n\nThere are two famous options:\n\nOVA (One versus All): Fit \\(K\\) different 2-class SVM classifiers \\(\\hat{f}_k(x)\\), \\(k = 1, \\dots, K\\); each class versus the rest. Classify \\(x^*\\) to the class for which \\(\\hat{f}_k(x^*)\\) is largest.\nOVO (One versus One): Fit all \\(\\binom{K}{2}\\) pairwise classifiers \\(\\hat{f}_{k\\ell}(x)\\). Classify \\(x^*\\) to the class that wins the most pairwise competitions.\n\nWhich to choose?\n\nIf \\(K\\) is not too large, use OVO."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector versus Logistic Regression",
+    "text": "Support Vector versus Logistic Regression\n\nWith \\(f(X) = \\beta_0 + \\beta_1 X_1 + \\dots + \\beta_p X_p\\), we can rephrase support-vector classifier optimization as:\n\\[\n\\text{minimize}_{\\beta_0, \\beta_1, \\dots, \\beta_p} \\left\\{ \\sum_{i=1}^n \\max \\big[ 0, 1 - y_i f(x_i) \\big] + \\lambda \\sum_{j=1}^p \\beta_j^2 \\right\\}\n\\]\nwhere:\n\n\\(f(X) = \\beta_0 + \\beta_1X_1 + \\dots + \\beta_pX_p\\) represents the linear decision function.\n\\(y_i\\) is the class label (\\(+1\\) or \\(-1\\)).\nThe term \\(\\max [0, 1 - y_i f(x_i)]\\) is the hinge loss, which penalizes misclassified or margin-violating points.\nThe term \\(\\lambda \\sum_{j=1}^{p} \\beta_j^2\\) is a regularization term (often L2 regularization), which helps control the model complexity and prevent overfitting.\nThis structure is loss plus penalty, meaning SVM aims to minimize classification errors while maintaining a large margin between classes."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression-2",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-versus-logistic-regression-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector versus Logistic Regression",
+    "text": "Support Vector versus Logistic Regression\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe plot compares the loss functions of SVM (hinge loss) and logistic regression (negative log-likelihood loss).\nSVM hinge loss (black line):\n\nZero loss when \\(y_i f(x_i) \\geq 1\\) (correctly classified with a sufficient margin).\nLinear penalty for points within the margin (\\(0 &lt; y_i f(x_i) &lt; 1\\)).\nConstant penalty for misclassified points (\\(y_i f(x_i) &lt; 0\\)).\n\n\n\n\nLogistic Regression loss (green line):\n\nSmooth, continuously decreasing function.\nAssigns nonzero loss to all points, meaning it never fully ignores correctly classified points.\n\nThe key difference:\n\nSVM loss is piecewise linear and focuses on margin violations.\nLogistic regression loss is smooth and penalizes all points proportionally.\n\nMain Takeaway\n\nBoth SVM and Logistic Regression use a loss function + regularization framework.\nSVM uses hinge loss, which only cares about points inside or outside the margin.\nLogistic regression uses log-likelihood loss, which penalizes all points, even well-classified ones.\nSVM is more robust to outliers because it ignores well-classified points beyond the margin.\nLogistic Regression is probabilistic, while SVM is geometric, focusing on maximizing the margin."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-machines-1",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#support-vector-machines-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Support Vector Machines",
+    "text": "Support Vector Machines\nHere we approach the two-class classification problem in a direct way:\n\nWe try and find a plane that separates the classes in feature space.\nIf we cannot, we get creative in two ways:\n\nWe soften what we mean by “separates”, and\nWe enrich and enlarge the feature space so that separation is possible."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions-details",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#hyperplane-in-2-dimensions-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hyperplane in 2 Dimensions: Details",
+    "text": "Hyperplane in 2 Dimensions: Details\n\n\n\n\n\n\n\n\n\n\n\n\nThe figure demonstrates how hyperplanes separate data in classification or regression contexts: each point’s location relative to the hyperplane is captured by the signed distance.\n\nHyperplane in 2D (Blue Line)\n\nIn two dimensions, a hyperplane is simply a straight line.\n\nThe blue line in the figure is defined by the equation\n\\[\n\\beta_1 x_1 + \\beta_2 x_2 - 6 = 0.\n\\]\nAll points \\((x_1, x_2)\\) satisfying this equation lie exactly on the hyperplane.\n\n\n\n\nNormal Vector (Red Arrow)\n\nThe red arrow represents the normal vector \\(\\beta = (\\beta_1, \\beta_2)\\).\n\nThis vector is orthogonal (perpendicular) to the hyperplane, meaning it points in the direction that is shortest from the line to any point off the line.\nThe values \\(\\beta_1 = 0.8\\) and \\(\\beta_2 = 0.6\\) are displayed in the bottom right corner.\n\nSince the sum of their squares equals one (\\(0.8^2 + 0.6^2 = 1\\)), this vector is a unit vector.\n\nRole of the Normal Vector in Classification\n\n\nThe normal vector determines:\n\nThe orientation of the hyperplane (i.e., which way it is “tilted” in space).\nWhich side of the hyperplane a point belongs to.\nThe shortest distance of a point from the hyperplane.\nIf we substitute a point \\(X = (X_1, X_2, ..., X_p)\\) into the hyperplane equation: \\[\nf(X) = \\beta_1 X_1 + \\beta_2 X_2 + \\dots + \\beta_p X_p - 6\n\\]\n\nIf \\(f(X) &gt; 0\\) → The point is on one side of the hyperplane.\nIf \\(f(X) &lt; 0\\) → The point is on the opposite side.\nIf \\(f(X) = 0\\) → The point lies on the hyperplane.\n\n\nIllustrated Examples\n\nOne point is 1.6, meaning it is 1.6 units away from the hyperplane in the direction of the normal vector.\n\nAnother point is -4, indicating it is 4 units away on the opposite side of the hyperplane.\n\nPoints on the blue line always have a function value of 0 because they satisfy \\(\\beta_1 x_1 + \\beta_2 x_2 - 6 = 0\\).\n\nKey Insight\n\n\nIn higher dimensions, the same idea generalizes: a hyperplane is a \\((p-1)\\)-dimensional flat surface in \\(p\\)-dimensional space, and its normal vector determines both orientation and distance computations."
+  },
+  {
+    "objectID": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes-details",
+    "href": "lecture_slides/09_support_vector_machines/09_support_vector_machines.html#separating-hyperplanes-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Separating Hyperplanes: Details",
+    "text": "Separating Hyperplanes: Details\n\n\n\n\n\n\n\n\n\n\n\n\n\nLeft Plot:\n\nThe dataset contains two classes (blue and mauve points).\nMultiple candidate hyperplanes are shown as black lines.\nThese hyperplanes attempt to separate the two classes, but not all do so optimally.\nRight Plot:\n\nA single separating hyperplane is shown.\nThe background is shaded to indicate decision regions:\n\nThe blue-shaded region contains points classified as blue.\nThe mauve-shaded region contains points classified as mauve.\n\n\n\n\nA general equation of a hyperplane in a \\(p\\)-dimensional space: \\[\n  f(X) = \\beta_0 + \\beta_1 X_1 + \\dots + \\beta_p X_p\n\\]\n\nThis function \\(f(X)\\) determines which side of the hyperplane a data point falls on:\n\nIf \\(f(X) &gt; 0\\) → The point lies on one side of the hyperplane.\nIf \\(f(X) &lt; 0\\) → The point lies on the other side.\nIf \\(f(X) = 0\\) → The point lies exactly on the hyperplane.\n\n\nDefining a Separating Hyperplane in Classification\n\nIn SVM classification, each data point \\(X_i\\) has a corresponding label \\(Y_i\\), where:\n\n\\(Y_i = +1\\) for one class (blue).\n\\(Y_i = -1\\) for the other class (mauve).\n\nA perfectly separating hyperplane must satisfy the condition: \\[\nY_i \\cdot f(X_i) &gt; 0 \\quad \\text{for all } i\n\\]\nThis means:\n\nIf \\(Y_i = +1\\), then \\(f(X_i)\\) must be positive (point is on the correct side).\nIf \\(Y_i = -1\\), then \\(f(X_i)\\) must be negative (point is on the correct side).\nIf this condition holds for all points, then the hyperplane separates the two classes."
   }
 ]

@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.57">
+
+  <meta name="author" content="Professor: Davi Moreira">
+  <title>MGMT 47400: Predictive Analytics –  MGMT 47400: Predictive Analytics </title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title"><span style="font-size: 100%;"> MGMT 47400: Predictive Analytics </span></h1>
+  <p class="subtitle"><span style="font-size: 150%;"> Support Vector Machines </span></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Professor: Davi Moreira 
+</div>
+</div>
+</div>
+
+</section>
+<section id="overview" class="slide level2 center">
+<h2>Overview</h2>
+<div>
+<div class="columns">
+<div class="column" style="text-align: center; justify-content: center; align-items: center;">
+<ul>
+<li>Support Vector Classifier</li>
+<li>SVM with Nonlinear Boundary</li>
+<li>Nonlinearities and Kernels</li>
+</ul>
+</div><div class="column" style="text-align: center; justify-content: center; align-items: center;">
+<ul>
+<li>SVMs: More Than 2 Classes</li>
+<li>Support Vector versus Logistic Regression</li>
+</ul>
+</div></div>
+</div>
+<p><br></p>
+
+<aside><div>
+<p><em>This lecture content is inspired by and replicates the material from <a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>.</em></p>
+</div></aside></section>
+<section>
+<section id="support-vector-machines" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Support Vector Machines</h1>
+
+</section>
+<section id="support-vector-machines-1" class="slide level2 center">
+<h2>Support Vector Machines</h2>
+<p>Here we approach the two-class classification problem in a direct way:</p>
+<ul>
+<li class="fragment"><p><em>We try and find a plane that separates the classes in feature space.</em></p></li>
+<li class="fragment"><p>If we cannot, we get creative in two ways:</p>
+<ul>
+<li class="fragment"><p>We soften what we mean by “separates”, and</p></li>
+<li class="fragment"><p>We enrich and enlarge the feature space so that separation is possible.</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="what-is-a-hyperplane" class="slide level2 center">
+<h2>What is a Hyperplane?</h2>
+<p>A hyperplane in <span class="math inline">\(p\)</span> dimensions is a flat affine subspace of dimension <span class="math inline">\(p - 1\)</span>.</p>
+<p>In general, the equation for a hyperplane has the form</p>
+<p><span class="math display">\[
+  \beta_0 + \beta_1 X_1 + \beta_2 X_2 + \cdots + \beta_p X_p = 0
+\]</span></p>
+<ul>
+<li class="fragment"><p>In <span class="math inline">\(p = 2\)</span> dimensions, a hyperplane is a line.</p></li>
+<li class="fragment"><p>If <span class="math inline">\(\beta_0 = 0\)</span>, the hyperplane goes through the origin; otherwise, it does not.</p></li>
+<li class="fragment"><p>The vector <span class="math inline">\(\beta = (\beta_1, \beta_2, \dots, \beta_p)\)</span> is called the normal vector — it points in a direction orthogonal to the surface of the hyperplane.</p></li>
+</ul>
+</section>
+<section id="hyperplane-in-2-dimensions" class="slide level2 center">
+<h2>Hyperplane in 2 Dimensions</h2>
+
+<img data-src="figs/9_1_1-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section id="hyperplane-in-2-dimensions-details" class="slide level2 center">
+<h2>Hyperplane in 2 Dimensions: Details</h2>
+<div style="font-size: 50%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_1_1-1.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The figure demonstrates how hyperplanes separate data in classification or regression contexts: each point’s location relative to the hyperplane is captured by the <em>signed distance</em>.</p>
+<ol type="1">
+<li class="fragment"><strong>Hyperplane in 2D (Blue Line)</strong>
+<ul>
+<li class="fragment"><p>In two dimensions, a <em>hyperplane</em> is simply a straight line.<br>
+</p></li>
+<li class="fragment"><p>The blue line in the figure is defined by the equation<br>
+<span class="math display">\[
+\beta_1 x_1 + \beta_2 x_2 - 6 = 0.
+\]</span></p></li>
+<li class="fragment"><p>All points <span class="math inline">\((x_1, x_2)\)</span> satisfying this equation lie <em>exactly</em> on the hyperplane.</p></li>
+</ul></li>
+</ol>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ol start="2" type="1">
+<li class="fragment"><strong><a href="https://en.wikipedia.org/wiki/Normal_(geometry)">Normal Vector</a> (Red Arrow)</strong>
+<ul>
+<li class="fragment">The red arrow represents the <strong>normal vector</strong> <span class="math inline">\(\beta = (\beta_1, \beta_2)\)</span>.<br>
+</li>
+<li class="fragment">This vector is <strong>orthogonal</strong> (perpendicular) to the hyperplane, meaning it points in the direction that is shortest from the line to any point off the line.</li>
+<li class="fragment">The values <strong><span class="math inline">\(\beta_1 = 0.8\)</span></strong> and <strong><span class="math inline">\(\beta_2 = 0.6\)</span></strong> are displayed in the bottom right corner.<br>
+</li>
+<li class="fragment">Since the sum of their squares equals one (<span class="math inline">\(0.8^2 + 0.6^2 = 1\)</span>), this vector is a <strong>unit vector</strong>.</li>
+</ul></li>
+<li class="fragment"><strong>Role of the Normal Vector in Classification</strong></li>
+</ol>
+<ul>
+<li class="fragment">The normal vector determines:
+<ul>
+<li class="fragment"><p><strong>The orientation of the hyperplane</strong> (i.e., which way it is “tilted” in space).</p></li>
+<li class="fragment"><p><strong>Which side of the hyperplane a point belongs to</strong>.</p></li>
+<li class="fragment"><p><strong>The shortest distance of a point from the hyperplane</strong>.</p></li>
+<li class="fragment"><p>If we substitute a point <span class="math inline">\(X = (X_1, X_2, ..., X_p)\)</span> into the hyperplane equation: <span class="math display">\[
+f(X) = \beta_1 X_1 + \beta_2 X_2 + \dots + \beta_p X_p - 6
+\]</span></p></li>
+</ul></li>
+<li class="fragment">If <strong><span class="math inline">\(f(X) &gt; 0\)</span></strong> → The point is on <strong>one side</strong> of the hyperplane.</li>
+<li class="fragment">If <strong><span class="math inline">\(f(X) &lt; 0\)</span></strong> → The point is on the <strong>opposite side</strong>.</li>
+<li class="fragment">If <strong><span class="math inline">\(f(X) = 0\)</span></strong> → The point <strong>lies on the hyperplane</strong>.</li>
+</ul>
+<ol start="4" type="1">
+<li class="fragment"><p><strong>Illustrated Examples</strong></p>
+<ul>
+<li class="fragment">One point is <strong>1.6</strong>, meaning it is 1.6 units away from the hyperplane <em>in the direction of</em> the normal vector.<br>
+</li>
+<li class="fragment">Another point is <strong>-4</strong>, indicating it is 4 units away on the <em>opposite</em> side of the hyperplane.<br>
+</li>
+<li class="fragment">Points <em>on</em> the blue line always have a function value of <strong>0</strong> because they satisfy <span class="math inline">\(\beta_1 x_1 + \beta_2 x_2 - 6 = 0\)</span>.</li>
+</ul></li>
+<li class="fragment"><p><strong>Key Insight</strong><br>
+<!---   
+- Because $\beta$ is chosen as a unit vector, the value $\beta_1 x_1 + \beta_2 x_2 - 6$ can be directly interpreted as the *Euclidean distance* (with sign) from any point to the hyperplane.  
+---></p>
+<ul>
+<li class="fragment">In higher dimensions, the same idea generalizes: a hyperplane is a <span class="math inline">\((p-1)\)</span>-dimensional flat surface in <span class="math inline">\(p\)</span>-dimensional space, and its normal vector determines both orientation and distance computations.</li>
+</ul></li>
+</ol>
+</div></div>
+</div>
+<!---
+let's have a look at the picture and see what we mean by that so in this picture the blue the blue line is the hyperplane we've got some points in the picture and we've got there's the origin over here and we've got this red line which is the normal to the hyperplane so it's orthogonal to the surface of the hyperplane and the way you understand what's going on is as follows for any given point so for example take this point over here we can project it onto the normal so here you see the orthogonal projection little right angle showing that we projecting orthogonal fungally onto this normal over here right and so we get the distance from the origin where this point projects well in this case that the value that you get is 1.6 well that's actually the value of the function yeah for the points beyond the hyperplane the value of the function should end up to be zero so which points are going to project onto this normal and have a value zero well they're going to be all points on the hyperplane because you can see there's a right angle there too so if we project this point it's going to project over over here if we project this point it's going to project over here and the value of the function is 0 over here so all these points end up having the function value zero and so they on the hyperplane these points on the other hand don't in this example the direction the beta1 and beta2 are given by 0.8 and 0.6 in the bottom corner here those are the two values for beta1 and beta2 that that define this this normal well if you check you'll see that the sum of squares of beta1 and beta2 adds up to one that means that this beta is a unit vector and so the direction vector is a unit vector and when that's the case there's something special happens and that is that when you evaluate the function the value that get you get is actually the distance the euclidean distance of the point from the hyperplane now that's not too hard to prove but we won't do that here but for those of you who for those of you who can do a little bit of calculus and no bit of geometry see if you can try and show that it's not that hard so this point is 1.6 units from the hyperplane this point over here is -4 units from the hyperplane so there's a sign in the in the distance it's one side of the hyperplane that's going to be negative the other side positive all points on this side would end up having a positive distance or points on this side a negative distance and of course all the points on the hyper plane are a distance zero so that's a little tutorial on hyper planes
+--->
+</section>
+<section id="separating-hyperplanes" class="slide level2 center">
+<h2>Separating Hyperplanes</h2>
+
+<img data-src="figs/9_2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><ul>
+<li class="fragment"><p>If <span class="math inline">\(f(X) = \beta_0 + \beta_1 X_1 + \cdots + \beta_p X_p\)</span>, then <span class="math inline">\(f(X) &gt; 0\)</span> for points on one side of the hyperplane, and <span class="math inline">\(f(X) &lt; 0\)</span> for points on the other.</p></li>
+<li class="fragment"><p>If we code the colored points as <span class="math inline">\(Y_i = +1\)</span> for blue and <span class="math inline">\(Y_i = -1\)</span> for purple, then if <span class="math inline">\(Y_i \cdot f(X_i) &gt;0\)</span> for all <span class="math inline">\(i\)</span>, <span class="math inline">\(f(X) = 0\)</span> defines a separating hyperplane.</p></li>
+</ul>
+</section>
+<section id="separating-hyperplanes-details" class="slide level2 center">
+<h2>Separating Hyperplanes: Details</h2>
+<div style="font-size: 50%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_2-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p><strong>Left Plot:</strong><br>
+</p></li>
+<li class="fragment"><p>The dataset contains <strong>two classes</strong> (blue and mauve points).</p></li>
+<li class="fragment"><p>Multiple <strong>candidate hyperplanes</strong> are shown as black lines.</p></li>
+<li class="fragment"><p>These hyperplanes attempt to separate the two classes, but not all do so <strong>optimally</strong>.</p></li>
+<li class="fragment"><p><strong>Right Plot:</strong><br>
+</p></li>
+<li class="fragment"><p>A <strong>single separating hyperplane</strong> is shown.</p></li>
+<li class="fragment"><p>The background is shaded to indicate <strong>decision regions</strong>:</p>
+<ul>
+<li class="fragment">The <strong>blue-shaded region</strong> contains points classified as blue.</li>
+<li class="fragment">The <strong>mauve-shaded region</strong> contains points classified as mauve.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ol type="1">
+<li class="fragment"><p>A <strong>general equation of a hyperplane</strong> in a <span class="math inline">\(p\)</span>-dimensional space: <span class="math display">\[
+  f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p
+\]</span></p>
+<ul>
+<li class="fragment">This function <span class="math inline">\(f(X)\)</span> determines <strong>which side of the hyperplane</strong> a data point falls on:
+<ul>
+<li class="fragment">If <strong><span class="math inline">\(f(X) &gt; 0\)</span></strong> → The point lies on one side of the hyperplane.</li>
+<li class="fragment">If <strong><span class="math inline">\(f(X) &lt; 0\)</span></strong> → The point lies on the other side.</li>
+<li class="fragment">If <strong><span class="math inline">\(f(X) = 0\)</span></strong> → The point lies <strong>exactly on the hyperplane</strong>.</li>
+</ul></li>
+</ul></li>
+<li class="fragment"><p><strong>Defining a Separating Hyperplane in Classification</strong></p>
+<ul>
+<li class="fragment"><p>In <strong>SVM classification</strong>, each data point <span class="math inline">\(X_i\)</span> has a corresponding label <span class="math inline">\(Y_i\)</span>, where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(Y_i = +1\)</span> for one class (blue).</li>
+<li class="fragment"><span class="math inline">\(Y_i = -1\)</span> for the other class (mauve).</li>
+</ul></li>
+<li class="fragment"><p>A <strong>perfectly separating hyperplane</strong> must satisfy the condition: <span class="math display">\[
+Y_i \cdot f(X_i) &gt; 0 \quad \text{for all } i
+\]</span></p></li>
+<li class="fragment"><p>This means:</p>
+<ul>
+<li class="fragment">If <span class="math inline">\(Y_i = +1\)</span>, then <span class="math inline">\(f(X_i)\)</span> must be <strong>positive</strong> (point is on the correct side).</li>
+<li class="fragment">If <span class="math inline">\(Y_i = -1\)</span>, then <span class="math inline">\(f(X_i)\)</span> must be <strong>negative</strong> (point is on the correct side).</li>
+<li class="fragment">If this condition holds for <strong>all points</strong>, then the hyperplane <strong>separates</strong> the two classes.</li>
+</ul></li>
+</ul></li>
+</ol>
+<!---
+### **How This Relates to SVM**
+- **SVM aims to find the **optimal** separating hyperplane**:  
+  - Unlike arbitrary separating hyperplanes (left plot), SVM finds the one that **maximizes the margin** (the distance between the hyperplane and the closest points from each class).
+  
+- **Margin and Support Vectors**:  
+  - In SVM, only a few critical data points (called **support vectors**) determine the optimal hyperplane.
+  - These **support vectors** lie **on the margin boundaries**.
+
+- **Hard vs. Soft Margin Classification**:  
+  - If data is **perfectly separable**, SVM finds a hyperplane where no points violate the separation rule.
+  - If data **overlaps**, SVM introduces a **soft margin**, allowing some misclassification while still maximizing the margin.
+
+---
+
+### **Conclusion**
+This slide introduces the **concept of separating hyperplanes** in classification. In **SVM**, the goal is to find the **best possible hyperplane** that **maximizes the margin** between classes while ensuring that points are correctly classified. The right plot suggests a hyperplane that successfully separates the two classes, similar to what SVM aims to achieve. 
+
+Would you like a step-by-step demonstration of how SVM finds the optimal hyperplane? 🚀
+--->
+</div></div>
+</div>
+<!---
+planes so with that in place we can now talk of separating hyper planes so in these two pictures what we show a set of points some are colored blue some have covered a pinky mauve color okay and we've got three lines in in this picture over here and you'll notice that each of these three lines separates the blues from the purples from the moves this one does because there's all blue points on one side all purple points on this side so does this one and so does the other one so all three of them separate the two classes so in terms of making a classifier in principle all three of those would do if we pick one of them we can say well that's going to define the classifier it separates the two classes anything to this side we classify as blue anything to this side will classify as purple from what we've seen before we know that on one side of the hyperplane the function is going to be positive and on the other side it's going to be negative okay so what we can do is code the colored points and those that are blue say we make them one and those that are move we make them minus one and then we can we can say that if the y that we've made y is plus or minus 1 times the value of the function is positive then we classify each of the points perfectly because they're on the right side of the hyperplane and the the function itself evaluated as zero is called the separate in hyperplane so so that helps us define what we mean by separating hyperplane if this product is always positive where we've coded the points as plus one and minus one
+--->
+</section>
+<section id="maximal-margin-classifier" class="slide level2 center">
+<h2>Maximal Margin Classifier</h2>
+<p><strong>The idea is</strong>: Among all separating hyperplanes, find the one that makes the biggest gap or margin between the two classes.</p>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_3-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<p><strong>Constrained optimization problem:</strong></p>
+<p><span class="math display">\[
+\text{maximize } M \quad \beta_0, \beta_1, \dots, \beta_p
+\]</span></p>
+<p>subject to:</p>
+<p><span class="math display">\[
+\sum_{j=1}^p \beta_j^2 = 1,
+\]</span></p>
+<p><span class="math display">\[
+y_i (\beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip}) \geq M \quad \text{for all } i = 1, \dots, N.
+\]</span></p>
+<p>Thus, we determine the hyperplane parameters that yield the <strong>largest possible margin <span class="math inline">\(m\)</span></strong> while ensuring that every data point lies at least <span class="math inline">\(m\)</span> units away from the hyperplane. This guarantees a <strong>maximum separation</strong> between the two classes, leading to a robust classification model.</p>
+<!---
+This can be rephrased as a convex quadratic program and solved efficiently. The function `svm()` in the **e1071** package solves this problem efficiently.
+
+We aim to find the **optimal hyperplane** that maximizes the **minimum distance** between the hyperplane and the closest data points from each class. Specifically, we seek a hyperplane where the distances of all points to the decision boundary are **at least** some margin $m$, and our objective is to **maximize** this margin. 
+
+--->
+</div></div>
+</div>
+</section>
+<section id="non-separable-data" class="slide level2 center">
+<h2>Non-separable Data</h2>
+
+<img data-src="figs/9_4-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:45.0%"><p>The data are not separable by a linear boundary. This is often the case, unless <span class="math inline">\(N &lt; p\)</span>.</p>
+<p><br></p>
+</section>
+<section id="noisy-data" class="slide level2 center">
+<h2>Noisy Data</h2>
+
+<img data-src="figs/9_5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><p>Sometimes the data are separable, but noisy. In the right plot we add only one new data point in it results in a big change in the hyperplane that separates the two classes. This can lead to a poor solution for the maximal-margin classifier.</p>
+<ul>
+<li class="fragment">The <strong>support vector classifier</strong> maximizes a <em>soft margin</em> and is a good option to deal both with non-separable and noisy data.</li>
+</ul>
+<p><br> <br></p>
+</section></section>
+<section>
+<section id="support-vector-classifier" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Support Vector Classifier</h1>
+
+</section>
+<section id="support-vector-classifier---ilustration" class="slide level2 center">
+<h2>Support Vector Classifier - Ilustration</h2>
+
+<img data-src="figs/9_6-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:45.0%"><div style="font-size: 60%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<ul>
+<li class="fragment"><strong>Left Plot: Data is Separable, but Soft Margin is Used</strong></li>
+<li class="fragment">Instead of using the <strong>narrowest possible margin</strong>, a <strong>wider margin</strong> has been enforced.
+<ul>
+<li class="fragment">Some points end up <strong>on the wrong side</strong> of their margin.</li>
+<li class="fragment">Specifically, <strong>point 8 (blue) and another pink point</strong> violate their respective margin constraints.</li>
+</ul></li>
+<li class="fragment">This illustrates the <strong>trade-off</strong> of using a <strong>soft margin</strong>: a <strong>wider margin</strong> often improves <strong>generalization</strong> but allows for some <strong>classification errors</strong>.
+<ul>
+<li class="fragment">The margin is <strong>determined by more than just the closest support vectors</strong>, incorporating the influence of points slightly beyond the margin.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ul>
+<li class="fragment"><strong>Right Plot: Data is Not Linearly Separable</strong></li>
+<li class="fragment">A soft-margin classifier is essential, as we <strong>must</strong> allow some misclassification.
+<ul>
+<li class="fragment">Some <strong>blue points</strong> are <strong>inside the margin</strong> or even <strong>misclassified</strong> (wrong side of the decision boundary).</li>
+<li class="fragment">Some <strong>pink points</strong> also violate the margin.</li>
+</ul></li>
+<li class="fragment">The <strong>soft margin formulation</strong> enables <strong>a balance between margin width and classification accuracy</strong>, allowing the model to find a reasonable decision boundary even when perfect separation is not possible.</li>
+</ul>
+</div></div>
+</div>
+<!---
+
+we've got two pictures here both of them have soft margins 
+Left plot: in the left picture the data actually are separable but we've made the margin wider than we need to and so we've got two points on the wrong side of their margins amongst the blue guys this point here number eight is on the wrong side of the margin this one right and amongst the the pink guys this guy is on the wrong side of the margin but by getting the the margin wider we've had to put up with those two those two so-called errors and so we call this a soft margin and the idea is that making the soft margin wider or smaller is a is a way of of kind of regularizing because once you allow some points to be on the wrong side of the margin the margin gets determined by more than just the closest points 
+Right plot: the right plot it's essential to have a soft margin because we cannot get a separate in hyperplane and so here we have a candidate hyper plane with its margins and we see that there's several points on the wrong side we've got a blue point on the wrong side of its margin over here we've got a blue point on the wrong side of the decision boundary and on the wrong side of the margin likewise there's a move point on the wrong side of of the decision boundary also wrong side of the margin 
+so these are called soft margins and we need to modify the the formulation of the problem to accommodate it
+Formula: so the part of the problem is the same we're going to maximize n subject to the beta's summing squares 1 so that's a unit vector now we want all the points the distance of all the points be bigger than m but discounted by a discount factor 1 minus epsilon i so we allow some slack some points needn't be exactly bigger than the margin but there can be some slack and how do we account for all the slack we give ourselves a budget we give ourselves a budget for the total amount of slack which in this case is c so the epsilons tell us how much each point is allowed to be on the wrong side of its margin it's a relative amount relative to the margin and we give ourselves a number c a total amount of overlap and then subject to that we're going to make the margin as wide as possible to get on either side of the margin 
+
+okay again convex optimization problem we can solve using the svm package in r c is now tuning parameter and as we change c the soft margin is going to get wider or smaller 
+
+--->
+</section>
+<section id="support-vector-classifier---ilustration-details" class="slide level2 center">
+<h2>Support Vector Classifier - Ilustration Details</h2>
+<div style="font-size: 65%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<ul>
+<li class="fragment"><p><strong>Mathematical Formulation of the Soft-Margin SVM</strong> <span class="math display">\[
+\max_{β_0, β_1, ..., β_p, \epsilon_1, ..., \epsilon_n} M
+\]</span></p></li>
+<li class="fragment"><p><strong>Subject to the 3 constraints:</strong></p></li>
+</ul>
+<ol type="1">
+<li class="fragment"><strong>Normalization Constraint</strong>:<br>
+<span class="math display">\[
+\sum_{j=1}^{p} \beta_j^2 = 1
+\]</span>
+<ul>
+<li class="fragment">Ensures that the normal vector <strong><span class="math inline">\(\beta\)</span></strong> is a <strong>unit vector</strong>, standardizing the optimization process.</li>
+</ul></li>
+<li class="fragment"><strong>Margin Constraint with Slack Variables</strong>:<br>
+<span class="math display">\[
+y_i (\beta_0 + \beta_1 x_{i1} + \dots + \beta_p x_{ip}) \geq M(1 - \epsilon_i)
+\]</span>
+<ul>
+<li class="fragment">Normally, we require that each point lies <strong>at least <span class="math inline">\(M\)</span> units away from the hyperplane</strong>.</li>
+<li class="fragment">However, the <strong>slack variables</strong> <span class="math inline">\(\epsilon_i\)</span> allow some flexibility:
+<ul>
+<li class="fragment">If <span class="math inline">\(\epsilon_i = 0\)</span>, the point is correctly classified <strong>outside the margin</strong>.</li>
+<li class="fragment">If <span class="math inline">\(0 &lt; \epsilon_i &lt; 1\)</span>, the point is <strong>inside the margin</strong> but still on the correct side.</li>
+<li class="fragment">If <span class="math inline">\(\epsilon_i \geq 1\)</span>, the point is <strong>misclassified</strong>.</li>
+</ul></li>
+</ul></li>
+</ol>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ol start="3" type="1">
+<li class="fragment"><strong>Total Slack Budget Constraint</strong>:<br>
+<span class="math display">\[
+\sum_{i=1}^{n} \epsilon_i \leq C, \quad \epsilon_i \geq 0
+\]</span>
+<ul>
+<li class="fragment">The parameter <span class="math inline">\(C\)</span> <strong>controls the total amount of slack</strong> allowed in the model:
+<ul>
+<li class="fragment"><strong>Large <span class="math inline">\(C\)</span></strong> → Less tolerance for margin violations (closer to hard-margin SVM).</li>
+<li class="fragment"><strong>Small <span class="math inline">\(C\)</span></strong> → More tolerance for misclassification and margin violations.</li>
+</ul></li>
+</ul></li>
+</ol>
+<ul>
+<li class="fragment"><strong>Intuition Behind Soft Margins:</strong>
+<ul>
+<li class="fragment">In a <strong>hard-margin SVM</strong>, <strong>no points are allowed inside the margin</strong>.</li>
+<li class="fragment">In <strong>soft-margin SVM</strong>, we introduce <strong>slack variables</strong> <span class="math inline">\(\epsilon_i\)</span> to allow <strong>some violations</strong> of the margin.</li>
+<li class="fragment">This provides a <strong>regularization effect</strong>:
+<ul>
+<li class="fragment">Prevents <strong>overfitting</strong> in cases where a perfect separation exists but may be too rigid.</li>
+<li class="fragment">Allows classification in <strong>non-linearly separable</strong> cases by <strong>balancing misclassification and margin width</strong>.</li>
+</ul></li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="c-is-a-regularization-parameter---ilustration" class="slide level2 center">
+<h2><span class="math inline">\(C\)</span> is a Regularization Parameter - Ilustration</h2>
+
+<!---
+so as i said it's a regularization parameter and so here we've got four scenarios where we've changed c here's (top left) the bigger c and in fact it's the biggest a possible c that that's needed because now all points on the wrong side of the margin okay and and so there's an epsilon for every single point um so these epsilons you can think of as let's do it in this picture over here you can draw arrows which which tells you the distance of each point from the margin okay so there's one for this guy and the length of these is proportional to to to the epsilons and likewise for these guys okay and as we tighten c the margin gets tighter because we're allowing less and less overlap and so that becomes a tuning parameter we'll see a little bit later that in effect the number of points that are on the wrong side of the margin in other side with all the points inside the margin or on the wrong side of the margin become the effective points that are controlling the orientation of the margin so in some sense the more points that are involved in the orientation of the margin the more stable it becomes and that means as c gets bigger the more stable the margin becomes and so there's going to be a kind of a bias variance trade-off as we change c so it's really sorry regular organization permit 
+
+rob well it's not a question actually yeah thinking i mean we're taking the euclidean distance and all these pictures is does it matter if i standardize the variables first should i standardize the variables first oh that's a good point yes you know i think i think you you're right rob um the the sport vector machine treats all the variables as equals in a way and so the units count so good point the variable should be standardized if you remember when we did the lasso and ridge regression we said that was important there too well the same for the same reasons it's important here well so we've come up with a compromise when when the points overlap but in some cases no matter how much we try that compromise isn't going to help and so here's a there's a fake situation but it's a
+--->
+<img data-src="figs/9_7-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section id="c-is-a-regularization-parameter---ilustration-details" class="slide level2 center">
+<h2><span class="math inline">\(C\)</span> is a Regularization Parameter - Ilustration Details</h2>
+<div style="font-size: 60%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<p>The four plots illustrate different values of <span class="math inline">\(C\)</span>, showing the trade-off between margin width and classification flexibility.</p>
+<ul>
+<li class="fragment"><strong>Top-Left Plot (Largest <span class="math inline">\(C\)</span>)</strong>
+<ul>
+<li class="fragment">Here, <span class="math inline">\(C\)</span> is <strong>very large</strong>, meaning the model <strong>strongly penalizes misclassified points</strong>.</li>
+<li class="fragment">As a result, the decision boundary is <strong>rigid</strong>, and <strong>only a few points violate the margin</strong>.</li>
+<li class="fragment">Many points are <strong>on the wrong side of their respective margins</strong>, but the model still prioritizes keeping the margin as wide as possible while satisfying the constraint.</li>
+</ul></li>
+<li class="fragment"><strong>Top-Right &amp; Bottom-Left Plots (Intermediate <span class="math inline">\(C\)</span>)</strong>
+<ul>
+<li class="fragment">As <span class="math inline">\(C\)</span> is <strong>decreased</strong>, the model <strong>allows more margin violations</strong> (misclassified or within-margin points).</li>
+<li class="fragment">The <strong>margin becomes tighter</strong> because the optimization prioritizes <strong>correcting misclassified points</strong> rather than maximizing margin width.</li>
+<li class="fragment">More points now <strong>contribute to determining the decision boundary</strong>, leading to <strong>increased stability</strong>.</li>
+</ul></li>
+<li class="fragment"><strong>Bottom-Right Plot (Smallest <span class="math inline">\(C\)</span>)</strong>
+<ul>
+<li class="fragment">With <strong>a small <span class="math inline">\(C\)</span></strong>, the model <strong>tolerates many margin violations</strong> and allows points to be misclassified.</li>
+<li class="fragment">The decision boundary <strong>adjusts</strong> to <strong>reduce the number of misclassified points</strong>, even at the cost of a <strong>narrower margin</strong>.</li>
+<li class="fragment">This results in a <strong>more flexible model</strong> that is less sensitive to small variations in data.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ul>
+<li class="fragment"><p><strong>The Bias-Variance Trade-off in SVM</strong></p></li>
+<li class="fragment"><p><strong>Large <span class="math inline">\(C\)</span> (Less Regularization, Harder Margin) → Low Bias, High Variance</strong></p>
+<ul>
+<li class="fragment">Fewer margin violations → <strong>Less flexibility</strong>, but possibly <strong>overfitting</strong>.</li>
+<li class="fragment">Model depends on a <strong>few critical support vectors</strong>, making it more sensitive to small changes in data.</li>
+</ul></li>
+<li class="fragment"><p><strong>Small <span class="math inline">\(C\)</span> (More Regularization, Softer Margin) → High Bias, Low Variance</strong></p>
+<ul>
+<li class="fragment">More margin violations → <strong>More flexibility</strong>, but possibly <strong>underfitting</strong>.</li>
+<li class="fragment">Many points influence the decision boundary, leading to <strong>a more stable model</strong>.</li>
+</ul></li>
+<li class="fragment"><p><strong>Standardizing Variables is Important in SVM</strong></p></li>
+<li class="fragment"><p><strong>SVM treats all variables equally</strong>, meaning <strong>features with different scales</strong> can disproportionately influence the margin.</p></li>
+<li class="fragment"><p><strong>Standardizing</strong> (e.g., transforming variables to have <strong>zero mean and unit variance</strong>) ensures that:</p>
+<ul>
+<li class="fragment">The <strong>distance metric</strong> (Euclidean distance) is <strong>meaningful</strong>.</li>
+<li class="fragment">The <strong>optimization process</strong> does not favor one feature due to its larger magnitude.</li>
+</ul></li>
+<li class="fragment"><p>This is the <strong>same reason</strong> why <strong>standardization is important in Ridge and Lasso regression</strong>.</p></li>
+<li class="fragment"><p><strong>Conclusion</strong></p></li>
+<li class="fragment"><p><span class="math inline">\(C\)</span> <strong>controls the trade-off between margin width and misclassification tolerance</strong>.</p></li>
+<li class="fragment"><p>A <strong>higher <span class="math inline">\(C\)</span></strong> enforces a <strong>stricter margin</strong> (less regularization) but may <strong>overfit</strong> the data.</p></li>
+<li class="fragment"><p>A <strong>lower <span class="math inline">\(C\)</span></strong> allows <strong>more misclassification</strong> (more regularization) but may <strong>generalize better</strong>.</p></li>
+<li class="fragment"><p><strong>Standardization is crucial</strong> for SVM to ensure fair treatment of all variables.</p></li>
+</ul>
+</div></div>
+</div>
+</section></section>
+<section>
+<section id="svm-with-nonlinear-boundary" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>SVM with Nonlinear Boundary</h1>
+
+</section>
+<section id="linear-boundary-can-fail" class="slide level2 center">
+<h2>Linear Boundary Can Fail</h2>
+<p>Sometimes a linear boundary simply won’t work, no matter what value of <span class="math inline">\(C\)</span>. What to do?</p>
+
+<img data-src="figs/9_1_2-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"></section>
+<section id="feature-expansion" class="slide level2 center">
+<h2>Feature Expansion</h2>
+<ul>
+<li class="fragment"><p>Enlarge the space of features by including transformations; e.g.&nbsp;<span class="math inline">\(X_1^2, X_1^3, X_1X_2, X_1X_2^2, \dots\)</span>. Hence go from a <span class="math inline">\(p\)</span>-dimensional space to a <span class="math inline">\(M &gt; p\)</span>-dimensional space (not the same <span class="math inline">\(M\)</span> as we used for margin).</p></li>
+<li class="fragment"><p>Fit a support-vector classifier in the enlarged space.</p></li>
+<li class="fragment"><p>This results in non-linear decision boundaries in the original space.</p></li>
+<li class="fragment"><p><strong>Example:</strong> Suppose we use <span class="math inline">\((X_1, X_2, X_1^2, X_2^2, X_1X_2)\)</span> instead of just <span class="math inline">\((X_1, X_2)\)</span>. Then the decision boundary would be of the form: <span class="math display">\[
+\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1^2 + \beta_4 X_2^2 + \beta_5 X_1X_2 = 0
+\]</span></p>
+<ul>
+<li class="fragment">This leads to nonlinear decision boundaries in the original space (quadratic conic sections).</li>
+</ul></li>
+</ul>
+</section>
+<section id="cubic-polynomials" class="slide level2 center">
+<h2>Cubic Polynomials</h2>
+<p>Here we use a basis expansion of cubic polynomials. From 2 variables to 9:</p>
+<p><span class="math display">\[
+\beta_0 + \beta_1 X_1 + \beta_2 X_2 + \beta_3 X_1^2 + \beta_4 X_2^2 + \beta_5 X_1 X_2 + \beta_6 X_1^3 + \beta_7 X_2^3 + \beta_8 X_1^2 X_2 + \beta_9 X_1 X_2^2 = 0
+\]</span></p>
+
+<img data-src="figs/9_1_3-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><ul>
+<li class="fragment">The support-vector classifier in the enlarged space solves the problem in the lower-dimensional space.</li>
+</ul>
+</section></section>
+<section>
+<section id="nonlinearities-and-kernels" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Nonlinearities and Kernels</h1>
+
+</section>
+<section id="nonlinearities-and-kernels-1" class="slide level2 center">
+<h2>Nonlinearities and Kernels</h2>
+<ul>
+<li class="fragment"><p>Polynomials are not always the greatest choice (especially high-dimensional ones) as they get wild rather fast.</p></li>
+<li class="fragment"><p>There is a more elegant and controlled way to introduce nonlinearities in support-vector classifiers — through the use of <strong>kernels</strong>.</p></li>
+<li class="fragment"><p>Before we discuss these, we must understand the role of <strong>inner products</strong> in support-vector classifiers.</p></li>
+</ul>
+</section>
+<section id="inner-products" class="slide level2 center">
+<h2>Inner Products</h2>
+<div style="font-size: 70%;">
+<p>The <strong>inner product (dot product) between two vectors</strong> <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_i'\)</span>:</p>
+<p><span class="math display">\[
+\langle x_i, x_i' \rangle = \sum_{j=1}^{p} x_{ij} x_{i'j}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_i'\)</span> are two vectors in <strong><span class="math inline">\(p\)</span>-dimensional space</strong>.</p></li>
+<li class="fragment"><p>The <strong>summation</strong> runs over all dimensions <span class="math inline">\(j\)</span> from <strong>1 to <span class="math inline">\(p\)</span></strong>.</p></li>
+<li class="fragment"><p>Each term <span class="math inline">\(x_{ij} x_{i'j}\)</span> represents the product of corresponding components of the two vectors.</p></li>
+<li class="fragment"><p><strong>Interpretation</strong>: The <strong>inner product (dot product)</strong> measures the <strong>similarity</strong> between two vectors in a given space. It is computed by multiplying corresponding elements of the two vectors and summing up the results.</p></li>
+<li class="fragment"><p><strong>If <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_i'\)</span> are aligned (pointing in the same direction)</strong> → The inner product is <strong>large and positive</strong>.</p></li>
+<li class="fragment"><p><strong>If <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_i'\)</span> are perpendicular (orthogonal)</strong> → The inner product is <strong>zero</strong>.</p></li>
+<li class="fragment"><p><strong>If <span class="math inline">\(x_i\)</span> and <span class="math inline">\(x_i'\)</span> point in opposite directions</strong> → The inner product is <strong>negative</strong>.</p></li>
+</ul>
+<!---
+## **Why is this Important?**
+
+  - In **Support Vector Machines (SVM)**, the inner product appears in the **decision function**, helping to classify points by computing distances and similarities.
+
+  - It is the foundation for **Kernel Methods**, where the dot product is replaced by **nonlinear transformations** to find complex decision boundaries.
+
+- **Linear Algebra**: The inner product is fundamental in **projections, vector decomposition, and orthogonality** in high-dimensional spaces.
+
+--->
+</div>
+</section>
+<section id="inner-products-and-support-vectors" class="slide level2 center">
+<h2>Inner Products and Support Vectors</h2>
+<div style="font-size: 70%;">
+<p>The <strong>decision function</strong> of a <strong>Linear SVC</strong> is expressed as:</p>
+<p><span class="math display">\[
+f(x) = \beta_0 + \sum_{i=1}^{n} \alpha_i \langle x, x_i \rangle
+\]</span></p>
+<p>where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(f(x)\)</span> represents the classification function that determines whether a new point <span class="math inline">\(x\)</span> belongs to one class or another.</li>
+<li class="fragment"><span class="math inline">\(\beta_0\)</span> is the <strong>intercept (bias term)</strong>.</li>
+<li class="fragment"><span class="math inline">\(\alpha_i\)</span> are the <strong>Lagrange multipliers</strong>, which determine the influence of each training example on the decision boundary.</li>
+<li class="fragment"><span class="math inline">\(x_i\)</span>: Training Data Points<strong>: <span class="math inline">\(x_i\)</span> represents a </strong>training example**, which is one of the points in the training dataset.
+<ul>
+<li class="fragment">Each <span class="math inline">\(x_i\)</span> is a <strong>feature vector</strong> in a <span class="math inline">\(p\)</span>-dimensional space <span class="math inline">\(x_i = (x_{i1}, x_{i2}, \dots, x_{ip})\)</span></li>
+</ul></li>
+<li class="fragment"><span class="math inline">\(x\)</span>: A New Input Example (Test Point)<strong>: <span class="math inline">\(x\)</span> is a </strong>new data point** (not necessarily in the training set) for which we want to make a prediction.
+<ul>
+<li class="fragment">Like <span class="math inline">\(x_i\)</span>, it is also a <strong>feature vector</strong> in the same <span class="math inline">\(p\)</span>-dimensional space <span class="math inline">\(x = (x_1, x_2, \dots, x_p)\)</span></li>
+<li class="fragment">The classifier evaluates <span class="math inline">\(f(x)\)</span> to determine the class of <span class="math inline">\(x\)</span>.</li>
+<li class="fragment">The decision function <span class="math inline">\(f(x)\)</span> compares this new point to all training points <span class="math inline">\(x_i\)</span> using their <strong>inner products</strong>.</li>
+</ul></li>
+<li class="fragment"><span class="math inline">\(\langle x, x_i \rangle\)</span> represents the <strong>inner product</strong> (dot product) between the input vector <span class="math inline">\(x\)</span> and each training point <span class="math inline">\(x_i\)</span>, which captures the similarity between them.</li>
+<li class="fragment"><span class="math inline">\(n\)</span> is the total number of training points.</li>
+</ul>
+</div>
+</section>
+<section id="computational-efficiency-using-inner-products" class="slide level2 center">
+<h2>Computational Efficiency: Using Inner Products</h2>
+<p>Instead of directly computing <strong><span class="math inline">\(\beta\)</span> coefficients</strong> for each feature, the SVC relies only on <strong>pairwise inner products</strong> between training points. This reduces the complexity of parameter estimation.</p>
+<ul>
+<li class="fragment"><p>To estimate <span class="math inline">\(\alpha_1, \dots, \alpha_n\)</span> and <span class="math inline">\(\beta_0\)</span>, we only need the <strong><span class="math inline">\(\binom{n}{2}\)</span> pairwise inner products</strong> <span class="math inline">\(\langle x_i, x_i \rangle\)</span>.</p></li>
+<li class="fragment"><p>This simplifies the optimization problem, making it computationally feasible even for high-dimensional datasets.</p></li>
+</ul>
+</section>
+<section id="the-role-of-support-vectors" class="slide level2 center">
+<h2>The Role of Support Vectors</h2>
+<div style="font-size: 70%;">
+<ul>
+<li class="fragment"><p>One of the key properties of <strong>Support Vector Machines (SVMs)</strong> is <strong>sparsity</strong> in the solution.</p></li>
+<li class="fragment"><p><strong>Most</strong> of the <span class="math inline">\(\hat{\alpha}_i\)</span> values will be <strong>zero</strong>, because the <strong>SVM optimization process ignores non-critical points</strong>.</p>
+<ul>
+<li class="fragment">Only a <strong>small subset of training points (the support vectors) have <span class="math inline">\(\alpha_i &gt; 0\)</span></strong> and influence the decision boundary. This <strong>sparsity property</strong> makes SVMs both <strong>efficient and interpretable</strong>.</li>
+</ul></li>
+<li class="fragment"><p>Thus, the decision function simplifies to: <span class="math display">\[
+f(x) = \beta_0 + \sum_{i \in S} \hat{\alpha}_i \langle x, x_i \rangle
+\]</span></p></li>
+<li class="fragment"><p>where:</p>
+<ul>
+<li class="fragment"><span class="math inline">\(S\)</span> is the <strong>support set</strong>, the set of indices <strong><span class="math inline">\(i\)</span></strong> such that <span class="math inline">\(\hat{\alpha}_i &gt; 0\)</span>.</li>
+<li class="fragment">These points, called <strong>support vectors</strong>, are the <strong>only points</strong> that determine the optimal hyperplane.</li>
+</ul></li>
+<li class="fragment"><p>This means that <strong>most training points do not influence the classifier</strong>, making SVMs <strong>computationally efficient</strong> because only a small subset of training points (the support vectors) needs to be stored and used for classification.</p></li>
+<li class="fragment"><p><strong>Why is This Important?</strong></p>
+<ul>
+<li class="fragment"><strong>Sparsity</strong>: Since only <strong>a few points contribute to the final decision boundary</strong>, SVMs are efficient and <strong>robust to noise</strong>.</li>
+<li class="fragment"><strong>Computational Simplicity</strong>: Instead of solving for <span class="math inline">\(n\)</span> parameters explicitly, we only compute the inner products for <strong>support vectors</strong>, making the method scalable to large datasets.</li>
+<li class="fragment"><strong>Extensibility to Nonlinear SVMs</strong>: This formulation is the foundation for <strong>Kernel SVMs</strong>, where the inner product <span class="math inline">\(\langle x, x_i \rangle\)</span> is replaced by a <strong>nonlinear kernel function</strong> to allow <strong>nonlinear decision boundaries</strong>.</li>
+</ul></li>
+</ul>
+</div>
+<!---
+## Inner Products and Support Vectors
+
+:::: {style="font-size: 80%;"}
+
+The linear support vector classifier can be represented as:
+
+$$
+  f(x) = \beta_0 + \sum_{i=1}^n \alpha_i \langle x, x_i \rangle \quad \text{— $n$ parameters}
+$$
+
+- To estimate the parameters $\alpha_1, \dots, \alpha_n$ and $\beta_0$, all we need are the $\binom{n}{2}$ inner products $\langle x_i, x_{i'} \rangle$ between all pairs of training observations.
+
+- It turns out that most of the $\hat{\alpha}_i$ can be zero:
+$$
+f(x) = \beta_0 + \sum_{i \in S} \hat{\alpha}_i \langle x, x_i \rangle
+$$
+
+- $\mathbf{S}$ is the **support set** of indices $i$ such that $\hat{\alpha}_i > 0$. 
+
+::::
+
+--->
+</section>
+<section id="kernels-and-support-vector-machines" class="slide level2 center">
+<h2>Kernels and Support Vector Machines</h2>
+<ul>
+<li class="fragment"><p>If we can compute inner products between observations, we can fit a SV classifier.</p></li>
+<li class="fragment"><p>Some special <em>kernel functions</em> can do this for us. E.g., <span class="math display">\[
+K(x_i, x_{i'}) = \left(1 + \sum_{j=1}^p x_{ij} x_{i'j}\right)^d
+\]</span> computes the inner products needed for <span class="math inline">\(d\)</span>-dimensional polynomials — <span class="math inline">\(\binom{p+d}{d}\)</span> basis functions!</p></li>
+<li class="fragment"><p>The solution has the form: <span class="math display">\[
+f(x) = \beta_0 + \sum_{i \in S} \hat{\alpha}_i K(x, x_i).
+\]</span></p></li>
+</ul>
+</section>
+<section id="radial-kernel" class="slide level2 center">
+<h2>Radial Kernel</h2>
+<div style="font-size: 75%;">
+<p>One of the most popular kernel!</p>
+<p><span class="math display">\[
+K(x_i, x_{i'}) = \exp\left(-\gamma \sum_{j=1}^p (x_{ij} - x_{i'j})^2 \right).
+\]</span></p>
+<p>where <span class="math inline">\(\gamma\)</span> is a tuning parameter.</p>
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_1_4-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<p><br></p>
+<p><span class="math display">\[
+f(x) = \beta_0 + \sum_{i \in S} \hat{\alpha}_i K(x, x_i).
+\]</span> - The <strong>solid black line</strong> encloses a region classified as one class (pink points).</p>
+<ul>
+<li class="fragment"><p>The <strong>dashed lines</strong> in the image represent <strong>decision boundaries</strong> created by the <strong>Radial Basis Function (RBF) kernel</strong> in a Support Vector Machine (SVM). These boundaries separate different regions of classification based on the nonlinear transformation performed by the <strong>Radial Kernel</strong>.</p></li>
+<li class="fragment"><p>Implicit feature space; very high dimensional.</p></li>
+<li class="fragment"><p>Controls variance by squashing down most dimensions severely.</p></li>
+</ul>
+</div></div>
+</div>
+</section></section>
+<section>
+<section id="example-heart-data" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Example: Heart Data</h1>
+
+</section>
+<section id="example-heart-data-1" class="slide level2 center">
+<h2>Example: Heart Data</h2>
+<div style="font-size: 70%;">
+<p>Here we see ROC curves <strong>on training data</strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_10-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><strong>Left</strong>: We compare a Linear Suport Vector Machine with Linear Discriminant Analysis (LDA).</li>
+<li class="fragment"><strong>Right</strong>: We compare a Linear Suport Vector Machine with the SVM using a radial kernel with different values of <span class="math inline">\(\gamma\)</span>.The larger <span class="math inline">\(\gamma\)</span> the more wiggly the decision boundary.</li>
+</ul>
+</div>
+</section>
+<section id="example-heart-data-2" class="slide level2 center">
+<h2>Example: Heart Data</h2>
+<p>Here we see ROC curves <strong>on testing data</strong>.</p>
+
+<img data-src="figs/9_11-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:65.0%"><p><br></p>
+<p><br></p>
+</section></section>
+<section>
+<section id="svms-more-than-2-classes" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>SVMs: More Than 2 Classes</h1>
+
+</section>
+<section id="svms-more-than-2-classes-1" class="slide level2 center">
+<h2>SVMs: More Than 2 Classes?</h2>
+<p>The SVM as defined works for <span class="math inline">\(K = 2\)</span> classes. What do we do if we have <span class="math inline">\(K &gt; 2\)</span> classes?</p>
+<ul>
+<li class="fragment"><p>There are two famous options:</p>
+<ul>
+<li class="fragment"><p><strong>OVA</strong> (<em>One versus All</em>): Fit <span class="math inline">\(K\)</span> different 2-class SVM classifiers <span class="math inline">\(\hat{f}_k(x)\)</span>, <span class="math inline">\(k = 1, \dots, K\)</span>; each class versus the rest. Classify <span class="math inline">\(x^*\)</span> to the class for which <span class="math inline">\(\hat{f}_k(x^*)\)</span> is largest.</p></li>
+<li class="fragment"><p><strong>OVO</strong> (One versus One): Fit all <span class="math inline">\(\binom{K}{2}\)</span> pairwise classifiers <span class="math inline">\(\hat{f}_{k\ell}(x)\)</span>. Classify <span class="math inline">\(x^*\)</span> to the class that wins the most pairwise competitions.</p></li>
+</ul></li>
+<li class="fragment"><p>Which to choose?</p>
+<ul>
+<li class="fragment">If <span class="math inline">\(K\)</span> is not too large, use OVO.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="support-vector-versus-logistic-regression" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Support Vector versus Logistic Regression</h1>
+
+</section>
+<section id="support-vector-versus-logistic-regression-1" class="slide level2 center">
+<h2>Support Vector versus Logistic Regression</h2>
+<div style="font-size: 80%;">
+<p>With <span class="math inline">\(f(X) = \beta_0 + \beta_1 X_1 + \dots + \beta_p X_p\)</span>, we can rephrase support-vector classifier optimization as:</p>
+<p><span class="math display">\[
+\text{minimize}_{\beta_0, \beta_1, \dots, \beta_p} \left\{ \sum_{i=1}^n \max \big[ 0, 1 - y_i f(x_i) \big] + \lambda \sum_{j=1}^p \beta_j^2 \right\}
+\]</span></p>
+<p>where:</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(f(X) = \beta_0 + \beta_1X_1 + \dots + \beta_pX_p\)</span> represents the <strong>linear decision function</strong>.</p></li>
+<li class="fragment"><p><span class="math inline">\(y_i\)</span> is the class label (<span class="math inline">\(+1\)</span> or <span class="math inline">\(-1\)</span>).</p></li>
+<li class="fragment"><p>The term <strong><span class="math inline">\(\max [0, 1 - y_i f(x_i)]\)</span></strong> is the <strong>hinge loss</strong>, which <strong>penalizes misclassified or margin-violating points</strong>.</p></li>
+<li class="fragment"><p>The term <strong><span class="math inline">\(\lambda \sum_{j=1}^{p} \beta_j^2\)</span></strong> is a <strong>regularization term</strong> (often L2 regularization), which helps control the model complexity and prevent overfitting.</p></li>
+<li class="fragment"><p>This structure is <strong>loss plus penalty</strong>, meaning SVM aims to <strong>minimize classification errors</strong> while maintaining a <strong>large margin</strong> between classes.</p></li>
+</ul>
+</div>
+</section>
+<section id="support-vector-versus-logistic-regression-2" class="slide level2 center">
+<h2>Support Vector versus Logistic Regression</h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="justify-content: center; align-items: center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figs/9_12-1.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>The plot compares the loss functions of <strong>SVM (hinge loss)</strong> and <strong>logistic regression (negative log-likelihood loss)</strong>.</p></li>
+<li class="fragment"><p><strong>SVM hinge loss</strong> (black line):</p>
+<ul>
+<li class="fragment"><strong>Zero loss</strong> when <span class="math inline">\(y_i f(x_i) \geq 1\)</span> (correctly classified with a sufficient margin).</li>
+<li class="fragment"><strong>Linear penalty</strong> for points within the margin (<span class="math inline">\(0 &lt; y_i f(x_i) &lt; 1\)</span>).</li>
+<li class="fragment"><strong>Constant penalty</strong> for misclassified points (<span class="math inline">\(y_i f(x_i) &lt; 0\)</span>).</li>
+</ul></li>
+</ul>
+</div><div class="column" style="justify-content: center; align-items: center;">
+<ul>
+<li class="fragment"><p><strong>Logistic Regression loss</strong> (green line):</p>
+<ul>
+<li class="fragment"><strong>Smooth, continuously decreasing</strong> function.</li>
+<li class="fragment">Assigns <strong>nonzero loss</strong> to all points, meaning it <strong>never fully ignores</strong> correctly classified points.</li>
+</ul></li>
+<li class="fragment"><p><strong>The key difference</strong>:</p>
+<ul>
+<li class="fragment"><strong>SVM loss is piecewise linear</strong> and focuses on <strong>margin violations</strong>.</li>
+<li class="fragment"><strong>Logistic regression loss is smooth</strong> and <strong>penalizes all points</strong> proportionally.</li>
+</ul></li>
+<li class="fragment"><p><strong>Main Takeaway</strong></p>
+<ul>
+<li class="fragment">Both <strong>SVM and Logistic Regression</strong> use a <strong>loss function + regularization</strong> framework.</li>
+<li class="fragment"><strong>SVM uses hinge loss</strong>, which <strong>only cares about points inside or outside the margin</strong>.</li>
+<li class="fragment"><strong>Logistic regression uses log-likelihood loss</strong>, which <strong>penalizes all points, even well-classified ones</strong>.</li>
+<li class="fragment"><strong>SVM is more robust to outliers</strong> because it <strong>ignores well-classified points beyond the margin</strong>.</li>
+<li class="fragment"><strong>Logistic Regression is probabilistic</strong>, while <strong>SVM is geometric</strong>, focusing on maximizing the margin.</li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="which-to-use-svm-or-logistic-regression" class="slide level2 center">
+<h2>Which to Use: SVM or Logistic Regression</h2>
+<ul>
+<li class="fragment"><p>When classes are (nearly) separable, SVM does better than Logistic Regression. So does LDA.</p></li>
+<li class="fragment"><p>When not, Logistic Regression (with ridge penalty) and SVM are very similar.</p></li>
+<li class="fragment"><p>If you wish to estimate probabilities, Logistic Regression is the choice.</p></li>
+<li class="fragment"><p>For nonlinear boundaries, kernel SVMs are popular. Can use kernels with Logistic Regression and LDA as well, but computations are more expensive.</p></li>
+</ul>
+</section>
+<section id="summary" class="slide level2 center">
+<h2>Summary</h2>
+<div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 70%;">
+<ul>
+<li><strong>Hyperplanes and Normal Vectors</strong>
+<ul>
+<li>A hyperplane is a <span class="math inline">\((p-1)\)</span>-dimensional boundary in <span class="math inline">\(p\)</span>-dimensional space.<br>
+</li>
+<li>Its orientation is determined by the <strong>normal vector</strong> <span class="math inline">\(\beta\)</span>, which is orthogonal to the hyperplane.</li>
+</ul></li>
+<li><strong>Maximal Margin and Soft Margins</strong>
+<ul>
+<li>The <strong>maximal margin classifier</strong> seeks the widest possible gap between classes.<br>
+</li>
+<li><strong>Soft margins</strong> allow some misclassifications (via slack variables <span class="math inline">\(\epsilon_i\)</span>) when data are not perfectly separable.</li>
+</ul></li>
+<li><strong><span class="math inline">\(C\)</span> as a Regularization Parameter</strong>
+<ul>
+<li><strong>Large <span class="math inline">\(C\)</span></strong> → Strict margin (less regularization), fewer misclassifications, but higher risk of overfitting.<br>
+</li>
+<li><strong>Small <span class="math inline">\(C\)</span></strong> → Softer margin (more regularization), more misclassifications allowed, but often better generalization.</li>
+</ul></li>
+<li><strong>Kernels for Nonlinear Boundaries</strong>
+<ul>
+<li><strong>Kernel functions</strong> (e.g., polynomial, radial basis) map data into higher-dimensional spaces for nonlinear decision boundaries.<br>
+</li>
+<li>The <strong>inner product</strong> <span class="math inline">\(\langle x, x_i \rangle\)</span> becomes <span class="math inline">\(K(x, x_i)\)</span> in kernel SVMs, enabling complex separations.</li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="font-size: 65%;">
+<ul>
+<li><strong>Support Vectors and Sparsity</strong>
+<ul>
+<li>Only a subset of training points (support vectors) have <span class="math inline">\(\alpha_i &gt; 0\)</span>.<br>
+</li>
+<li>This <strong>sparsity</strong> makes SVMs computationally efficient and robust to outliers.</li>
+</ul></li>
+<li><strong>SVM vs.&nbsp;Logistic Regression</strong>
+<ul>
+<li><strong>SVM uses hinge loss</strong> (piecewise linear), focusing on margin violations.<br>
+</li>
+<li><strong>Logistic Regression uses log-likelihood loss</strong>, penalizing all misclassifications smoothly.<br>
+</li>
+<li>When classes are nearly separable, <strong>SVM</strong> often outperforms logistic regression (and LDA).<br>
+</li>
+<li>Logistic regression provides <strong>probabilistic outputs</strong>; SVM is more geometric.</li>
+</ul></li>
+<li><strong>Multiclass Extensions</strong>
+<ul>
+<li>Implemented via <strong>One-vs-All (OVA)</strong> or <strong>One-vs-One (OVO)</strong> schemes for <span class="math inline">\(K&gt;2\)</span> classes.</li>
+</ul></li>
+<li><strong>Standardization</strong>
+<ul>
+<li>Standardize features so that no single variable dominates the margin.<br>
+</li>
+<li>Similar to Ridge and Lasso, SVM is sensitive to feature scales.</li>
+</ul></li>
+</ul>
+<p><strong>Key Message</strong>:<br>
+SVMs excel at maximizing margins and can handle complex decision boundaries via kernels. The choice of <span class="math inline">\(C\)</span>, kernel, and feature scaling profoundly affects performance and generalization.</p>
+</div>
+</div></div>
+</div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 center" data-background-color="#cfb991">
+<h1>Thank you!</h1>
+
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+<p>Predictive Analytics</p>
+</div>
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
