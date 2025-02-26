@@ -431,7 +431,7 @@ Professor: Davi Moreira
 </section>
 <section id="decision-tree-for-these-data" class="slide level2 center">
 <h2>Decision tree for these data</h2>
-<div style="font-size: 60%;">
+<div style="font-size: 57%;">
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
@@ -472,17 +472,18 @@ Professor: Davi Moreira
 <ul>
 <li class="fragment"><p>These categories closely match—though not exactly—the three regions we initially identified.</p></li>
 <li class="fragment"><p>By systematically applying these splits, <strong>decision trees segment data into meaningful, homogeneous groups</strong>.</p></li>
+<li class="fragment"><p>The final tree has two internal nodes and three terminal nodes (<strong>leaves</strong>). The number in each leaf is the mean of the response for the observations that fall there.</p></li>
 </ul>
 </div></div>
 </div>
-</section>
-<section id="details-of-previous-figure" class="slide level2 center">
-<h2>Details of previous figure</h2>
-<ul>
-<li class="fragment"><p>For the Hitters data, a regression tree for predicting the log salary of a baseball player, based on the number of years that he has played in the major leagues and the number of hits that he made in the previous year.</p></li>
-<li class="fragment"><p>At a given internal node, the label (of the form <span class="math inline">\(X_j &lt; t_k\)</span>) indicates the left-hand branch emanating from that split, and the right-hand branch corresponds to <span class="math inline">\(X_j \geq t_k\)</span>. For instance, the split at the top of the tree results in two large branches. The left-hand branch corresponds to <span class="math inline">\(\text{Years} &lt; 4.5\)</span>, and the right-hand branch corresponds to <span class="math inline">\(\text{Years} \geq 4.5\)</span>.</p></li>
-<li class="fragment"><p>The tree has two internal nodes and three terminal nodes, or leaves. The number in each leaf is the mean of the response for the observations that fall there.</p></li>
-</ul>
+<!---
+
+## Details of previous figure
+
+-   For the Hitters data, a regression tree for predicting the log salary of a baseball player, based on the number of years that he has played in the major leagues and the number of hits that he made in the previous year.
+
+-   At a given internal node, the label (of the form $X_j < t_k$) indicates the left-hand branch emanating from that split, and the right-hand branch corresponds to $X_j \geq t_k$. For instance, the split at the top of the tree results in two large branches. The left-hand branch corresponds to $\text{Years} < 4.5$, and the right-hand branch corresponds to $\text{Years} \geq 4.5$.
+--->
 </section>
 <section id="results" class="slide level2 center">
 <h2>Results</h2>
@@ -712,11 +713,11 @@ R_3 = \{X \ | \ \text{Years} \geq 4.5, \text{Hits} \geq 117.5\}
 <h2>Baseball example: Cross Validation for the Prune Tree</h2>
 
 <img data-src="figs/8_5-1.png" class="quarto-figure quarto-figure-center r-stretch" style="width:55.0%"><div style="font-size: 70%;">
-<p>Along the <strong>horizontal axis</strong>, we have <strong>tree size</strong>, which is controlled by the <strong>alpha parameter (<span class="math inline">\(\alpha\)</span>)</strong>. This parameter directly influences the complexity of the decision tree.</p>
+<p>Along the <strong>horizontal axis</strong>, we have <strong>tree size</strong>, which is controlled by the <strong>alpha parameter (</strong><span class="math inline">\(\alpha\)</span>). This parameter directly influences the complexity of the decision tree.</p>
 <ul>
-<li class="fragment"><p>When <strong><span class="math inline">\(\alpha = 0\)</span></strong>, there is <strong>no penalty</strong> on tree size, meaning the model grows to its <strong>largest possible tree</strong>, which in this case contains <strong>12 terminal nodes</strong>.</p></li>
-<li class="fragment"><p>As <strong><span class="math inline">\(\alpha\)</span> increases</strong>, a stronger penalty is applied to larger trees, gradually reducing the number of terminal nodes.</p></li>
-<li class="fragment"><p>As <strong><span class="math inline">\(\alpha\)</span> continues to increase</strong>, the model <strong>prunes away</strong> more splits, simplifying the tree structure.</p></li>
+<li class="fragment"><p>When <span class="math inline">\(\alpha = 0\)</span>, there is <strong>no penalty</strong> on tree size, meaning the model grows to its <strong>largest possible tree</strong>, which in this case contains <strong>12 terminal nodes</strong>.</p></li>
+<li class="fragment"><p>As <span class="math inline">\(\alpha\)</span> increases, a stronger penalty is applied to larger trees, gradually reducing the number of terminal nodes.</p></li>
+<li class="fragment"><p>As <span class="math inline">\(\alpha\)</span> continues to increase, the model <strong>prunes away</strong> more splits, simplifying the tree structure.</p></li>
 <li class="fragment"><p>At the <strong>extreme</strong>, when <span class="math inline">\(\alpha\)</span> is large enough, the tree is <strong>reduced to a single node</strong>, meaning no splits occur, and the model collapses into a single <strong>global mean prediction</strong>.</p></li>
 <li class="fragment"><p>The green curve is what we get from cross validation and it’s minimized at around three terminal nodes!</p></li>
 </ul>
@@ -848,7 +849,7 @@ D = - \sum_{k=1}^K \hat{p}_{mk} \log \hat{p}_{mk}.
 <li class="fragment"><p><em>Bootstrap aggregation</em>, or <em>bagging</em>, is a general-purpose procedure for reducing the variance of a statistical learning method. It is particularly useful and frequently used in the context of decision trees.</p></li>
 <li class="fragment"><p>Recall that given a set of <span class="math inline">\(n\)</span> independent observations <span class="math inline">\(Z_1, \dots, Z_n\)</span>, each with variance <span class="math inline">\(\sigma^2\)</span>, the variance of the mean <span class="math inline">\(\bar{Z}\)</span> of the observations is given by <span class="math inline">\(\sigma^2 / n\)</span>.</p>
 <ul>
-<li class="fragment">This means that as <strong><span class="math inline">\(n\)</span></strong> increases (i.e., we take more independent observations and average them), the variance of the mean <strong>decreases</strong>. The more independent samples we have, the more stable our estimate becomes.</li>
+<li class="fragment">This means that as <span class="math inline">\(n\)</span> increases (i.e., we take more independent observations and average them), the variance of the mean <strong>decreases</strong>. The more independent samples we have, the more stable our estimate becomes.</li>
 </ul></li>
 <li class="fragment"><p>In other words, <em>averaging a set of observations reduces variance</em>. In practice, we <strong>do not</strong> have access to multiple independent training sets, which would allow us to directly apply the above variance reduction principle.</p>
 <ul>
@@ -1050,15 +1051,11 @@ A new subset of <span class="math inline">\(m\)</span> predictors is drawn at <s
 
 ## Another Regression Example
 
-
-
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](figs/8_1_2-1.png){fig-align='center' width=65%}
 :::
 :::
-
-
 
 <br>
 
@@ -1070,15 +1067,11 @@ From [*Elements of Statistical Learning* book](https://hastie.su.domains/ElemSta
 
 ## Another Classification Example
 
-
-
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](figs/8_1_3-1.png){fig-align='center' width=65%}
 :::
 :::
-
-
 
 ::: aside
 From [*Elements of Statistical Learning* book](https://hastie.su.domains/ElemStatLearn/){target="_blank"}, chapter 15.

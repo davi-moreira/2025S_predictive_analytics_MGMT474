@@ -619,9 +619,9 @@ Whether you fix the degrees of freedom directly or optimize $\lambda$ via cross-
 ::: {style="font-size: 80%;"}
 1.  **Effective Degrees of Freedom (df)**
 
--   Instead of selecting $\alpha$ directly, we choose an equivalent “degrees of freedom” value, $\text{df}_\alpha$.
+-   Instead of selecting $\lambda$ directly, we choose an equivalent “degrees of freedom” value, $\text{df}_\lambda$.
 
--   The relationship between $\alpha$ and $\text{df}$ is such that increasing $\alpha$ (stronger penalty) lowers $\text{df}$, leading to a smoother (less flexible) spline.
+-   The relationship between $\lambda$ and $\text{df}$ is such that increasing $\lambda$ (stronger penalty) lowers $\text{df}$, leading to a smoother (less flexible) spline.
 
 2.  **Advantages**
 
@@ -634,32 +634,32 @@ Whether you fix the degrees of freedom directly or optimize $\lambda$ via cross-
 -   Empirically, one might try a range of df values (e.g., 4, 5, 6, …) and pick the one that balances interpretability and fit (potentially guided by an information criterion or cross-validation).
 :::
 
-## Smoothing Splines: LOOCV to Specify $\alpha$
+## Smoothing Splines: LOOCV to Specify $\lambda$
 
 :::::::: {style="font-size: 80%;"}
 ::::::: columns
 ::::: {.column width="50%" style="justify-content: center; align-items: center;"}
-1.  We can use **Cross-validation** to choose $\alpha$.
+1.  We can use **Cross-validation** to choose $\lambda$.
 
--   For each candidate $\alpha$, we leave out one data point at a time, fit the spline, and measure the prediction error on the held-out point.
+-   For each candidate $\lambda$, we leave out one data point at a time, fit the spline, and measure the prediction error on the held-out point.
 
 2.  **Mathematical Form**
 
 ::: fragment
 $$
-     \text{RSS}_{\text{cv}}(\alpha) 
-       = \sum_{i=1}^n \left(y_i - \hat{g}_\alpha^{(-i)}(x_i)\right)^2,
+     \text{RSS}_{\text{cv}}(\lambda) 
+       = \sum_{i=1}^n \left(y_i - \hat{g}_\lambda^{(-i)}(x_i)\right)^2,
 $$
 :::
 
--   where $\hat{g}_\alpha^{(-i)}$ denotes the spline fitted without the $i$-th data point.
+-   where $\hat{g}_\lambda^{(-i)}$ denotes the spline fitted without the $i$-th data point.
 
--   In practice, this can be computed more efficiently via the influence matrix $\mathbf{S}_\alpha$:
+-   In practice, this can be computed more efficiently via the influence matrix $\mathbf{S}_\lambda$:
 
 ::: fragment
 $$
-       \text{RSS}_{\text{cv}}(\alpha) 
-         = \sum_{i=1}^n \left[\frac{y_i - \hat{g}_\alpha(x_i)}{1 - \{\mathbf{S}_\alpha\}_{ii}} \right]^2.
+       \text{RSS}_{\text{cv}}(\lambda) 
+         = \sum_{i=1}^n \left[\frac{y_i - \hat{g}_\lambda(x_i)}{1 - \{\mathbf{S}_\lambda\}_{ii}} \right]^2.
 $$
 :::
 :::::
@@ -667,13 +667,13 @@ $$
 ::: {.column width="50%" style="justify-content: center; align-items: center;"}
 3.  **Advantages**
 
--   **Data-Driven**: No need to guess $\text{df}$ or $\alpha$; we let cross-validation find the best trade-off.
+-   **Data-Driven**: No need to guess $\text{df}$ or $\lambda$; we let cross-validation find the best trade-off.
 
 -   **Robust**: Tends to choose a value that generalizes well to new data.
 
 4.  **Practical Tip**
 
--   Evaluate $\text{RSS}_{\text{cv}}$ for a grid of $\alpha$ values (e.g., $\alpha \in \{0.01, 0.1, 1, 10\}$) and pick the one that minimizes the cross-validation error.
+-   Evaluate $\text{RSS}_{\text{cv}}$ for a grid of $\lambda$ values (e.g., $\lambda \in \{0.01, 0.1, 1, 10\}$) and pick the one that minimizes the cross-validation error.
 :::
 :::::::
 ::::::::

@@ -935,8 +935,8 @@ y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + \cdots + \beta_{K+3} b_{K+
 <li class="fragment"><strong>Effective Degrees of Freedom (df)</strong></li>
 </ol>
 <ul>
-<li class="fragment"><p>Instead of selecting <span class="math inline">\(\alpha\)</span> directly, we choose an equivalent “degrees of freedom” value, <span class="math inline">\(\text{df}_\alpha\)</span>.</p></li>
-<li class="fragment"><p>The relationship between <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\text{df}\)</span> is such that increasing <span class="math inline">\(\alpha\)</span> (stronger penalty) lowers <span class="math inline">\(\text{df}\)</span>, leading to a smoother (less flexible) spline.</p></li>
+<li class="fragment"><p>Instead of selecting <span class="math inline">\(\lambda\)</span> directly, we choose an equivalent “degrees of freedom” value, <span class="math inline">\(\text{df}_\lambda\)</span>.</p></li>
+<li class="fragment"><p>The relationship between <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\text{df}\)</span> is such that increasing <span class="math inline">\(\lambda\)</span> (stronger penalty) lowers <span class="math inline">\(\text{df}\)</span>, leading to a smoother (less flexible) spline.</p></li>
 </ul>
 <ol start="2" type="1">
 <li class="fragment"><strong>Advantages</strong></li>
@@ -953,34 +953,34 @@ y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + \cdots + \beta_{K+3} b_{K+
 </ul>
 </div>
 </section>
-<section id="smoothing-splines-loocv-to-specify-alpha" class="slide level2 center">
-<h2>Smoothing Splines: LOOCV to Specify <span class="math inline">\(\alpha\)</span></h2>
+<section id="smoothing-splines-loocv-to-specify-lambda" class="slide level2 center">
+<h2>Smoothing Splines: LOOCV to Specify <span class="math inline">\(\lambda\)</span></h2>
 <div style="font-size: 80%;">
 <div class="columns">
 <div class="column" style="justify-content: center; align-items: center;">
 <ol type="1">
-<li class="fragment">We can use <strong>Cross-validation</strong> to choose <span class="math inline">\(\alpha\)</span>.</li>
+<li class="fragment">We can use <strong>Cross-validation</strong> to choose <span class="math inline">\(\lambda\)</span>.</li>
 </ol>
 <ul>
-<li class="fragment">For each candidate <span class="math inline">\(\alpha\)</span>, we leave out one data point at a time, fit the spline, and measure the prediction error on the held-out point.</li>
+<li class="fragment">For each candidate <span class="math inline">\(\lambda\)</span>, we leave out one data point at a time, fit the spline, and measure the prediction error on the held-out point.</li>
 </ul>
 <ol start="2" type="1">
 <li class="fragment"><strong>Mathematical Form</strong></li>
 </ol>
 <div class="fragment">
 <p><span class="math display">\[
-     \text{RSS}_{\text{cv}}(\alpha)
-       = \sum_{i=1}^n \left(y_i - \hat{g}_\alpha^{(-i)}(x_i)\right)^2,
+     \text{RSS}_{\text{cv}}(\lambda)
+       = \sum_{i=1}^n \left(y_i - \hat{g}_\lambda^{(-i)}(x_i)\right)^2,
 \]</span></p>
 </div>
 <ul>
-<li class="fragment"><p>where <span class="math inline">\(\hat{g}_\alpha^{(-i)}\)</span> denotes the spline fitted without the <span class="math inline">\(i\)</span>-th data point.</p></li>
-<li class="fragment"><p>In practice, this can be computed more efficiently via the influence matrix <span class="math inline">\(\mathbf{S}_\alpha\)</span>:</p></li>
+<li class="fragment"><p>where <span class="math inline">\(\hat{g}_\lambda^{(-i)}\)</span> denotes the spline fitted without the <span class="math inline">\(i\)</span>-th data point.</p></li>
+<li class="fragment"><p>In practice, this can be computed more efficiently via the influence matrix <span class="math inline">\(\mathbf{S}_\lambda\)</span>:</p></li>
 </ul>
 <div class="fragment">
 <p><span class="math display">\[
-       \text{RSS}_{\text{cv}}(\alpha)
-         = \sum_{i=1}^n \left[\frac{y_i - \hat{g}_\alpha(x_i)}{1 - \{\mathbf{S}_\alpha\}_{ii}} \right]^2.
+       \text{RSS}_{\text{cv}}(\lambda)
+         = \sum_{i=1}^n \left[\frac{y_i - \hat{g}_\lambda(x_i)}{1 - \{\mathbf{S}_\lambda\}_{ii}} \right]^2.
 \]</span></p>
 </div>
 </div><div class="column" style="justify-content: center; align-items: center;">
@@ -988,14 +988,14 @@ y_i = \beta_0 + \beta_1 b_1(x_i) + \beta_2 b_2(x_i) + \cdots + \beta_{K+3} b_{K+
 <li class="fragment"><strong>Advantages</strong></li>
 </ol>
 <ul>
-<li class="fragment"><p><strong>Data-Driven</strong>: No need to guess <span class="math inline">\(\text{df}\)</span> or <span class="math inline">\(\alpha\)</span>; we let cross-validation find the best trade-off.</p></li>
+<li class="fragment"><p><strong>Data-Driven</strong>: No need to guess <span class="math inline">\(\text{df}\)</span> or <span class="math inline">\(\lambda\)</span>; we let cross-validation find the best trade-off.</p></li>
 <li class="fragment"><p><strong>Robust</strong>: Tends to choose a value that generalizes well to new data.</p></li>
 </ul>
 <ol start="4" type="1">
 <li class="fragment"><strong>Practical Tip</strong></li>
 </ol>
 <ul>
-<li class="fragment">Evaluate <span class="math inline">\(\text{RSS}_{\text{cv}}\)</span> for a grid of <span class="math inline">\(\alpha\)</span> values (e.g., <span class="math inline">\(\alpha \in \{0.01, 0.1, 1, 10\}\)</span>) and pick the one that minimizes the cross-validation error.</li>
+<li class="fragment">Evaluate <span class="math inline">\(\text{RSS}_{\text{cv}}\)</span> for a grid of <span class="math inline">\(\lambda\)</span> values (e.g., <span class="math inline">\(\lambda \in \{0.01, 0.1, 1, 10\}\)</span>) and pick the one that minimizes the cross-validation error.</li>
 </ul>
 </div></div>
 </div>
