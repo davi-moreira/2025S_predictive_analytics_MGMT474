@@ -4,7 +4,7 @@
     "href": "schedule.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nTopic\nReadings ISLP\nMaterial*\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction.\nCh. 1; Ch. 2;\nslidesbook lab\n- Video: Statistical Learning: 2.1 Introduction to Regression Models- Video: Statistical Learning: 2.2 Dimensionality and Structured Models- Video: Statistical Learning: 2.3 Model Selection and Bias Variance Tradeoff- Video: Statistical Learning: 2.4 Classification- Video: Statistical Learning: 2.Py Data Types, Arrays, and Basics - 2023- Video: Statistical Learning: 2.Py.3 Graphics - 2023- Video: Statistical Learning: 2.Py Indexing and Dataframes - 2023\n\n\nWeek 2\nLinear Regression\nCh. 3.\nslidesbook lab\n- Video: Statistical Learning: 3.1 Simple linear regression- Video: Statistical Learning: 3.2 Hypothesis Testing and Confidence Intervals- Video: Statistical Learning: 3.3 Multiple Linear Regression- Video: Statistical Learning: 3.4 Some important questions- Video: Statistical Learning: 3.5 Extensions of the Linear Model- Video: Statistical Learning: 3.Py Linear Regression and statsmodels Package - 2023- Video: Statistical Learning: 3.Py Multiple Linear Regression Package - 2023- Video: Statistical Learning: 3.Py Interactions, Qualitative Predictors and Other Details I 2023\n\n\nWeek 3\nClassification\nCh. 4\nslidesbook lab\n- Video: Statistical Learning: 4.1 Introduction to Classification Problems- Video: Statistical Learning: 4.2 Logistic Regression- Video: Statistical Learning: 4.3 Multivariate Logistic Regression- Video: Statistical Learning: 4.4 Logistic Regression Case Control Sampling and Multiclass- Video: Statistical Learning: 4.5 Discriminant Analysis- Video: Statistical Learning: 4.6 Gaussian Discriminant Analysis (One Variable)- Video: Statistical Learning: 4.7 Gaussian Discriminant Analysis (Many Variables)- Video: Statistical Learning: 4.8 Generalized Linear Models- Video: Statistical Learning: 4.9 Quadratic Discriminant Analysis and Naive Bayes- Video: Statistical Learning: 4.Py Logistic Regression I 2023- Video: Statistical Learning: 4.Py Linear Discriminant Analysis (LDA) I 2023- Video: Statistical Learning: 4.Py K-Nearest Neighbors (KNN) I 2023\n\n\nWeek 4\nResampling Methods\nCh. 5\nslidesbook lab\n- Video: Statistical Learning: 5.1 Cross Validation- Video: Statistical Learning: 5.2 K-fold Cross Validation- Video: Statistical Learning: 5.3 Cross Validation the wrong and right way- Video: Statistical Learning: 5.4 The Bootstrap- Video: Statistical Learning: 5.5 More on the Bootstrap- Video: Statistical Learning: 5.Py Cross-Validation I 2023- Video: Statistical Learning: 5.Py Bootstrap I 2023- Book Chapter: Modern Dive -Bootstrapping and Confidence Intervals\n\n\nWeek 5\nLinear Model Selection & Regularization\nCh. 6\nslidesbook lab\n- Video: Statistical Learning: 6.1 Introduction and Best Subset Selection- Video: Statistical Learning: 6.2 Stepwise Selection- Video: Statistical Learning: 6.3 Backward stepwise selection- Video: Statistical Learning: 6.4 Estimating test error- Video: Statistical Learning: 6.5 Validation and cross validation- Video: Statistical Learning: 6.6 Shrinkage methods and ridge regression- Video: Statistical Learning: 6.7 The Lasso- Video: Statistical Learning: 6.8 Tuning parameter selection- Video: Statistical Learning: 6.9 Dimension Reduction Methods- Video: Statistical Learning: 6.10 Principal Components Regression and Partial Least Squares- Video: Statistical Learning: 6.Py Stepwise Regression I 2023- Video: Statistical Learning: 6.Py Ridge Regression and the Lasso I 2023\n\n\nWeek 6\nBeyond Linearity\nCh. 7\nslidesbook lab\n- Video: Statistical Learning: 7.1 Polynomials and Step Functions- Video: Statistical Learning: 7.2 Piecewise Polynomials and Splines- Video: Statistical Learning: 7.3 Smoothing Splines- Video: Statistical Learning: 7.4 Generalized Additive Models and Local Regression- Video: Statistical Learning: 7.Py Polynomial Regressions and Step Functions I 2023- Video: Statistical Learning: 7.Py Splines I 2023- Video: Statistical Learning: 7.Py Generalized Additive Models (GAMs) I 2023\n\n\nWeek 7\nTree-Based Methods\nCh. 8\nslidesbook lab\n- Video: Statistical Learning: 8.1 Tree based methods- Video: Statistical Learning: 8.2 More details on Trees- Video: Statistical Learning: 8.3 Classification Trees- Video: Statistical Learning: 8.4 Bagging- Video: Statistical Learning: 8.5 Boosting- Video: Statistical Learning: 8.6 Bayesian Additive Regression Trees- Video: Statistical Learning: 8.Py Tree-Based Methods I 2023\n\n\nWeek 8\nSupport Vector Machines\nCh. 9\nslidesbook lab\n- Video: Statistical Learning: 9.1 Optimal Separating Hyperplane- Video: Statistical Learning: 9.2.Support Vector Classifier- Video: Statistical Learning: 9.3 Feature Expansion and the SVM- Video: Statistical Learning: 9.4 Example and Comparison with Logistic Regression- Video: Statistical Learning: 9.Py Support Vector Machines I 2023- Video: Statistical Learning: 9.Py ROC Curves I 2023\n\n\nWeek 09\nUnsupervised Learning\nCh. 12\nslides - TBPbook lab\n- Video: Statistical Learning: 12.1 Principal Components- Video: Statistical Learning: 12.2 Higher order principal components- Video: Statistical Learning: 12.3 k means Clustering- Video: Statistical Learning: 12.4 Hierarchical Clustering- Video: Statistical Learning: 12.5 Matrix Completion- Video: Statistical Learning: 12.6 Breast Cancer Example- Video: Statistical Learning: 12.Py Principal Components I 2023- Video: Statistical Learning: 12.Py Clustering I 2023- Video: Statistical Learning: 12.Py Application: NCI60 Data I 2023\n\n\nWeek 10\nFinal Project\n.\n.\n.\n\n\nWeek 11\nFinal Project\n.\n.\n.\n\n\nWeek 12\nFinal Project\n.\n.\n.\n\n\nWeek 13\nDeep Learning\nCh. 10\nslides - TBPbook lab\n- Video: Statistical Learning: 10.1 Introduction to Neural Networks- Video: Statistical Learning: 10.2 Convolutional Neural Networks- Video: Statistical Learning: 10.3 Document Classification- Video: Statistical Learning: 10.4 Recurrent Neural Networks- Video: Statistical Learning: 10.6 Fitting Neural Networks- Video: Statistical Learning: 10.7 Interpolation and Double Descent- Video: Statistical Learning: 10.Py Single Layer Model: Hitters Data I 2023- Video: Statistical Learning: 10.Py Multilayer Model: MNIST Digit Data I 2023- Video: Statistical Learning: 10.Py Convolutional Neural Network: CIFAR Image Data I 2023- Video: Statistical Learning: 10.Py Document Classification and Recurrent Neural Networks I 2023\n\n\nWeek 14\nDeep Learning\nCh. 10\n.\n.\n\n\nWeek 15\nDeep Learning\nCh. 10\n.\n.\n\n\n\n* The course slides and labs are based on the ISLP book, “An Introduction to Statistical Learning with Applications in Python” by James, G., Witten, D., Hastie, T., and Tibshirani, R., and have been adapted to suit the specific needs of our course.",
+    "text": "Week\nTopic\nReadings ISLP\nMaterial*\nSupplementary Materials\n\n\n\n\nWeek 1\nSyllabus, Logistics, and Introduction.\nCh. 1; Ch. 2;\nslidesbook lab\n- Video: Statistical Learning: 2.1 Introduction to Regression Models- Video: Statistical Learning: 2.2 Dimensionality and Structured Models- Video: Statistical Learning: 2.3 Model Selection and Bias Variance Tradeoff- Video: Statistical Learning: 2.4 Classification- Video: Statistical Learning: 2.Py Data Types, Arrays, and Basics - 2023- Video: Statistical Learning: 2.Py.3 Graphics - 2023- Video: Statistical Learning: 2.Py Indexing and Dataframes - 2023\n\n\nWeek 2\nLinear Regression\nCh. 3.\nslidesbook lab\n- Video: Statistical Learning: 3.1 Simple linear regression- Video: Statistical Learning: 3.2 Hypothesis Testing and Confidence Intervals- Video: Statistical Learning: 3.3 Multiple Linear Regression- Video: Statistical Learning: 3.4 Some important questions- Video: Statistical Learning: 3.5 Extensions of the Linear Model- Video: Statistical Learning: 3.Py Linear Regression and statsmodels Package - 2023- Video: Statistical Learning: 3.Py Multiple Linear Regression Package - 2023- Video: Statistical Learning: 3.Py Interactions, Qualitative Predictors and Other Details I 2023\n\n\nWeek 3\nClassification\nCh. 4\nslidesbook lab\n- Video: Statistical Learning: 4.1 Introduction to Classification Problems- Video: Statistical Learning: 4.2 Logistic Regression- Video: Statistical Learning: 4.3 Multivariate Logistic Regression- Video: Statistical Learning: 4.4 Logistic Regression Case Control Sampling and Multiclass- Video: Statistical Learning: 4.5 Discriminant Analysis- Video: Statistical Learning: 4.6 Gaussian Discriminant Analysis (One Variable)- Video: Statistical Learning: 4.7 Gaussian Discriminant Analysis (Many Variables)- Video: Statistical Learning: 4.8 Generalized Linear Models- Video: Statistical Learning: 4.9 Quadratic Discriminant Analysis and Naive Bayes- Video: Statistical Learning: 4.Py Logistic Regression I 2023- Video: Statistical Learning: 4.Py Linear Discriminant Analysis (LDA) I 2023- Video: Statistical Learning: 4.Py K-Nearest Neighbors (KNN) I 2023\n\n\nWeek 4\nResampling Methods\nCh. 5\nslidesbook lab\n- Video: Statistical Learning: 5.1 Cross Validation- Video: Statistical Learning: 5.2 K-fold Cross Validation- Video: Statistical Learning: 5.3 Cross Validation the wrong and right way- Video: Statistical Learning: 5.4 The Bootstrap- Video: Statistical Learning: 5.5 More on the Bootstrap- Video: Statistical Learning: 5.Py Cross-Validation I 2023- Video: Statistical Learning: 5.Py Bootstrap I 2023- Book Chapter: Modern Dive -Bootstrapping and Confidence Intervals\n\n\nWeek 5\nLinear Model Selection & Regularization\nCh. 6\nslidesbook lab\n- Video: Statistical Learning: 6.1 Introduction and Best Subset Selection- Video: Statistical Learning: 6.2 Stepwise Selection- Video: Statistical Learning: 6.3 Backward stepwise selection- Video: Statistical Learning: 6.4 Estimating test error- Video: Statistical Learning: 6.5 Validation and cross validation- Video: Statistical Learning: 6.6 Shrinkage methods and ridge regression- Video: Statistical Learning: 6.7 The Lasso- Video: Statistical Learning: 6.8 Tuning parameter selection- Video: Statistical Learning: 6.9 Dimension Reduction Methods- Video: Statistical Learning: 6.10 Principal Components Regression and Partial Least Squares- Video: Statistical Learning: 6.Py Stepwise Regression I 2023- Video: Statistical Learning: 6.Py Ridge Regression and the Lasso I 2023\n\n\nWeek 6\nBeyond Linearity\nCh. 7\nslidesbook lab\n- Video: Statistical Learning: 7.1 Polynomials and Step Functions- Video: Statistical Learning: 7.2 Piecewise Polynomials and Splines- Video: Statistical Learning: 7.3 Smoothing Splines- Video: Statistical Learning: 7.4 Generalized Additive Models and Local Regression- Video: Statistical Learning: 7.Py Polynomial Regressions and Step Functions I 2023- Video: Statistical Learning: 7.Py Splines I 2023- Video: Statistical Learning: 7.Py Generalized Additive Models (GAMs) I 2023\n\n\nWeek 7\nTree-Based Methods\nCh. 8\nslidesbook lab\n- Video: Statistical Learning: 8.1 Tree based methods- Video: Statistical Learning: 8.2 More details on Trees- Video: Statistical Learning: 8.3 Classification Trees- Video: Statistical Learning: 8.4 Bagging- Video: Statistical Learning: 8.5 Boosting- Video: Statistical Learning: 8.6 Bayesian Additive Regression Trees- Video: Statistical Learning: 8.Py Tree-Based Methods I 2023\n\n\nWeek 8\nSupport Vector Machines\nCh. 9\nslidesbook lab\n- Video: Statistical Learning: 9.1 Optimal Separating Hyperplane- Video: Statistical Learning: 9.2.Support Vector Classifier- Video: Statistical Learning: 9.3 Feature Expansion and the SVM- Video: Statistical Learning: 9.4 Example and Comparison with Logistic Regression- Video: Statistical Learning: 9.Py Support Vector Machines I 2023- Video: Statistical Learning: 9.Py ROC Curves I 2023\n\n\nWeek 09\nUnsupervised Learning\nCh. 12\nslidesbook lab\n- Video: Statistical Learning: 12.1 Principal Components- Video: Statistical Learning: 12.2 Higher order principal components- Video: Statistical Learning: 12.3 k means Clustering- Video: Statistical Learning: 12.4 Hierarchical Clustering- Video: Statistical Learning: 12.5 Matrix Completion- Video: Statistical Learning: 12.6 Breast Cancer Example- Video: Statistical Learning: 12.Py Principal Components I 2023- Video: Statistical Learning: 12.Py Clustering I 2023- Video: Statistical Learning: 12.Py Application: NCI60 Data I 2023\n\n\nWeek 10\nFinal Project\n.\n.\n.\n\n\nWeek 11\nFinal Project\n.\n.\n.\n\n\nWeek 12\nFinal Project\n.\n.\n.\n\n\nWeek 13\nDeep Learning\nCh. 10\nslides - TBPbook lab\n- Video: Statistical Learning: 10.1 Introduction to Neural Networks- Video: Statistical Learning: 10.2 Convolutional Neural Networks- Video: Statistical Learning: 10.3 Document Classification- Video: Statistical Learning: 10.4 Recurrent Neural Networks- Video: Statistical Learning: 10.6 Fitting Neural Networks- Video: Statistical Learning: 10.7 Interpolation and Double Descent- Video: Statistical Learning: 10.Py Single Layer Model: Hitters Data I 2023- Video: Statistical Learning: 10.Py Multilayer Model: MNIST Digit Data I 2023- Video: Statistical Learning: 10.Py Convolutional Neural Network: CIFAR Image Data I 2023- Video: Statistical Learning: 10.Py Document Classification and Recurrent Neural Networks I 2023\n\n\nWeek 14\nDeep Learning\nCh. 10\n.\n.\n\n\nWeek 15\nDeep Learning\nCh. 10\n.\n.\n\n\n\n* The course slides and labs are based on the ISLP book, “An Introduction to Statistical Learning with Applications in Python” by James, G., Witten, D., Hastie, T., and Tibshirani, R., and have been adapted to suit the specific needs of our course.",
     "crumbs": [
       "Schedule and Material"
     ]
@@ -4003,5 +4003,593 @@
     "title": " MGMT 47400: Predictive Analytics ",
     "section": "Smoothing Splines: LOOCV to Specify \\(\\lambda\\)",
     "text": "Smoothing Splines: LOOCV to Specify \\(\\lambda\\)\n\n\n\n\nWe can use Cross-validation to choose \\(\\lambda\\).\n\n\nFor each candidate \\(\\lambda\\), we leave out one data point at a time, fit the spline, and measure the prediction error on the held-out point.\n\n\nMathematical Form\n\n\n\\[\n     \\text{RSS}_{\\text{cv}}(\\lambda)\n       = \\sum_{i=1}^n \\left(y_i - \\hat{g}_\\lambda^{(-i)}(x_i)\\right)^2,\n\\]\n\n\nwhere \\(\\hat{g}_\\lambda^{(-i)}\\) denotes the spline fitted without the \\(i\\)-th data point.\nIn practice, this can be computed more efficiently via the influence matrix \\(\\mathbf{S}_\\lambda\\):\n\n\n\\[\n       \\text{RSS}_{\\text{cv}}(\\lambda)\n         = \\sum_{i=1}^n \\left[\\frac{y_i - \\hat{g}_\\lambda(x_i)}{1 - \\{\\mathbf{S}_\\lambda\\}_{ii}} \\right]^2.\n\\]\n\n\n\nAdvantages\n\n\nData-Driven: No need to guess \\(\\text{df}\\) or \\(\\lambda\\); we let cross-validation find the best trade-off.\nRobust: Tends to choose a value that generalizes well to new data.\n\n\nPractical Tip\n\n\nEvaluate \\(\\text{RSS}_{\\text{cv}}\\) for a grid of \\(\\lambda\\) values (e.g., \\(\\lambda \\in \\{0.01, 0.1, 1, 10\\}\\)) and pick the one that minimizes the cross-validation error."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#overview",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#overview",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\nUnsupervised Learning\nPrincipal Components Analysis\nMatrix Completion and Missing Values\n\n\n\nClustering\nK-means clustering\nHierarchical Clustering"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#unsupervised-learning",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#unsupervised-learning",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Unsupervised Learning",
+    "text": "Unsupervised Learning\nUnsupervised vs Supervised Learning:\n\nMost of this course focuses on supervised learning methods such as regression and classification.\nIn that setting we observe both a set of features \\(X_1, X_2, \\ldots, X_p\\) for each object, as well as a response or outcome variable \\(Y\\). The goal is then to predict \\(Y\\) using \\(X_1, X_2, \\ldots, X_p\\).\nHere we instead focus on unsupervised learning, where we observe only the features \\(X_1, X_2, \\ldots, X_p\\). We are not interested in prediction, because we do not have an associated response variable \\(Y\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#the-goals-of-unsupervised-learning",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#the-goals-of-unsupervised-learning",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "The Goals of Unsupervised Learning",
+    "text": "The Goals of Unsupervised Learning\n\nThe goal is to discover interesting things about the measurements: is there an informative way to visualize the data? Can we discover subgroups among the variables or among the observations?\nWe discuss two methods:\n\nprincipal components analysis, a tool used for data visualization or data pre-processing before supervised techniques are applied, and\nclustering, a broad class of methods for discovering unknown subgroups in data."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#the-challenge-of-unsupervised-learning",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#the-challenge-of-unsupervised-learning",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "The Challenge of Unsupervised Learning",
+    "text": "The Challenge of Unsupervised Learning\n\nUnsupervised learning is more subjective than supervised learning, as there is no simple goal for the analysis, such as prediction of a response.\nBut techniques for unsupervised learning are of growing importance in a number of fields:\n\nsubgroups of breast cancer patients grouped by their gene expression measurements,\ngroups of shoppers characterized by their browsing and purchase histories,\nmovies grouped by the ratings assigned by movie viewers."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-advantage",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-advantage",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Another advantage",
+    "text": "Another advantage\n\nIt is often easier to obtain unlabeled data — from a lab instrument or a computer — than labeled data, which can require human intervention.\nFor example, it is difficult to automatically assess the overall sentiment of a movie review: is it favorable or not?"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Principal Components Analysis",
+    "text": "Principal Components Analysis\n\nPCA produces a low-dimensional representation of a dataset. It finds a sequence of linear combinations of the variables that have maximal variance, and are mutually uncorrelated.\nApart from producing derived variables for use in supervised learning problems, PCA also serves as a tool for data visualization."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-details",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Principal Components Analysis: details",
+    "text": "Principal Components Analysis: details\n\n\nThe first principal component of a set of features \\(X_1, X_2, \\ldots, X_p\\) is the normalized linear combination of the features \\[\n  Z_1 = \\phi_{11}X_1 + \\phi_{21}X_2 + \\ldots + \\phi_{p1}X_p\n\\]\nHere:\n\n\\(Z_1\\) is the first principal component.\n\\(X_1, X_2, ..., X_p\\) are the original features (variables).\n\\(\\phi_{j1}\\) (where \\(j = 1, 2, \\dots, p\\)) are the loadings or weights assigned to each feature in the linear combination.\nThese weights determine how much each feature contributes to the principal component.\n\nThe loadings \\(\\phi_{11}, \\ldots, \\phi_{p1}\\) of the first principal component make up the principal component loading vector, \\[\n  \\phi_1 = (\\phi_{11}, \\phi_{21}, \\ldots, \\phi_{p1})^T.\n\\]\n\nBy normalized, we mean that \\(\\sum_{j=1}^p \\phi_{j1}^2 = 1\\). This ensures that the sum of squared weights equals 1, preventing any arbitrary scaling and ensuring the principal components remain standardized."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-example",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-example",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "PCA: example",
+    "text": "PCA: example\n\nThe population size (pop) and ad spending (ad) for 100 different cities are shown as purple circles. The green solid line indicates the first principal component direction, and the blue dashed line indicates the second principal component direction."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-of-principal-components",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-of-principal-components",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Computation of Principal Components",
+    "text": "Computation of Principal Components\n\nSuppose we have a \\(n \\times p\\) data set \\(\\mathbf{X}\\). Since we are only interested in variance, we assume that each of the variables in \\(\\mathbf{X}\\) has been centered to have mean zero (that is, the column means of \\(\\mathbf{X}\\) are zero).\nWe then look for the linear combination of the sample feature values of the form \\[\nz_{i1} = \\phi_{11}x_{i1} + \\phi_{21}x_{i2} + \\ldots + \\phi_{p1}x_{ip} \\tag{1}\n\\] for \\(i = 1, \\ldots, n\\) that has the largest sample variance, subject to the constraint that \\(\\sum_{j=1}^p \\phi_{j1}^2 = 1\\).\nSince each of the \\(x_{ij}\\) has mean zero, then so does \\(z_{i1}\\) (for any values of \\(\\phi_{j1}\\)). Hence the sample variance of the \\(z_{i1}\\) can be written as \\[\n  \\frac{1}{n} \\sum_{i=1}^n z_{i1}^2.\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-continued",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Computation: continued",
+    "text": "Computation: continued\n\nPlugging in (1) the first principal component loading vector solves the optimization problem\n\n\\[\n  \\text{maximize}_{\\phi_{11}, \\ldots, \\phi_{p1}} \\frac{1}{n} \\sum_{i=1}^n \\left( \\sum_{j=1}^p \\phi_{j1} x_{ij} \\right)^2 \\quad \\text{subject to} \\quad \\sum_{j=1}^p \\phi_{j1}^2 = 1.\n\\]\n\nThis problem can be solved via a singular-value decomposition of the matrix \\(\\mathbf{X}\\), a standard technique in linear algebra.\nWe refer to \\(Z_1\\) as the first principal component, with realized values \\(z_{11}, \\ldots, z_{n1}\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#geometry-of-pca",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#geometry-of-pca",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Geometry of PCA",
+    "text": "Geometry of PCA\n\nThe loading vector \\(\\phi_1\\) with elements \\(\\phi_{11}, \\phi_{21}, \\ldots, \\phi_{p1}\\) defines a direction in feature space along which the data vary the most.\nIf we project the \\(n\\) data points \\(x_1, \\ldots, x_n\\) onto this direction, the projected values are the principal component scores \\(z_{11}, \\ldots, z_{n1}\\) themselves."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Further principal components",
+    "text": "Further principal components\n\nThe second principal component is the linear combination of \\(X_1, \\ldots, X_p\\) that has maximal variance among all linear combinations that are uncorrelated with \\(Z_1\\).\nThe second principal component scores \\(z_{12}, z_{22}, \\ldots, z_{n2}\\) take the form \\[\n  z_{i2} = \\phi_{12}x_{i1} + \\phi_{22}x_{i2} + \\ldots + \\phi_{p2}x_{ip},\n\\] where \\(\\phi_2\\) is the second principal component loading vector, with elements \\(\\phi_{12}, \\phi_{22}, \\ldots, \\phi_{p2}\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components-continued",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Further principal components: continued",
+    "text": "Further principal components: continued\n\nIt turns out that constraining \\(Z_2\\) to be uncorrelated with \\(Z_1\\) is equivalent to constraining the direction \\(\\phi_2\\) to be orthogonal (perpendicular) to the direction \\(\\phi_1\\). And so on.\nThe principal component directions \\(\\phi_1, \\phi_2, \\phi_3, \\ldots\\) are the ordered sequence of right singular vectors of the matrix \\(\\mathbf{X}\\), and the variances of the components are \\(\\frac{1}{n}\\) times the squares of the singular values. There are at most \\(\\min(n - 1, p)\\) principal components."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#illustration",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#illustration",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Illustration",
+    "text": "Illustration\n\nUSArrests data: For each of the fifty states in the United States, the data set contains the number of arrests per 100,000 residents for each of three crimes: Assault, Murder, and Rape. We also record UrbanPop (the percent of the population in each state living in urban areas).\nThe principal component score vectors have length \\(n = 50\\), and the principal component loading vectors have length \\(p = 4\\).\nPCA was performed after standardizing each variable to have mean zero and standard deviation one."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#usarrests-data-pca-plot",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#usarrests-data-pca-plot",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "USArrests data: PCA plot",
+    "text": "USArrests data: PCA plot\n\nThe PCA plot shows the first and second principal components for the USArrests dataset, with arrows indicating the loadings for the variables UrbanPop, Rape, Assault, and Murder. State names are displayed based on their principal component scores."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#figure-details",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#figure-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Figure details",
+    "text": "Figure details"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-loadings",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-loadings",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "PCA loadings",
+    "text": "PCA loadings\n\n\n\n\nPC1\nPC2\n\n\n\n\nMurder\n0.5358995\n-0.4181809\n\n\nAssault\n0.5831836\n-0.1879856\n\n\nUrbanPop\n0.2781909\n0.8728062\n\n\nRape\n0.5434321\n0.1673186"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-interpretation-of-principal-components",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-interpretation-of-principal-components",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Another Interpretation of Principal Components",
+    "text": "Another Interpretation of Principal Components\n\nThe left plot shows a 3D visualization with projections onto the first two principal components, while the right plot displays the data in 2D using the first and second principal components."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-find-the-hyperplane-closest-to-the-observations",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-find-the-hyperplane-closest-to-the-observations",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "PCA find the hyperplane closest to the observations",
+    "text": "PCA find the hyperplane closest to the observations\n\nThe first principal component loading vector has a very special property: it defines the line in \\(p\\)-dimensional space that is closest to the \\(n\\) observations (using average squared Euclidean distance as a measure of closeness).\nThe notion of principal components as the dimensions that are closest to the \\(n\\) observations extends beyond just the first principal component.\nFor instance, the first two principal components of a data set span the plane that is closest to the \\(n\\) observations, in terms of average squared Euclidean distance."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#scaling-of-the-variables-matters",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#scaling-of-the-variables-matters",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Scaling of the variables matters",
+    "text": "Scaling of the variables matters\n\nIf the variables are in different units, scaling each to have standard deviation equal to one is recommended.\nIf they are in the same units, you might or might not scale the variables."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Proportion Variance Explained",
+    "text": "Proportion Variance Explained\n\nTo understand the strength of each component, we are interested in knowing the proportion of variance explained (PVE) by each one.\nThe total variance present in a data set (assuming that the variables have been centered to have mean zero) is defined as\n\n\\[\n  \\sum_{j=1}^p \\text{Var}(X_j) = \\sum_{j=1}^p \\frac{1}{n} \\sum_{i=1}^n x_{ij}^2,\n\\]\nand the variance explained by the \\(m\\)-th principal component is\n\\[\n  \\text{Var}(Z_m) = \\frac{1}{n} \\sum_{i=1}^n z_{im}^2.\n\\]\n\nIt can be shown that\n\n\\[\n  \\sum_{j=1}^p \\text{Var}(X_j) = \\sum_{m=1}^M \\text{Var}(Z_m),\n\\]\nwith \\(M = \\min(n-1, p)\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-continued",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Proportion Variance Explained: continued",
+    "text": "Proportion Variance Explained: continued\n\nTherefore, the PVE of the \\(m\\)-th principal component is given by the positive quantity between 0 and 1:\n\n\\[\n  \\frac{\\sum_{i=1}^n z_{im}^2}{\\sum_{j=1}^p \\sum_{i=1}^n x_{ij}^2}.\n\\]\n\nThe PVEs sum to one. We sometimes display the cumulative PVEs."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#how-many-principal-components-should-we-use",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#how-many-principal-components-should-we-use",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "How many principal components should we use?",
+    "text": "How many principal components should we use?\nIf we use principal components as a summary of our data, how many components are sufficient?\n\nThere is no simple answer to this question as the response will be conditioned on the data.\nThe “scree plot” on the previous slide can be used as a guide: we look for an “elbow”.\n\nEssentially, this means that we can determine the optimal number of principal components by identifying the point where the marginal gain in the Proportion of Variance Explained (PVE) becomes negligible as additional components are added."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Clustering",
+    "text": "Clustering\n\nClustering refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.\nWe seek a partition of the data into distinct groups so that the observations within each group are quite similar to each other.\nTo make this concrete, we must define what it means for two or more observations to be similar or different.\nIndeed, this is often a domain-specific consideration that must be made based on knowledge of the data being studied."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-vs-clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#pca-vs-clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "PCA vs Clustering",
+    "text": "PCA vs Clustering\n\nPCA looks for a low-dimensional representation of the observations that explains a good fraction of the variance.\nClustering looks for homogeneous subgroups among the observations."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering-for-market-segmentation",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering-for-market-segmentation",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Clustering for Market Segmentation",
+    "text": "Clustering for Market Segmentation\n\nSuppose we have access to a large number of measurements (e.g., median household income, occupation, distance from nearest urban area, and so forth) for a large number of people.\nOur goal is to perform market segmentation by identifying subgroups of people who might be more receptive to a particular form of advertising, or more likely to purchase a particular product.\nThe task of performing market segmentation amounts to clustering the people in the data set."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#two-clustering-methods",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#two-clustering-methods",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Two clustering methods",
+    "text": "Two clustering methods\n\nIn K-means clustering, we seek to partition the observations into a pre-specified number of clusters.\nIn hierarchical clustering, we do not know in advance how many clusters we want; in fact, we end up with a tree-like visual representation of the observations, called a dendrogram, that allows us to view at once the clusterings obtained for each possible number of clusters, from 1 to \\(n\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\nA simulated data set with 150 observations in 2-dimensional space. Panels show the results of applying K-means clustering with different values of \\(K\\), the number of clusters. The color of each observation indicates the cluster to which it was assigned using the K-means clustering algorithm. Note that there is no ordering of the clusters, so the cluster coloring is arbitrary. These cluster labels were not used in clustering; instead, they are the outputs of the clustering procedure."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-k-means-clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-k-means-clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details of K-means clustering",
+    "text": "Details of K-means clustering\nLet \\(C_1, \\ldots, C_K\\) denote sets containing the indices of the observations in each cluster. These sets satisfy two properties:\n\n\\(C_1 \\cup C_2 \\cup \\ldots \\cup C_K = \\{1, \\ldots, n\\}\\). In other words, each observation belongs to at least one of the \\(K\\) clusters.\n\\(C_k \\cap C_{k'} = \\emptyset\\) for all \\(k \\neq k'\\). In other words, the clusters are non-overlapping: no observation belongs to more than one cluster.\n\nFor instance, if the \\(i\\)-th observation is in the \\(k\\)-th cluster, then \\(i \\in C_k\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-k-means-clustering-continued",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-k-means-clustering-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details of K-means clustering: continued",
+    "text": "Details of K-means clustering: continued\n\nThe idea behind K-means clustering is that a good clustering is one for which the within-cluster variation is as small as possible.\nThe within-cluster variation for cluster \\(C_k\\) is a measure \\(\\text{WCV}(C_k)\\) of the amount by which the observations within a cluster differ from each other.\nHence, we want to solve the problem:\n\n\\[\n  \\text{minimize}_{C_1, \\ldots, C_K} \\left\\{ \\sum_{k=1}^K \\text{WCV}(C_k) \\right\\}.\n\\]\n\nIn words, this formula says that we want to partition the observations into \\(K\\) clusters such that the total within-cluster variation, summed over all \\(K\\) clusters, is as small as possible."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#how-to-define-within-cluster-variation",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#how-to-define-within-cluster-variation",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "How to Define Within-Cluster Variation?",
+    "text": "How to Define Within-Cluster Variation?\n\nTypically, we use Euclidean distance: \\[\n  \\text{WCV}(C_k) = \\frac{1}{|C_k|} \\sum_{i,i' \\in C_k} \\sum_{j=1}^p (x_{ij} - x_{i'j})^2, \\tag{3}\n\\] where \\(|C_k|\\) denotes the number of observations in the \\(k\\)-th cluster.\nCombining (2) and (3) gives the optimization problem that defines K-means clustering: \\[\n  \\text{minimize}_{C_1, \\ldots, C_K} \\left\\{ \\sum_{k=1}^K \\frac{1}{|C_k|} \\sum_{i,i' \\in C_k} \\sum_{j=1}^p (x_{ij} - x_{i'j})^2 \\right\\}. \\tag{4}\n\\]"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-algorithm",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-algorithm",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "K-Means Clustering Algorithm",
+    "text": "K-Means Clustering Algorithm\n\nRandomly assign a number, from 1 to \\(K\\), to each of the observations. These serve as initial cluster assignments for the observations.\nIterate until the cluster assignments stop changing:\n2.a For each of the \\(K\\) clusters, compute the cluster centroid. The \\(k\\)-th cluster centroid is the vector of the \\(p\\) feature means for the observations in the \\(k\\)-th cluster.\n2.b Assign each observation to the cluster whose centroid is closest (where closest is defined using Euclidean distance)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#properties-of-the-algorithm",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#properties-of-the-algorithm",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Properties of the Algorithm",
+    "text": "Properties of the Algorithm\n\nThis algorithm is guaranteed to decrease the value of the objective function (4) at each step. Why?\nNote that \\[\n\\frac{1}{|C_k|} \\sum_{i,i' \\in C_k} \\sum_{j=1}^p (x_{ij} - x_{i'j})^2 = 2 \\sum_{i \\in C_k} \\sum_{j=1}^p (x_{ij} - \\bar{x}_{kj})^2,\n\\] where \\(\\bar{x}_{kj} = \\frac{1}{|C_k|} \\sum_{i \\in C_k} x_{ij}\\) is the mean for feature \\(j\\) in cluster \\(C_k\\).\nHowever, it is not guaranteed to give the global minimum."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details of Previous Figure",
+    "text": "Details of Previous Figure\n\nTop left: The observations are shown.\nTop center: In Step 1 of the algorithm, each observation is randomly assigned to a cluster.\nTop right: In Step 2(a), the cluster centroids are computed. These are shown as large colored disks. Initially, the centroids are almost completely overlapping because the initial cluster assignments were chosen at random.\nBottom left: In Step 2(b), each observation is assigned to the nearest centroid.\nBottom center: Step 2(a) is once again performed, leading to new cluster centroids.\nBottom right: The results obtained after 10 iterations."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-different-starting-values",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-different-starting-values",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: Different Starting Values",
+    "text": "Example: Different Starting Values"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details of Previous Figure",
+    "text": "Details of Previous Figure\n\nK-means clustering was performed six times on the data from the previous figure with \\(K = 3\\), each time with a different random assignment of the observations in Step 1 of the K-means algorithm.\nAbove each plot is the value of the objective (4).\nThree different local optima were obtained, one of which resulted in a smaller value of the objective and provides better separation between the clusters.\nThose labeled in red all achieved the same best solution, with an objective value of 235.8."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering",
+    "text": "Hierarchical Clustering\n\nK-means clustering requires us to pre-specify the number of clusters \\(K\\). This can be a disadvantage (later we discuss strategies for choosing \\(K\\)).\nHierarchical clustering is an alternative approach which does not require that we commit to a particular choice of \\(K\\).\nIn this section, we describe bottom-up or agglomerative clustering. This is the most common type of hierarchical clustering and refers to the fact that a dendrogram is built starting from the leaves and combining clusters up to the trunk."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea",
+    "text": "Hierarchical Clustering: The Idea\nBuilds a hierarchy in a “bottom-up” fashion…\nStep 1"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-2",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Step 2)",
+    "text": "Hierarchical Clustering: The Idea (Step 2)\nMerging Closest Observations"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-3",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-3",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Step 3)",
+    "text": "Hierarchical Clustering: The Idea (Step 3)\nMerging Another Closest Pair"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-4",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-4",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Step 4)",
+    "text": "Hierarchical Clustering: The Idea (Step 4)\nExpanding the Hierarchy"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-final-step",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-final-step",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Final Step)",
+    "text": "Hierarchical Clustering: The Idea (Final Step)\nSingle Cluster Representation"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-algorithm",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-algorithm",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering Algorithm",
+    "text": "Hierarchical Clustering Algorithm\n\nThe approach in words:\n\nStart with each point in its own cluster.\nIdentify the closest two clusters and merge them.\nRepeat.\nEnds when all points are in a single cluster."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#an-example",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#an-example",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "An Example",
+    "text": "An Example\n\n\n45 observations generated in 2-dimensional space.\nIn reality, there are three distinct classes, shown in separate colors.\nHowever, we will treat these class labels as unknown and will seek to cluster the observations in order to discover the classes from the data."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#application-of-hierarchical-clustering",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#application-of-hierarchical-clustering",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Application of Hierarchical Clustering",
+    "text": "Application of Hierarchical Clustering\n\n\n\n\n\n\n\n\n\n\n\n\n\nEach dendrogram represents different thresholds for determining clusters. The dashed horizontal lines indicate where the data is split into distinct clusters.\nLeft: Dendrogram obtained from hierarchically clustering the data from the previous slide, using complete linkage and Euclidean distance. The entire tree is one cluster.\n\n\n\nCenter: The dendrogram in the center panel, cut at a height of 9 (indicated by the dashed line). This cut results in two distinct clusters, shown in different colors.\nRight: The dendrogram from the left-hand panel, now cut at a height of 5. This cut results in three distinct clusters, shown in different colors. Note that the colors were not used in clustering, but are simply used for display purposes in this figure."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure-2",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#details-of-previous-figure-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Details of Previous Figure",
+    "text": "Details of Previous Figure\n\nLeft: Dendrogram obtained from hierarchically clustering the data from the previous slide, using complete linkage and Euclidean distance.\nCenter: The dendrogram from the left-hand panel, cut at a height of 9 (indicated by the dashed line). This cut results in two distinct clusters, shown in different colors.\nRight: The dendrogram from the left-hand panel, now cut at a height of 5. This cut results in three distinct clusters, shown in different colors. Note that the colors were not used in clustering, but are simply used for display purposes in this figure."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#types-of-linkage",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#types-of-linkage",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Types of Linkage",
+    "text": "Types of Linkage\n\nLinkage methods determine how the distance between two clusters is measured when forming a hierarchical clustering dendrogram.\n\n\n\n\n\n\n\nLinkage\nDescription\n\n\n\n\nComplete\nComputes the maximum pairwise dissimilarity between clusters. This method tends to create compact clusters but is sensitive to outliers.\n\n\nSingle\nComputes the minimum pairwise dissimilarity between clusters. It can lead to elongated, chain-like clusters and is sensitive to noise.\n\n\nAverage\nComputes the average pairwise dissimilarity between clusters. It provides a balance between complete and single linkage, making it widely used.\n\n\nCentroid\nComputes the dissimilarity between centroids (mean vectors) of clusters. However, it may cause inversions, where clusters are not merged in a monotonic order - a situation where a pair of clusters are merged in a non-monotonic way, meaning that the hierarchical structure does not maintain a proper increasing order of distances."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#choice-of-dissimilarity-measure",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#choice-of-dissimilarity-measure",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Choice of Dissimilarity Measure",
+    "text": "Choice of Dissimilarity Measure\n\n\n\n\nSo far, we have used Euclidean distance to defince the clusters.\nAn alternative is correlation-based distance, which considers two observations to be similar if their features are highly correlated.\nThis is an unusual use of correlation, which is normally computed between variables; here, it is computed between the observation profiles for each pair of observations.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThe figure shows a sequence of points over time for 3 different observations. Each curve represents one such series, and the goal is to assess how similar the patterns are across these series.\nIf we use Euclidean distance, we compare observations based on their absolute coordinates. Here, the purple and gold observations are numerically closer together, while the green observation is farther apart from both.\nHowever, if we use correlation-based distance, we look at how the values fluctuate over the index rather than their absolute differences. In this case, the green and gold series exhibit similar trends, moving up and down together, making them more correlated than the purple and green observations.\nThe key idea is that correlation focuses on shape rather than scale. If your problem requires detecting similar trends and patterns rather than absolute differences in values, correlation-based distance is a better choice than Euclidean distance."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#practical-issues",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#practical-issues",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Practical Issues",
+    "text": "Practical Issues\n\nScaling of the variables matters! Should the observations or features first be standardized in some way?\n\nFor instance, maybe the variables should be centered to have mean zero and scaled to have a standard deviation of one.\n\nIn the case of hierarchical clustering:\n\nWhat dissimilarity measure should be used?\nWhat type of linkage should be used?\n\nHow many clusters to choose? (in both K-means or hierarchical clustering):\n\nDifficult problem. No agreed-upon method. See Elements of Statistical Learning, Chapter 13, for more details.\n\nWhich features should we use to drive the clustering?"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-breast-cancer-microarray-study",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-breast-cancer-microarray-study",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: Breast Cancer Microarray Study",
+    "text": "Example: Breast Cancer Microarray Study\n\n“Repeated observation of breast tumor subtypes in independent gene expression data sets;” Sorlie et al., PNAS 2003.\nGene expression measurements for approximately ~8000 genes, for each of 88 breast cancer patients.\nAverage linkage, correlation metric.\nClustered samples using 500 intrinsic genes:\n\nEach woman was measured before and after chemotherapy.\nIntrinsic genes have the smallest within/between variation."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#conclusions",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#conclusions",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nUnsupervised learning is important for understanding the variation and grouping structure of a set of unlabeled data, and can be a useful pre-processor for supervised learning.\nIt is intrinsically more difficult than supervised learning because there is no gold standard (like an outcome variable) and no single objective (like test set accuracy).\nIt is an active field of research, with many recently developed tools such as self-organizing maps, independent components analysis, and spectral clustering.\nSee The Elements of Statistical Learning, chapter 14."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-completion-and-missing-values-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-completion-and-missing-values-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Matrix Completion and Missing Values",
+    "text": "Matrix Completion and Missing Values\n\nIt is often the case that data matrices X have missing entries, often represented by NAs (Not Available).\nThis is a nuisance, since many of our modeling procedures, such as linear regression and GLMs, require complete data.\nSometimes imputation is the prediction problem! — as in recommender systems.\nOne simple approach is mean imputation — replace missing values for a variable by the mean of the non-missing entries.\n\nThis ignores the correlations among variables; we should be able to exploit these correlations when imputing missing values.\n\nWe assume values are missing at random; i.e., the missingness should not be informative.\nLet’s see an imputation approach based on principal components."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#recommender-systems",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#recommender-systems",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Recommender Systems",
+    "text": "Recommender Systems\n\n\n\n\n\n\n\n\n\n\n\nNetflix users rate movies they have seen, usually a very small fraction of available movies.\nThe Netflix Competition data set had 400,000 users and over 18,000 movies. Only 2% of the matrix had numbers in it and the rest were missing.\nPredicting missing ratings provides a way to recommend movies to users. Matrix completion is one of the primary tools."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#recommender-systems-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#recommender-systems-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Recommender Systems",
+    "text": "Recommender Systems\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nCustomer\nJerry Maguire\nOceans\nRoad to Perdition\nA Fortunate Man\nCatch Me If You Can\nDriving Miss Daisy\nThe Two Popes\nThe Laundromat\nCode 8\nThe Social Network\n…\n\n\n\n\nCustomer 1\n.\n.\n.\n.\n.\n.\n.\n4\n.\n.\n…\n\n\nCustomer 2\n.\n3\n.\n.\n.\n.\n.\n3\n.\n3\n…\n\n\nCustomer 3\n.\n.\n.\n2\n4\n.\n.\n.\n.\n.\n…\n\n\nCustomer 4\n3\n.\n.\n.\n.\n2\n.\n.\n.\n.\n…\n\n\nCustomer 5\n5\n1\n.\n.\n4\n.\n.\n.\n.\n.\n…\n\n\nCustomer 6\n.\n.\n.\n2\n.\n.\n4\n.\n.\n.\n…\n\n\nCustomer 7\n.\n.\n.\n.\n5\n.\n.\n.\n3\n.\n…\n\n\nCustomer 8\n.\n.\n.\n.\n.\n.\n.\n.\n.\n.\n…\n\n\nCustomer 9\n3\n.\n.\n.\n.\n.\n.\n5\n.\n1\n…\n\n\n…\n…\n…\n…\n…\n…\n…\n…\n…\n…\n…\n…\n\n\n\n\nNetflix users rate movies they have seen, usually a very small fraction of available movies.\nPredicting missing ratings provides a way to recommend movies to users. Matrix completion is one of the primary tools."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-approximation-via-principal-components",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-approximation-via-principal-components",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Matrix Approximation via Principal Components",
+    "text": "Matrix Approximation via Principal Components\n\nIt is possible to have an interpretation of principal components in terms of matrix approximation: \\[\n\\text{minimize}_{\\mathbf{A} \\in \\mathbb{R}^{n \\times M}, \\mathbf{B} \\in \\mathbb{R}^{p \\times M}} \\left\\{ \\sum_{j=1}^p \\sum_{i=1}^n \\left( x_{ij} - \\sum_{m=1}^M a_{im}b_{jm} \\right)^2 \\right\\}.\n\\]\n\\(\\mathbf{A}\\) is an \\(n \\times M\\) matrix whose \\((i, m)\\) element is \\(a_{im}\\), and \\(\\mathbf{B}\\) is a \\(p \\times M\\) matrix whose \\((j, m)\\) element is \\(b_{jm}\\).\nIt can be shown that for any value of \\(M\\), the first \\(M\\) principal components provide a solution: \\[\n\\hat{a}_{im} = z_{im} \\quad \\text{and} \\quad \\hat{b}_{jm} = \\phi_{jm}.\n\\]\nBut what to do if the matrix has missing elements?"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-completion-via-principal-components",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#matrix-completion-via-principal-components",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Matrix Completion via Principal Components",
+    "text": "Matrix Completion via Principal Components\nWe pose instead a modified version of the approximation criterion: \\[\n\\text{minimize}_{\\mathbf{A} \\in \\mathbb{R}^{n \\times M}, \\mathbf{B} \\in \\mathbb{R}^{p \\times M}} \\left\\{ \\sum_{(i,j) \\in \\mathcal{O}} \\left( x_{ij} - \\sum_{m=1}^M a_{im}b_{jm} \\right)^2 \\right\\},\n\\] where \\(\\mathcal{O}\\) is the set of all observed pairs of indices \\((i, j)\\), a subset of the possible \\(n \\times p\\) pairs.\n\nOnce we solve this problem:\n\nWe can estimate a missing observation \\(x_{ij}\\) using: \\[\n\\hat{x}_{ij} = \\sum_{m=1}^M \\hat{a}_{im}\\hat{b}_{jm},\n\\] where \\(\\hat{a}_{im}\\) and \\(\\hat{b}_{jm}\\) are the \\((i,m)\\) and \\((j,m)\\) elements of the solution matrices \\(\\mathbf{\\hat{A}}\\) and \\(\\mathbf{\\hat{B}}\\).\nWe can (approximately) recover the \\(M\\) principal component scores and loadings, as if data were complete."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#iterative-algorithm-for-matrix-completion",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#iterative-algorithm-for-matrix-completion",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Iterative Algorithm for Matrix Completion",
+    "text": "Iterative Algorithm for Matrix Completion\n\n\n\n\nInitialize: create a complete data matrix \\(\\tilde{\\mathbf{X}}\\) by filling in the missing values using mean imputation.\nRepeat: steps (a)–(c) until the objective in (c) fails to decrease:\n\n\n\\[\n\\text{minimize}_{\\mathbf{A} \\in \\mathbb{R}^{n \\times M}, \\mathbf{B} \\in \\mathbb{R}^{p \\times M}} \\left\\{ \\sum_{j=1}^p \\sum_{i=1}^n \\left( \\tilde{x}_{ij} - \\sum_{m=1}^M a_{im}b_{jm} \\right)^2 \\right\\},\n\\] by computing the principal components of \\(\\tilde{\\mathbf{X}}\\).\n\n\n\nFor each missing entry \\((i, j) \\notin \\mathcal{O}\\), set: \\[\n\\tilde{x}_{ij} \\leftarrow \\sum_{m=1}^M \\hat{a}_{im} \\hat{b}_{jm}.\n\\]\nCompute the objective: \\[\n\\sum_{(i,j) \\in \\mathcal{O}} \\left( x_{ij} - \\sum_{m=1}^M \\hat{a}_{im} \\hat{b}_{jm} \\right)^2.\n\\]\n\n\nReturn the estimated missing entries \\(\\tilde{x}_{ij}\\), \\((i, j) \\notin \\mathcal{O}\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-usaarrests-data",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-usaarrests-data",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: USAarrests Data",
+    "text": "Example: USAarrests Data\n\n\n\n\n\n\n\n\n\n\n\n\nHere \\(\\mathbf{X}\\) has 50 rows (states) and four columns: Murder, Assault, Rape, and UrbanPop.\n\nWe selected 20 states at random, and for each, we selected one of the variables at random, and set its value to NA.\nUsed \\(M = 1\\) principal component in the algorithm.\nCorrelation: 0.63 between original and imputed values."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-continued",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-continued",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example — Continued",
+    "text": "Example — Continued\n\nThe USAarrests data has only four variables, which is on the low end for this method to work well. For this reason, for this demonstration we randomly set at most one variable per state to be missing and only used \\(M = 1\\) principal component.\nIn general, in order to apply this algorithm, we must select \\(M\\), the number of principal components to use for the imputation.\nOne approach is to randomly set to NA some elements that were actually observed, and select \\(M\\) based on how well those known values are recovered. This is closely related to the validation-set approach seen in Chapter 5.\nsoftImpute package in R implements matrix completion algorithms and can manage Netflix-scale matrices."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#summary",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#summary",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\n\nXXXX\n\n\n\n\n\nXXXX"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#unsupervised-vs-supervised-learning",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#unsupervised-vs-supervised-learning",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Unsupervised vs Supervised Learning",
+    "text": "Unsupervised vs Supervised Learning\n\nMost of this course focuses on supervised learning methods such as regression and classification.\nIn that setting we observe both a set of features \\(X_1, X_2, \\ldots, X_p\\) for each object, as well as a response or outcome variable \\(Y\\). The goal is then to predict \\(Y\\) using \\(X_1, X_2, \\ldots, X_p\\).\nHere we instead focus on unsupervised learning, where we observe only the features \\(X_1, X_2, \\ldots, X_p\\). We are not interested in prediction, because we do not have an associated response variable \\(Y\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Principal Components Analysis",
+    "text": "Principal Components Analysis\n\nPCA produces a low-dimensional representation of a dataset. It finds a sequence of linear combinations of the variables that have maximal variance, and are mutually uncorrelated.\nApart from producing derived variables for use in supervised learning problems, PCA also serves as a tool for data visualization."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-of-principal-components-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#computation-of-principal-components-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Computation of Principal Components",
+    "text": "Computation of Principal Components\n\nPlugging in (1) the first principal component loading vector solves the optimization problem \\[\n  \\text{maximize}_{\\phi_{11}, \\ldots, \\phi_{p1}} \\frac{1}{n} \\sum_{i=1}^n \\left( \\sum_{j=1}^p \\phi_{j1} x_{ij} \\right)^2 \\quad \\text{subject to} \\quad \\sum_{j=1}^p \\phi_{j1}^2 = 1.\n\\]\nThis problem can be solved via a singular-value decomposition of the matrix \\(\\mathbf{X}\\), a standard technique in linear algebra.\nWe refer to \\(Z_1\\) as the first principal component, with realized values \\(z_{11}, \\ldots, z_{n1}\\). And \\(Z_1\\) can be assumed as a new predictor to use, with values for each of the \\(n\\) observations in the dataset."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#further-principal-components-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Further principal components",
+    "text": "Further principal components\n\nIt turns out that constraining \\(Z_2\\) to be uncorrelated with \\(Z_1\\) is equivalent to constraining the direction \\(\\phi_2\\) to be orthogonal (perpendicular) to the direction \\(\\phi_1\\). And so on.\nThe principal component directions \\(\\phi_1, \\phi_2, \\phi_3, \\ldots\\) are the ordered sequence of right singular vectors of the matrix \\(\\mathbf{X}\\), and the variances of the components are \\(\\frac{1}{n}\\) times the squares of the singular values. There are at most \\(\\min(n - 1, p)\\) principal components."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-example-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-example-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Principal Components Analysis: Example",
+    "text": "Principal Components Analysis: Example\n\nUSArrests data: For each of the fifty states in the United States, the data set contains the number of arrests per 100,000 residents for each of three crimes: Assault, Murder, and Rape. We also record UrbanPop (the percent of the population in each state living in urban areas).\nThe principal component score vectors have length \\(n = 50\\), and the principal component loading vectors have length \\(p = 4\\).\nPCA was performed after standardizing each variable to have mean zero and standard deviation one."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-example-2",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#principal-components-analysis-example-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Principal Components Analysis: Example",
+    "text": "Principal Components Analysis: Example\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nThis figure is known as a biplot, because it displays both the principal component scores and the principal component loadings.\nThe PCA plot shows the first and second principal components for the USArrests dataset, with arrows indicating the loadings for the variables UrbanPop, Rape, Assault, and Murder. State names are displayed based on their principal component scores.\nThe blue state names represent the scores for the first two principal components.\nThe orange arrows indicate the first two principal component loading vectors (with axes on the top and right). For example, the loading for Rape on the first component is 0.54, and its loading on the second principal component is 0.17 [the word Rape is centered at the point (0.54, 0.17)].\nWe can conclude that the First Principal Component (PC1) primarily captures violence, as all three crime-related variables appear on the right side of the plot. Meanwhile, the Second Principal Component (PC2) appears to represent the share of the urban population, as this variable is positioned at the top of the plot."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-interpretation-of-principal-components-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#another-interpretation-of-principal-components-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Another Interpretation of Principal Components",
+    "text": "Another Interpretation of Principal Components\n\nThese two plots are equivalent. The left plot shows a 3D visualization with projections onto the first two principal components, while the right plot displays the data in 2D using the first and second principal components."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#scaling-of-the-variables-matters-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#scaling-of-the-variables-matters-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Scaling of the variables matters",
+    "text": "Scaling of the variables matters\n\nIf the variables are in different units, scaling each to have standard deviation equal to one is recommended.\nIf they are in the same units, you might or might not scale the variables."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Proportion Variance Explained",
+    "text": "Proportion Variance Explained\n\n\nTo understand the strength of each component, we are interested in knowing the proportion of variance explained (PVE) by each one.\nThe total variance present in a data set (assuming that the variables have been centered to have mean zero) is defined as \\[\n  \\sum_{j=1}^p \\text{Var}(X_j) = \\sum_{j=1}^p \\frac{1}{n} \\sum_{i=1}^n x_{ij}^2,\n\\] and the variance explained by the \\(m\\)-th principal component is \\[\n  \\text{Var}(Z_m) = \\frac{1}{n} \\sum_{i=1}^n z_{im}^2.\n\\]\nIt can be shown that \\[\n  \\sum_{j=1}^p \\text{Var}(X_j) = \\sum_{m=1}^M \\text{Var}(Z_m),\n\\] with \\(M = \\min(n-1, p)\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-2",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#proportion-variance-explained-2",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Proportion Variance Explained",
+    "text": "Proportion Variance Explained\n\n\nTherefore, the PVE of the \\(m\\)-th principal component is given by the positive quantity between 0 and 1: \\[\n  \\frac{\\sum_{i=1}^n z_{im}^2}{\\sum_{j=1}^p \\sum_{i=1}^n x_{ij}^2}.\n\\]\nThe PVEs sum to one. We sometimes display the cumulative PVEs."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#clustering-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Clustering",
+    "text": "Clustering\n\nClustering refers to a very broad set of techniques for finding subgroups, or clusters, in a data set.\nWe seek a partition of the data into distinct groups so that the observations within each group are quite similar to each other.\nTo make this concrete, we must define what it means for two or more observations to be similar or different.\nIndeed, this is often a domain-specific consideration that must be made based on knowledge of the data being studied."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#application-clustering-for-market-segmentation",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#application-clustering-for-market-segmentation",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Application: Clustering for Market Segmentation",
+    "text": "Application: Clustering for Market Segmentation\n\nSuppose we have access to a large number of measurements (e.g., median household income, occupation, distance from nearest urban area, and so forth) for a large number of people.\nOur goal is to perform market segmentation by identifying subgroups of people who might be more receptive to a particular form of advertising, or more likely to purchase a particular product.\nThe task of performing market segmentation amounts to clustering the people in the data set."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "K-means clustering",
+    "text": "K-means clustering\n\n\n\n\n\n\n\n\n\n\nA simulated data set with 150 observations in 2-dimensional space. Panels show the results of applying K-means clustering with different values of \\(K\\), the number of clusters. The color of each observation indicates the cluster to which it was assigned using the K-means clustering algorithm. Note that there is no ordering of the clusters, so the cluster coloring is arbitrary."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-details",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-details",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "K-means clustering: Details",
+    "text": "K-means clustering: Details\n\nLet \\(C_1, \\ldots, C_K\\) denote sets containing the indices of the observations in each cluster. These sets satisfy two properties:\n\n\n\\(C_1 \\cup C_2 \\cup \\ldots \\cup C_K = \\{1, \\ldots, n\\}\\). In other words, each observation belongs to at least one of the \\(K\\) clusters.\n\\(C_k \\cap C_{k'} = \\emptyset\\) for all \\(k \\neq k'\\). In other words, the clusters are non-overlapping: no observation belongs to more than one cluster.\n\n\nFor instance, if the \\(i\\)-th observation is in the \\(k\\)-th cluster, then \\(i \\in C_k\\)."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-details-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#k-means-clustering-details-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "K-means clustering: Details",
+    "text": "K-means clustering: Details\n\nThe idea behind K-means clustering is that a good clustering is one for which the within-cluster variation is as small as possible.\nThe within-cluster variation for cluster \\(C_k\\) is a measure \\(\\text{WCV}(C_k)\\) of the amount by which the observations within a cluster differ from each other.\nHence, we want to solve the problem: \\[\n  \\text{minimize}_{C_1, \\ldots, C_K} \\left\\{ \\sum_{k=1}^K \\text{WCV}(C_k) \\right\\}.\n\\]\nIn words, this formula says that we want to partition the observations into \\(K\\) clusters such that the total within-cluster variation, summed over all \\(K\\) clusters, is as small as possible."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-with-k-3",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-with-k-3",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example with \\(K = 3\\)",
+    "text": "Example with \\(K = 3\\)"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering",
+    "text": "Hierarchical Clustering\n\nK-means clustering requires us to pre-specify the number of clusters \\(K\\). This can be a disadvantage (later we discuss strategies for choosing \\(K\\)).\nHierarchical clustering is an alternative approach which does not require that we commit to a particular choice of \\(K\\).\nWe will check the bottom-up or agglomerative clustering. This is the most common type of hierarchical clustering and refers to the fact that a dendrogram is built starting from the leaves and combining clusters up to the trunk."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Step 1)",
+    "text": "Hierarchical Clustering: The Idea (Step 1)\nBuilds a hierarchy in a “bottom-up” fashion…"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-5-final-step",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-the-idea-step-5-final-step",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: The Idea (Step 5: Final Step)",
+    "text": "Hierarchical Clustering: The Idea (Step 5: Final Step)\nSingle Cluster Representation"
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-example",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#hierarchical-clustering-example",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Hierarchical Clustering: Example",
+    "text": "Hierarchical Clustering: Example\n\n\n45 observations generated in 2-dimensional space.\nIn reality, there are three distinct classes, shown in separate colors.\nHowever, we will treat these class labels as unknown and will seek to cluster the observations in order to discover the classes from the data."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#types-of-linkage-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#types-of-linkage-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Types of Linkage",
+    "text": "Types of Linkage\nLinkage methods determine how the distance between two clusters is measured when forming a hierarchical clustering dendrogram\n\n\n\n\n\n\n\n\n\nLinkage\nDescription\n\n\n\n\nComplete\nMaximal inter-cluster dissimilarity. Compute all pairwise dissimilarities between the observations in cluster A and the observations in cluster B, and record the largest of these dissimilarities.\n\n\nSingle\nMinimal inter-cluster dissimilarity. Compute all pairwise dissimilarities between the observations in cluster A and the observations in cluster B, and record the smallest of these dissimilarities.\n\n\nAverage\nMean inter-cluster dissimilarity. Compute all pairwise dissimilarities between the observations in cluster A and the observations in cluster B, and record the average of these dissimilarities.\n\n\nCentroid\nDissimilarity between the centroid for cluster A (a mean vector of length p) and the centroid for cluster B. Centroid linkage can result in undesirable inversions."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-usaarrests-data-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#example-usaarrests-data-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Example: USAarrests Data",
+    "text": "Example: USAarrests Data\n\nThe USAarrests data has only four variables, which is on the low end for this method to work well. For this reason, for this demonstration we randomly set at most one variable per state to be missing and only used \\(M = 1\\) principal component.\nIn general, in order to apply this algorithm, we must select \\(M\\), the number of principal components to use for the imputation.\nOne approach is to randomly set to NA some elements that were actually observed, and select \\(M\\) based on how well those known values are recovered."
+  },
+  {
+    "objectID": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#summary-1",
+    "href": "lecture_slides/12_unsupervised_learning/12_unsupervised_learning.html#summary-1",
+    "title": " MGMT 47400: Predictive Analytics ",
+    "section": "Summary",
+    "text": "Summary\n\n\n\n\n\nUnsupervised Learning: Focuses on finding patterns or structures (e.g., subgroups, summaries) within data when no labeled outcome variable is available. Examples include dimensionality reduction and clustering.\nPrincipal Components Analysis (PCA):\n\nSeeks linear combinations of features that capture the greatest variance in the data.\n\nOften used for visualization or as a pre-processing step to reduce dimensionality.\n\nThe proportion of variance explained (PVE) helps determine how many principal components to retain.\n\nMatrix Completion and Missing Values:\n\nExploits correlations among features to impute missing entries in a data matrix.\n\nTools like low-rank approximations (via PCA) can effectively fill in missing data under the assumption that the matrix is only partially observed.\n\n\n\n\n\n\nClustering Methods:\n\nK-means Clustering: Partitions data into \\(K\\) clusters by minimizing within-cluster variation, but requires specifying \\(K\\) in advance.\n\nHierarchical Clustering: Builds a tree (dendrogram) that merges data points (or clusters) iteratively, which can be cut at different heights to form any number of clusters.\n\nDistance & Linkage Choices:\n\nIn clustering, outcomes vary based on how similarity is measured (e.g., Euclidean distance vs. correlation-based distance) and which linkage criterion (e.g., complete, single, average) is chosen.\n\nPractical Considerations:\n\nDecide whether to standardize variables (especially if measured in different units).\n\nSelect the number of clusters (\\(K\\)) or principal components based on interpretability, domain knowledge, and diagnostic tools (like scree plots)."
   }
 ]
