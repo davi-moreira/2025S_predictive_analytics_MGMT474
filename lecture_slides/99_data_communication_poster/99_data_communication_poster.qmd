@@ -33,18 +33,14 @@ html-math-method:
 
     1.  Context Matters
     2.  Visualization Derives From Data
-    3.  Less is More: Separate Signal From Noise 
+    3.  Less is More: Separate Signal From Noise
     4.  Hierarchy Among Data
     5.  Beauty Counts: Not All Data Are Equally Important
     6.  Telling Your Story
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 -   Posters
-
-
 :::
 :::::
 ::::::
@@ -61,9 +57,9 @@ html-math-method:
 
 We have explored many implementation details in recent days, focusing on individual aspects of each analysis.
 
-- Today, we want to take a step back to think **less about the detail** and **more about the process**.
+-   Today, we want to take a step back to think **less about the detail** and **more about the process**.
 
-- After all, every data analysis has a purpose. How can we achieve it more effectively?
+-   After all, every data analysis has a purpose. How can we achieve it more effectively?
 
 ## Essential Elements of Data Communication
 
@@ -71,7 +67,7 @@ Let's break down the data communication process into six general principles:
 
 1.  Context Matters
 2.  Visualization Derives From Data
-3.  Less is More: Separate Signal From Noise 
+3.  Less is More: Separate Signal From Noise
 4.  Hierarchy Among Data
 5.  Beauty Counts: Not All Data Are Equally Important
 6.  Telling Your Story
@@ -94,19 +90,11 @@ Isolated numbers don't tell us much. To make evidence-based decisions, it's nece
 
 ## Context Can Come from New Information...
 
-<center>
-
-![](figs/contexto-add.png){width="55%"}
-
-</center>
+<center>![](figs/contexto-add.png){width="55%"}</center>
 
 ## ...or Reinforce Existing Information
 
-<center>
-
-![](figs/contexto-obs.png){width="60%"}
-
-</center>
+<center>![](figs/contexto-obs.png){width="60%"}</center>
 
 # Visualization derives from data {background-color="#cfb991"}
 
@@ -122,7 +110,6 @@ Isolated numbers don't tell us much. To make evidence-based decisions, it's nece
 
 ## Use graphs instead of tables!
 
-
 <center>
 
 ![[Table vs Plot](https://jkastellec.scholar.princeton.edu/publications/using-graphs-instead-tables-political-science){target="_blank"}](figs/table_vs_plot.png){width="60%"}
@@ -131,13 +118,11 @@ Isolated numbers don't tell us much. To make evidence-based decisions, it's nece
 
 ## Use graphs instead of tables!
 
-
 <center>
 
 ![[Table vs Plot](https://jkastellec.scholar.princeton.edu/publications/using-graphs-instead-tables-political-science){target="_blank"}](figs/table_vs_plot_02.png){width="60%"}
 
 </center>
-
 
 ## Scales Can Be Misleading
 
@@ -196,13 +181,11 @@ Isolated numbers don't tell us much. To make evidence-based decisions, it's nece
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <center>
 
 ![[The Python Graph Gallery](https://python-graph-gallery.com/){target="_blank"}](figs/python-logo.png){width="40%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
@@ -214,7 +197,6 @@ Isolated numbers don't tell us much. To make evidence-based decisions, it's nece
 :::
 :::::
 ::::::
-
 
 # Less is More<br>Separate Signal From Noise {background-color="#cfb991"}
 
@@ -244,79 +226,47 @@ $$
 
 <br>
 
-<center>
-
-![](figs/data-ink.png){width="70%"}
-
-</center>
+<center>![](figs/data-ink.png){width="70%"}</center>
 
 ## Step-by-Step Cleanup
 
 <br>
 
-<center>
-
-![](figs/limpeza-1.png)
-
-</center>
+<center>![](figs/limpeza-1.png)</center>
 
 ## Eliminating the Border
 
 <br>
 
-<center>
-
-![](figs/limpeza-2.png)
-
-</center>
+<center>![](figs/limpeza-2.png)</center>
 
 ## Cleaning the Grids
 
 <br>
 
-<center>
-
-![](figs/limpeza-3.png)
-
-</center>
+<center>![](figs/limpeza-3.png)</center>
 
 ## Removing the Points
 
 <br>
 
-<center>
-
-![](figs/limpeza-4.png)
-
-</center>
+<center>![](figs/limpeza-4.png)</center>
 
 ## Processing the Axes
 
 <br>
 
-<center>
-
-![](figs/limpeza-5.png)
-
-</center>
+<center>![](figs/limpeza-5.png)</center>
 
 ## Adjusting the Label
 
 <br>
 
-<center>
-
-![](figs/limpeza-6.png)
-
-</center>
+<center>![](figs/limpeza-6.png)</center>
 
 ## Adjusting Colors
 
-<center>
-
-![](figs/limpeza-7.png)
-
-</center>
+<center>![](figs/limpeza-7.png)</center>
 
 ## Before and After
 
@@ -332,88 +282,48 @@ $$
 
 ## Count the Number 3s
 
-<center>
-
-![](figs/hierarquia-1.PNG){width="60%"}
-
-</center>
+<center>![](figs/hierarquia-1.PNG){width="60%"}</center>
 
 ## Count the Number 3s
 
-<center>
-
-![](figs/hierarquia-2.PNG){width="60%"}
-
-</center>
+<center>![](figs/hierarquia-2.PNG){width="60%"}</center>
 
 ## Ways to Draw Attention
 
-<center>
-
-![](figs/hierarquia-3.PNG){width="70%"}
-
-</center>
+<center>![](figs/hierarquia-3.PNG){width="70%"}</center>
 
 ## Highlighting with Colors
 
-<center>
-
-![](figs/h-cores.PNG)
-
-</center>
+<center>![](figs/h-cores.PNG)</center>
 
 ## Returning to Our Example
 
-<center>
-
-![](figs/limpeza-9.png)
-
-</center>
+<center>![](figs/limpeza-9.png)</center>
 
 ## Returning to Our Example
 
-<center>
-
-![](figs/limpeza-10.png)
-
-</center>
+<center>![](figs/limpeza-10.png)</center>
 
 ## Use Colors Strategically
 
-<center>
-
-![](figs/cores.png)
-
-</center>
+<center>![](figs/cores.png)</center>
 
 # Beauty Counts<br>Not All Data Are Equally Important {background-color="#cfb991"}
 
 ## Emphasizing the Main Point
 
-<center>
-
-![](figs/enfase.png)
-
-</center>
+<center>![](figs/enfase.png)</center>
 
 ## Emphasizing the Main Point
 
 :::::: columns
 ::: {.column width="50%"}
-<center>
-
-![](figs/enfase-2.png){width="90%"}
-
-</center>
+<center>![](figs/enfase-2.png){width="90%"}</center>
 :::
 
 :::: {.column width="50%"}
 ::: fragment
-<center>
-
-![](figs/enfase-3.png){width="90%"}
-
-</center>
+<center>![](figs/enfase-3.png){width="90%"}</center>
 :::
 ::::
 ::::::
@@ -424,115 +334,59 @@ $$
 
 Let's tell a story starting from the chart below, making step-by-step adaptations we've discussed. What is it telling you?
 
-<center>
-
-![](figs/final-1.png){width="50%"}
-
-</center>
+<center>![](figs/final-1.png){width="50%"}</center>
 
 ## Bringing It All Together
 
-<center>
-
-![](figs/final-2.png)
-
-</center>
+<center>![](figs/final-2.png)</center>
 
 ## Bringing It All Together
 
-<center>
-
-![](figs/final-3.png)
-
-</center>
+<center>![](figs/final-3.png)</center>
 
 ## Bringing It All Together
 
-<center>
-
-![](figs/final-4.png)
-
-</center>
+<center>![](figs/final-4.png)</center>
 
 ## Bringing It All Together
 
-<center>
-
-![](figs/final-5.png)
-
-</center>
+<center>![](figs/final-5.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-1.png)
-
-</center>
+<center>![](figs/hist-1.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-2.png)
-
-</center>
+<center>![](figs/hist-2.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-3.png)
-
-</center>
+<center>![](figs/hist-3.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-4.png)
-
-</center>
+<center>![](figs/hist-4.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-5.png)
-
-</center>
+<center>![](figs/hist-5.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-6.png)
-
-</center>
+<center>![](figs/hist-6.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-7.png)
-
-</center>
+<center>![](figs/hist-7.png)</center>
 
 ## Final Narrative
 
-<center>
-
-![](figs/hist-8.png)
-
-</center>
+<center>![](figs/hist-8.png)</center>
 
 ## Before and After
 
-<center>
-
-![](figs/hist-9.png)
-
-</center>
+<center>![](figs/hist-9.png)</center>
 
 # Applications {background-color="#cfb991"}
 
@@ -650,7 +504,7 @@ nytexcess %>%
 -   [The Functional Art](http://www.thefunctionalart.com/)
 -   [COVID in the Financial Times](https://www.ft.com/content/a2901ce8-5eb7-4633-b89c-cbdf5b386938)
 
-
+````{=html}
 <!---
 
 # Dashboards {background-color="#cfb991"}
@@ -783,6 +637,7 @@ knitr::include_graphics("figs/storyboard_template.png")
 
 -   [Shiny Dashboards](https://shiny.rstudio.com/gallery/)
 --->
+````
 
 # Poster {background-color="#cfb991"}
 
@@ -791,31 +646,23 @@ knitr::include_graphics("figs/storyboard_template.png")
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-<center>
-
-![](figs/project-history.jpg){width="60%"}
-
-</center>
-
+<center>![](figs/project-history.jpg){width="60%"}</center>
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <br>
 
-- Showcases your work 
+-   Showcases your work
 
-- Organizes your ideas and results
+-   Organizes your ideas and results
 
-- Is visually appealing
+-   Is visually appealing
 
-- Encourages interactive discussion
+-   Encourages interactive discussion
 
-- Demonstrates your mastery of predictive analytics concepts
-
+-   Demonstrates your mastery of predictive analytics concepts
 :::
 :::::
 ::::::
@@ -825,31 +672,22 @@ knitr::include_graphics("figs/storyboard_template.png")
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-<center>
-
-![](figs/paper-abstract.jpg){width="70%"}
-
-</center>
-
+<center>![](figs/paper-abstract.jpg){width="70%"}</center>
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <br>
 
-- Communicate **key findings** and **impact** of your project
+-   Communicate **key findings** and **impact** of your project
 
-- Highlight the **predictive approach**, methodology, and novel insights
+-   Highlight the **predictive approach**, methodology, and novel insights
 
-- Highlight the **business implications and insights** 
-
+-   Highlight the **business implications and insights**
 :::
 :::::
 ::::::
-
 
 ## Planning Your Poster: Template and Rubric
 
@@ -861,25 +699,19 @@ knitr::include_graphics("figs/storyboard_template.png")
 
 </center>
 
-
-::: aside
-
-:::::: {style="font-size: 80%;"}
-
+:::: aside
+::: {style="font-size: 80%;"}
 *Thanks to [Professor Matthew A. Lanham](https://matthewalanham.com/){target="_blank"} for sharing the original version of this template. Checking his [personal webpage](https://matthewalanham.com/){target="_blank"} is highly recommended!*
-::::::
-
 :::
+::::
 
 <br>
-
 
 ## Planning Your Poster: Visual Hierarchy
 
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <br>
@@ -889,36 +721,31 @@ knitr::include_graphics("figs/storyboard_template.png")
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
-- Provide a visually engaging, **easy-to-navigate** summary
+-   Provide a visually engaging, **easy-to-navigate** summary
 
-- Always in columns!
+-   Always in columns!
 
-- **Headings:** Large and bold to guide the reader
+-   **Headings:** Large and bold to guide the reader
 
-- **Color & Contrast:** Choose a simple palette that highlights main points
+-   **Color & Contrast:** Choose a simple palette that highlights main points
 
-- **Font Size:** Text should be legible from ~3 feet away
+-   **Font Size:** Text should be legible from \~3 feet away
 
-- **Flow:** Logical reading order from top-left to bottom-right
-
-
+-   **Flow:** Logical reading order from top-left to bottom-right
 :::
 :::::
 ::::::
 
 ## Planning Your Poster: Layout & Design
 
-:::::: nonincremental
-::::: columns
+::::::: nonincremental
+:::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <br>
@@ -928,84 +755,71 @@ knitr::include_graphics("figs/storyboard_template.png")
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
-::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+:::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+::: {style="font-size: 70%;"}
+-   **Keep It Simple**
 
-:::::: {style="font-size: 70%;"}
+    -   Limit text and rely on **figures, charts, and bullet points**
+    -   Use consistent **color schemes**, fonts, and alignment
+    -   Use a **QR Code** to drive your audience to a dashboard or the project webpage
 
-- **Keep It Simple**
+-   **Use of Space**
 
-    - Limit text and rely on **figures, charts, and bullet points**
-    - Use consistent **color schemes**, fonts, and alignment
-    - Use a **QR Code** to drive your audience to a dashboard or the project webpage
+    -   **White space is your friend** — avoid clutter
+    -   Group related sections in boxes or areas for clarity
+    -   60% Graphics / 40% Text
 
-- **Use of Space**
+-   **Key Text Guidelines**
 
-    - **White space is your friend** — avoid clutter
-    - Group related sections in boxes or areas for clarity
-    - 60% Graphics / 40% Text
-
-- **Key Text Guidelines**
-
-    - Title: ~85–100 pt
-    - Headings/Subheadings: ~46–55 pt
-    - Body Text: ~34–38 pt
-    - Captions: ~26–28 pt
-    - Should be readble from 3 feet away
-
-::::::
-
+    -   Title: \~85–100 pt
+    -   Headings/Subheadings: \~46–55 pt
+    -   Body Text: \~34–38 pt
+    -   Captions: \~26–28 pt
+    -   Should be readble from 3 feet away
 :::
-:::::
+::::
 ::::::
+:::::::
 
 ## Planning Your Poster: Organizing Your Content
 
-:::::: nonincremental
-::::: columns
+::::::: nonincremental
+:::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
-
 
 <center>
 
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
-::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-:::::: {style="font-size: 70%;"}
-
-1. **Title & Authors:** Clear, concise, and visible
-2. **Abstract/Introduction:** One clear and concise paragraph to show why your problem is important and what are the main results.
-3. **Business Problem:** What is your project goal?
-4. **Analytics Problem Framing:** What you aim to predict or explain and why
-5. **Research Question:** Summarise your project in a question you will answer
-6. **Data and EDA:** Key variables, data collection.
-7. **Methodology:** Modeling approach focusing on the response variable.
-8. **Model Building and Evaluation:** Model results clear and appropriately evaluated 
-9. **Business Implication:** Business validation of model/solution demonstrated. Main findings, performance metrics, interpretation
+:::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+::: {style="font-size: 70%;"}
+1.  **Title & Authors:** Clear, concise, and visible
+2.  **Abstract/Introduction:** One clear and concise paragraph to show why your problem is important and what are the main results.
+3.  **Business Problem:** What is your project goal?
+4.  **Analytics Problem Framing:** What you aim to predict or explain and why
+5.  **Research Question:** Summarise your project in a question you will answer
+6.  **Data and EDA:** Key variables, data collection.
+7.  **Methodology:** Modeling approach focusing on the response variable.
+8.  **Model Building and Evaluation:** Model results clear and appropriately evaluated
+9.  **Business Implication:** Business validation of model/solution demonstrated. Main findings, performance metrics, interpretation
 10. **Conclusion & Future Work:** Wrap-up and potential next steps
 11. **Acknowledgments & References:** Recognize collaborators and sources
-
-::::::
-
 :::
-:::::
+::::
 ::::::
+:::::::
 
 ## Designing for Predictive Analytics
 
-:::::: nonincremental
-::::: columns
+::::::: nonincremental
+:::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1013,40 +827,31 @@ knitr::include_graphics("figs/storyboard_template.png")
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
-::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+:::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+::: {style="font-size: 80%;"}
+-   **Emphasize the Predictive Component**
 
-:::::: {style="font-size: 80%;"}
+    -   **Model Choice:** Clearly state if you used linear regression, random forests, neural networks, etc.
+    -   **Metrics:** Include accuracy, RMSE, AUC, or other relevant metrics
+    -   **Model Interpretation:** Highlight key features or coefficients that drove the predictions
 
-- **Emphasize the Predictive Component**
+-   **Data Visualization Tips**
 
-    - **Model Choice:** Clearly state if you used linear regression, random forests, neural networks, etc.
-    - **Metrics:** Include accuracy, RMSE, AUC, or other relevant metrics
-    - **Model Interpretation:** Highlight key features or coefficients that drove the predictions
-
-- **Data Visualization Tips**
-
-    - Use **labeled graphs** (e.g., bar charts, scatter plots, confusion matrices)
-    - Show **before-and-after** comparisons if you performed feature engineering
-    - Explain the importance of **training vs. testing sets** (or cross-validation)
-
-::::::
+    -   Use **labeled graphs** (e.g., bar charts, scatter plots, confusion matrices)
+    -   Show **before-and-after** comparisons if you performed feature engineering
+    -   Explain the importance of **training vs. testing sets** (or cross-validation)
 :::
-:::::
+::::
 ::::::
+:::::::
 
 ## Crafting a Clear Narrative
 
-<center>
-
-![](figs/how-to-write-good-02.png){width="35%"}
-
-</center>
+<center>![](figs/how-to-write-good-02.png){width="35%"}</center>
 
 ## Crafting a Clear Narrative
-
 
 <center>
 
@@ -1059,7 +864,6 @@ knitr::include_graphics("figs/storyboard_template.png")
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1067,25 +871,21 @@ knitr::include_graphics("figs/storyboard_template.png")
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   **Introduction & Problem Statement**
 
-- **Introduction & Problem Statement**
+    -   Present the real-world problem or question
+    -   Briefly mention why it matters (e.g., business impact, social relevance)
 
-    - Present the real-world problem or question
-    - Briefly mention why it matters (e.g., business impact, social relevance)
+-   **The "So What?" Factor**
 
-- **The "So What?" Factor**
-
-    - Emphasize the **value** of your predictive findings
-    - Illustrate how stakeholders can use predictions or insights
-
+    -   Emphasize the **value** of your predictive findings
+    -   Illustrate how stakeholders can use predictions or insights
 :::
 :::::
 ::::::
-
 
 ## Research Design Flow
 
@@ -1097,7 +897,7 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 
 </center>
 
-
+```{=html}
 <!---
 
 :::::: nonincremental
@@ -1124,13 +924,13 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ::::::
 
 --->
+```
 
 ## Effective Figures and Tables
 
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1138,33 +938,28 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   **Charts and Graphs**
 
-- **Charts and Graphs**
+    -   Label **axes**, include **legends** only if necessary
+    -   Highlight the data that supports your main argument
+    -   Provide **short, descriptive captions** beneath each figure
 
-    - Label **axes**, include **legends** only if necessary
-    - Highlight the data that supports your main argument
-    - Provide **short, descriptive captions** beneath each figure
+-   **Tables**
 
-- **Tables**
-
-    - Keep tables **simple**, emphasize key results
-    - Consider whether a chart might be more impactful than a table
-
+    -   Keep tables **simple**, emphasize key results
+    -   Consider whether a chart might be more impactful than a table
 :::
 :::::
 ::::::
-
 
 ## Results & Interpretation
 
-:::::: nonincremental
-::::: columns
+::::::: nonincremental
+:::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1172,40 +967,33 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
-::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-:::::: {style="font-size: 70%;"}
-
+:::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+::: {style="font-size: 70%;"}
 <br>
 
-- **Showcase Predictive Performance**
+-   **Showcase Predictive Performance**
 
-    - Provide confusion matrices for classification models
-    - Compare model performance with baseline or benchmark
-    - Discuss **practical implications** of the performance metrics
+    -   Provide confusion matrices for classification models
+    -   Compare model performance with baseline or benchmark
+    -   Discuss **practical implications** of the performance metrics
 
-- **Critical Thinking**
+-   **Critical Thinking**
 
-    - Explain **why** the model performed well or poorly
-    - Reflect on **limitations** (e.g., small dataset, missing variables, etc.)
-    - Suggest ways to **improve** performance or replicate your findings
-
-::::::
-
+    -   Explain **why** the model performed well or poorly
+    -   Reflect on **limitations** (e.g., small dataset, missing variables, etc.)
+    -   Suggest ways to **improve** performance or replicate your findings
 :::
-:::::
+::::
 ::::::
-
+:::::::
 
 ## Conclusion & Future Work
 
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1213,32 +1001,27 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   **Main Takeaways**
 
-- **Main Takeaways**
+    -   Recap **key predictions and findings** in plain language
+    -   Emphasize the **impact** and potential applications
 
-    - Recap **key predictions and findings** in plain language
-    - Emphasize the **impact** and potential applications
+-   **Next Steps**
 
-- **Next Steps**
-
-    - Possible avenues for **further research** or new data
-    - Encouraging further validation, deployment, or real-world testing
-
+    -   Possible avenues for **further research** or new data
+    -   Encouraging further validation, deployment, or real-world testing
 :::
 :::::
 ::::::
-
 
 ## Final Touches
 
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1246,21 +1029,19 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   **Acknowledgments & References**
 
-- **Acknowledgments & References**
+    -   Recognize supporting faculty, funding sources, and collaborators
+    -   Cite any references (including data sources and libraries) in a **consistent format**
 
-    - Recognize supporting faculty, funding sources, and collaborators
-    - Cite any references (including data sources and libraries) in a **consistent format**
+-   **Proofreading & Practice**
 
-- **Proofreading & Practice**
+-   Spell-check all text, verify data accuracy, ensure images are clear
 
-- Spell-check all text, verify data accuracy, ensure images are clear
-- **Practice** explaining your poster to a non-expert
-
+-   **Practice** explaining your poster to a non-expert
 :::
 :::::
 ::::::
@@ -1270,7 +1051,6 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 :::::: nonincremental
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
 <br>
 
 <center>
@@ -1278,50 +1058,40 @@ Show each step as a **section** in your poster or as **bullet points** under Met
 ![[Template](https://github.com/davi-moreira/2025S_predictive_analytics_MGMT474/raw/refs/heads/main/docs/lecture_slides/99_data_communication_poster/2025S_mgmt474_poster_template.pptx.zip){target="_blank"}, [Rubric](https://www.purdue.edu/undergrad-research/conferences/spring/Rubric_Poster.pdf){target="_blank"}, and [Video](https://www.youtube.com/watch?v=ReN-QcVTZ1o){target="_blank"}](figs/poster_template.png){width="90%"}
 
 </center>
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+-   **Tips for Presenting Well**
 
-- **Tips for Presenting Well**
+    -   Arrive early to set up
 
-    - Arrive early to set up
-    
-    - Stay close and off to the side  
-    
-    - Prepare a **30-second, 90-second, and 2-minute elevator pitches** using your poster as a visual guide
-    
-    - Invite questions to spark in-depth discussions
-    
-    - Actively ask questions to your audience
-    
-    - Use your hands to direct your listener to your poster  
-    
-    - Prevent you or someone else blocking the poster  
-    
-    - [Follow the dress code!](https://www.purdue.edu/undergrad-research/conferences/fall/photo-gallery.php){target="_blank"}
+    -   Stay close and off to the side
 
+    -   Prepare a **30-second, 90-second, and 2-minute elevator pitches** using your poster as a visual guide
+
+    -   Invite questions to spark in-depth discussions
+
+    -   Actively ask questions to your audience
+
+    -   Use your hands to direct your listener to your poster
+
+    -   Prevent you or someone else blocking the poster
+
+    -   [Follow the dress code!](https://www.purdue.edu/undergrad-research/conferences/fall/photo-gallery.php){target="_blank"}
 :::
 :::::
 ::::::
-
-
-
-
 
 # Summary {background-color="#cfb991"}
 
 ## Summary
 
-:::: nonincremental
-::: {style="font-size: 80%;"}
-
+::::::: nonincremental
+:::::: {style="font-size: 80%;"}
 Main Takeaways from this lecture:
 
 ::::: columns
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
-
-
 -   **Data Communication Principles**:
 
     -   Context matters: Tailor your analysis to the audience and goal.
@@ -1333,10 +1103,10 @@ Main Takeaways from this lecture:
     -   Use graphs instead of tables where possible.
     -   Avoid misleading scales and excessive dimensions.
     -   Prioritize hierarchy and emphasize key data points.
-
 :::
-::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
 
+::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
+```{=html}
 <!---
 -   **Effective Dashboards**:
 
@@ -1344,23 +1114,22 @@ Main Takeaways from this lecture:
     -   Structure information logically, adapting to mobile and web use.
     -   Storyboard layouts help narrate data insights step-by-step.
 --->
+```
 
 -   **Poster**:
 
-    - **Simplicity** and clarity win over clutter
-    - Emphasize the **predictive analytics** approach and metrics
-    - Ensure **visual impact** and logical flow
-    - Practice delivering a concise overview of your work
+    -   **Simplicity** and clarity win over clutter
+    -   Emphasize the **predictive analytics** approach and metrics
+    -   Ensure **visual impact** and logical flow
+    -   Practice delivering a concise overview of your work
 
 -   **Final Message**:
 
     -   Less is more. Reduce complexity to communicate data effectively.
     -   Always keep your audience's decision-making needs at the forefront.
-
-:::::
-:::   
-    
 :::
-::::
+:::::
+::::::
+:::::::
 
 # Thank you! {background-color="#cfb991"}
