@@ -358,7 +358,11 @@ Professor: Davi Moreira
 </ul>
 </div></div>
 </div>
-</section>
+<p><br></p>
+
+<aside><div>
+<p><em>This lecture content is inspired by and replicates the material from <a href="https://www.statlearning.com/">An Introduction to Statistical Learning</a>.</em></p>
+</div></aside></section>
 <section>
 <section id="unsupervised-learning" class="title-slide slide level1 center" data-background-color="#cfb991">
 <h1>Unsupervised Learning</h1>
@@ -730,6 +734,7 @@ z_{i1} = \phi_{11}x_{i1} + \phi_{21}x_{i2} + \ldots + \phi_{p1}x_{ip} \tag{1}
 <li class="fragment"><p><strong>Initialize</strong>: create a complete data matrix <span class="math inline">\(\tilde{\mathbf{X}}\)</span> by filling in the missing values using mean imputation.</p></li>
 <li class="fragment"><p><strong>Repeat</strong>: steps (a)–(c) until the objective in (c) fails to decrease:</p></li>
 </ol>
+<!-- -->
 <ol type="a">
 <li class="fragment"><span class="math display">\[
 \text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{j=1}^p \sum_{i=1}^n \left( \tilde{x}_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\},
@@ -744,6 +749,7 @@ z_{i1} = \phi_{11}x_{i1} + \phi_{21}x_{i2} + \ldots + \phi_{p1}x_{ip} \tag{1}
 \sum_{(i,j) \in \mathcal{O}} \left( x_{ij} - \sum_{m=1}^M \hat{a}_{im} \hat{b}_{jm} \right)^2.
 \]</span></p></li>
 </ol>
+<!-- -->
 <ol start="3" type="1">
 <li class="fragment"><strong>Return</strong> the estimated missing entries <span class="math inline">\(\tilde{x}_{ij}\)</span>, <span class="math inline">\((i, j) \notin \mathcal{O}\)</span>.</li>
 </ol>
@@ -1119,27 +1125,19 @@ z_{i1} = \phi_{11}x_{i1} + \phi_{21}x_{i2} + \ldots + \phi_{p1}x_{ip} \tag{1}
 
 ## 
 
-
-
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](figs/12_1_9-1.png){fig-align='center' width=65%}
 :::
 :::
 
-
-
 ## 
-
-
 
 ::: {.cell layout-align="center"}
 ::: {.cell-output-display}
 ![](figs/12_1_10-1.png){fig-align='center' width=65%}
 :::
 :::
-
-
 
 ## Conclusions
 

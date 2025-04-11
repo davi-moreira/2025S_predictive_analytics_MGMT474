@@ -32,17 +32,21 @@ html-math-method:
 -   Unsupervised Learning
 -   Principal Components Analysis
 -   Matrix Completion and Missing Values
-
 :::
 
 ::: {.column width="50%" style="text-align: center; justify-content: center; align-items: center;"}
 -   Clustering
 -   K-means clustering
 -   Hierarchical Clustering
-
 :::
 :::::
 ::::::
+
+<br>
+
+::: aside
+*This lecture content is inspired by and replicates the material from [An Introduction to Statistical Learning](https://www.statlearning.com/).*
+:::
 
 # Unsupervised Learning {background-color="#cfb991"}
 
@@ -80,7 +84,7 @@ html-math-method:
 
 -   For example, it is difficult to automatically assess the overall sentiment of a movie review: is it favorable or not?
 
-# Principal Components Analysis  {background-color="#cfb991"}
+# Principal Components Analysis {background-color="#cfb991"}
 
 ## Principal Components Analysis
 
@@ -89,25 +93,24 @@ html-math-method:
 
 ## Principal Components Analysis: details
 
-:::::::: {style="font-size: 80%;"}
+::: {style="font-size: 80%;"}
+-   The *first principal component* of a set of features $X_1, X_2, \ldots, X_p$ is the normalized linear combination of the features $$
+      Z_1 = \phi_{11}X_1 + \phi_{21}X_2 + \ldots + \phi_{p1}X_p
+    $$
 
--   The *first principal component* of a set of features $X_1, X_2, \ldots, X_p$ is the normalized linear combination of the features
-$$
-  Z_1 = \phi_{11}X_1 + \phi_{21}X_2 + \ldots + \phi_{p1}X_p
-$$
-   - Here:
-     - $Z_1$ is the first principal component.
-     - $X_1, X_2, ..., X_p$ are the original features (variables).
-     - $\phi_{j1}$ (where $j = 1, 2, \dots, p$) are the **loadings** or **weights** assigned to each feature in the linear combination.
-     - These weights determine how much each feature contributes to the principal component.
--   The loadings $\phi_{11}, \ldots, \phi_{p1}$ of the first principal component make up the principal component loading vector,
-$$
-  \phi_1 = (\phi_{11}, \phi_{21}, \ldots, \phi_{p1})^T.
-$$
+-   Here:
 
-     - By *normalized*, we mean that $\sum_{j=1}^p \phi_{j1}^2 = 1$. This ensures that the sum of squared weights equals 1, preventing any arbitrary scaling and ensuring the principal components remain standardized.
+    -   $Z_1$ is the first principal component.
+    -   $X_1, X_2, ..., X_p$ are the original features (variables).
+    -   $\phi_{j1}$ (where $j = 1, 2, \dots, p$) are the **loadings** or **weights** assigned to each feature in the linear combination.
+    -   These weights determine how much each feature contributes to the principal component.
 
-::::::::
+-   The loadings $\phi_{11}, \ldots, \phi_{p1}$ of the first principal component make up the principal component loading vector, $$
+      \phi_1 = (\phi_{11}, \phi_{21}, \ldots, \phi_{p1})^T.
+    $$
+
+    -   By *normalized*, we mean that $\sum_{j=1}^p \phi_{j1}^2 = 1$. This ensures that the sum of squared weights equals 1, preventing any arbitrary scaling and ensuring the principal components remain standardized.
+:::
 
 ## PCA: example
 
@@ -121,23 +124,19 @@ The population size (*pop*) and ad spending (*ad*) for 100 different cities are 
 
 -   Suppose we have a $n \times p$ data set $\mathbf{X}$. Since we are only interested in variance, we assume that each of the variables in $\mathbf{X}$ has been centered to have mean zero (that is, the column means of $\mathbf{X}$ are zero).
 
--   We then look for the linear combination of the sample feature values of the form 
-$$
- z_{i1} = \phi_{11}x_{i1} + \phi_{21}x_{i2} + \ldots + \phi_{p1}x_{ip} \tag{1}
-$$
-for $i = 1, \ldots, n$ that has the largest sample variance, subject to the constraint that $\sum_{j=1}^p \phi_{j1}^2 = 1$.
+-   We then look for the linear combination of the sample feature values of the form $$
+     z_{i1} = \phi_{11}x_{i1} + \phi_{21}x_{i2} + \ldots + \phi_{p1}x_{ip} \tag{1}
+    $$ for $i = 1, \ldots, n$ that has the largest sample variance, subject to the constraint that $\sum_{j=1}^p \phi_{j1}^2 = 1$.
 
--   Since each of the $x_{ij}$ has mean zero, then so does $z_{i1}$ (for any values of $\phi_{j1}$). Hence the sample variance of the $z_{i1}$ can be written as
-$$
-  \frac{1}{n} \sum_{i=1}^n z_{i1}^2.
-$$
+-   Since each of the $x_{ij}$ has mean zero, then so does $z_{i1}$ (for any values of $\phi_{j1}$). Hence the sample variance of the $z_{i1}$ can be written as $$
+      \frac{1}{n} \sum_{i=1}^n z_{i1}^2.
+    $$
 
 ## Computation of Principal Components
 
--   Plugging in (1) the first principal component loading vector solves the optimization problem
-$$
-  \text{maximize}_{\phi_{11}, \ldots, \phi_{p1}} \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^p \phi_{j1} x_{ij} \right)^2 \quad \text{subject to} \quad \sum_{j=1}^p \phi_{j1}^2 = 1.
-$$
+-   Plugging in (1) the first principal component loading vector solves the optimization problem $$
+      \text{maximize}_{\phi_{11}, \ldots, \phi_{p1}} \frac{1}{n} \sum_{i=1}^n \left( \sum_{j=1}^p \phi_{j1} x_{ij} \right)^2 \quad \text{subject to} \quad \sum_{j=1}^p \phi_{j1}^2 = 1.
+    $$
 
 -   This problem can be solved via a [singular-value decomposition](https://en.wikipedia.org/wiki/Singular_value_decomposition){target="_blank"} of the matrix $\mathbf{X}$, a standard technique in linear algebra.
 
@@ -153,11 +152,9 @@ $$
 
 -   The second principal component is the linear combination of $X_1, \ldots, X_p$ that has maximal variance among all linear combinations that are *uncorrelated* with $Z_1$.
 
--   The second principal component scores $z_{12}, z_{22}, \ldots, z_{n2}$ take the form
-$$
-  z_{i2} = \phi_{12}x_{i1} + \phi_{22}x_{i2} + \ldots + \phi_{p2}x_{ip},
-$$
-where $\phi_2$ is the second principal component loading vector, with elements $\phi_{12}, \phi_{22}, \ldots, \phi_{p2}$.
+-   The second principal component scores $z_{12}, z_{22}, \ldots, z_{n2}$ take the form $$
+      z_{i2} = \phi_{12}x_{i1} + \phi_{22}x_{i2} + \ldots + \phi_{p2}x_{ip},
+    $$ where $\phi_2$ is the second principal component loading vector, with elements $\phi_{12}, \phi_{22}, \ldots, \phi_{p2}$.
 
 ## Further principal components
 
@@ -165,7 +162,7 @@ where $\phi_2$ is the second principal component loading vector, with elements $
 
 -   The principal component directions $\phi_1, \phi_2, \phi_3, \ldots$ are the ordered sequence of right singular vectors of the matrix $\mathbf{X}$, and the variances of the components are $\frac{1}{n}$ times the squares of the singular values. There are at most $\min(n - 1, p)$ principal components.
 
-# Principal Components Analysis: Example  {background-color="#cfb991"}
+# Principal Components Analysis: Example {background-color="#cfb991"}
 
 ## Principal Components Analysis: Example
 
@@ -177,31 +174,27 @@ where $\phi_2$ is the second principal component loading vector, with elements $
 
 ## Principal Components Analysis: Example
 
-:::::::: {style="font-size: 80%;"}
-::::::: columns
-::::: {.column width="70%" style="justify-content: center; align-items: center;"}
-
+:::::: {style="font-size: 80%;"}
+::::: columns
+::: {.column width="70%" style="justify-content: center; align-items: center;"}
 ```{r  echo=FALSE, out.width = "85%", fig.align="center"}
 knitr::include_graphics("figs/12_1-1.png") 
 ```
+:::
 
-:::::
-::::: {.column width="30%" style="justify-content: center; align-items: center;"}
+::: {.column width="30%" style="justify-content: center; align-items: center;"}
+-   This figure is known as a **biplot**, because it displays both the principal component scores and the principal component loadings.
 
-- This figure is known as a **biplot**, because it displays both the principal component scores and the principal component loadings.
-
-- The PCA plot shows the first and second principal components for the USArrests dataset, with arrows indicating the loadings for the variables **UrbanPop**, **Rape**, **Assault**, and **Murder**. State names are displayed based on their principal component scores.
+-   The PCA plot shows the first and second principal components for the USArrests dataset, with arrows indicating the loadings for the variables **UrbanPop**, **Rape**, **Assault**, and **Murder**. State names are displayed based on their principal component scores.
 
 -   The blue state names represent the scores for the first two principal components.
 
 -   The orange arrows indicate the first two principal component loading vectors (with axes on the top and right). For example, the loading for **Rape** on the first component is 0.54, and its loading on the second principal component is 0.17 \[the word **Rape** is centered at the point (0.54, 0.17)\].
 
-- We can conclude that the **First Principal Component (PC1)** primarily captures **violence**, as all three crime-related variables appear on the right side of the plot. Meanwhile, the **Second Principal Component (PC2)** appears to represent the **share of the urban population**, as this variable is positioned at the top of the plot.
-
-::::::::
-::::::: 
+-   We can conclude that the **First Principal Component (PC1)** primarily captures **violence**, as all three crime-related variables appear on the right side of the plot. Meanwhile, the **Second Principal Component (PC2)** appears to represent the **share of the urban population**, as this variable is positioned at the top of the plot.
+:::
 :::::
-
+::::::
 
 ## PCA loadings
 
@@ -212,7 +205,7 @@ knitr::include_graphics("figs/12_1-1.png")
 | UrbanPop | 0.2781909 | 0.8728062  |
 | Rape     | 0.5434321 | 0.1673186  |
 
-# Another Interpretation of Principal Components  {background-color="#cfb991"}
+# Another Interpretation of Principal Components {background-color="#cfb991"}
 
 ## Another Interpretation of Principal Components
 
@@ -230,7 +223,7 @@ These two plots are equivalent. The left plot shows a 3D visualization with proj
 
 -   For instance, the first two principal components of a data set span the plane that is closest to the $n$ observations, in terms of average squared Euclidean distance.
 
-# Scaling of the variables matters  {background-color="#cfb991"}
+# Scaling of the variables matters {background-color="#cfb991"}
 
 ## Scaling of the variables matters
 
@@ -238,59 +231,45 @@ These two plots are equivalent. The left plot shows a 3D visualization with proj
 
 -   If they are in the same units, you might or might not scale the variables.
 
-:::{.fragment}
-
+::: fragment
 ```{r  echo=FALSE, out.width = "65%", fig.align="center"}
 knitr::include_graphics("figs/12_4-1.png") 
 ```
-
 :::
 
-# Proportion Variance Explained  {background-color="#cfb991"}
+# Proportion Variance Explained {background-color="#cfb991"}
 
 ## Proportion Variance Explained
 
-:::::::: {style="font-size: 80%;"}
-
+::: {style="font-size: 80%;"}
 -   To understand the strength of each component, we are interested in knowing the proportion of variance explained (PVE) by each one.
 
--   The *total variance* present in a data set (assuming that the variables have been centered to have mean zero) is defined as
-$$
-  \sum_{j=1}^p \text{Var}(X_j) = \sum_{j=1}^p \frac{1}{n} \sum_{i=1}^n x_{ij}^2,
-$$
-and the variance explained by the $m$-th principal component is
-$$
-  \text{Var}(Z_m) = \frac{1}{n} \sum_{i=1}^n z_{im}^2.
-$$
+-   The *total variance* present in a data set (assuming that the variables have been centered to have mean zero) is defined as $$
+      \sum_{j=1}^p \text{Var}(X_j) = \sum_{j=1}^p \frac{1}{n} \sum_{i=1}^n x_{ij}^2,
+    $$ and the variance explained by the $m$-th principal component is $$
+      \text{Var}(Z_m) = \frac{1}{n} \sum_{i=1}^n z_{im}^2.
+    $$
 
--   It can be shown that
-$$
-  \sum_{j=1}^p \text{Var}(X_j) = \sum_{m=1}^M \text{Var}(Z_m),
-$$
-with $M = \min(n-1, p)$.
-
-::::::::
+-   It can be shown that $$
+      \sum_{j=1}^p \text{Var}(X_j) = \sum_{m=1}^M \text{Var}(Z_m),
+    $$ with $M = \min(n-1, p)$.
+:::
 
 ## Proportion Variance Explained
 
-:::::::: {style="font-size: 75%;"}
-
--   Therefore, the PVE of the $m$-th principal component is given by the positive quantity between 0 and 1:
-$$
-  \frac{\sum_{i=1}^n z_{im}^2}{\sum_{j=1}^p \sum_{i=1}^n x_{ij}^2}.
-$$
+:::: {style="font-size: 75%;"}
+-   Therefore, the PVE of the $m$-th principal component is given by the positive quantity between 0 and 1: $$
+      \frac{\sum_{i=1}^n z_{im}^2}{\sum_{j=1}^p \sum_{i=1}^n x_{ij}^2}.
+    $$
 
 -   The PVEs sum to one. We sometimes display the cumulative PVEs.
 
-:::{.fragment}
-
+::: fragment
 ```{r  echo=FALSE, out.width = "55%", fig.align="center"}
 knitr::include_graphics("figs/12_3-1.png") 
 ```
-
 :::
-
-::::::::
+::::
 
 <br>
 
@@ -301,10 +280,10 @@ If we use principal components as a summary of our data, how many components are
 -   There is no simple answer to this question as the response will be conditioned on the data.
 
 -   The “scree plot” on the previous slide can be used as a guide: we look for an “elbow”.
-    
-    - Essentially, this means that we can determine the optimal number of principal components by identifying the point where the marginal gain in the Proportion of Variance Explained (PVE) becomes negligible as additional components are added.
 
-# Matrix Completion and Missing Values  {background-color="#cfb991"}
+    -   Essentially, this means that we can determine the optimal number of principal components by identifying the point where the marginal gain in the Proportion of Variance Explained (PVE) becomes negligible as additional components are added.
+
+# Matrix Completion and Missing Values {background-color="#cfb991"}
 
 ## Matrix Completion and Missing Values
 
@@ -324,103 +303,88 @@ If we use principal components as a summary of our data, how many components are
 
 ## Recommender Systems
 
-:::::::: {style="font-size: 70%;"}
-
+::: {style="font-size: 70%;"}
 ```{r  echo=FALSE, out.width = "65%", fig.align="center"}
 knitr::include_graphics("figs/12_1_11-1.png") 
 ```
 
--   Netflix users rate movies they have seen, usually a very small fraction of available movies. 
+-   Netflix users rate movies they have seen, usually a very small fraction of available movies.
 
-- The [Netflix Competition](https://en.wikipedia.org/wiki/Netflix_Prize){target="_blank"} data set had 400,000 users and over 18,000 movies. Only 2% of the matrix had numbers in it and the rest were missing. 
+-   The [Netflix Competition](https://en.wikipedia.org/wiki/Netflix_Prize){target="_blank"} data set had 400,000 users and over 18,000 movies. Only 2% of the matrix had numbers in it and the rest were missing.
 
 -   Predicting missing ratings provides a way to *recommend* movies to users. **Matrix completion** is one of the primary tools.
-
-::::::::
+:::
 
 ## Matrix Approximation via Principal Components
 
--   It is possible to have an interpretation of principal components in terms of *matrix approximation*:
-$$
-\text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{j=1}^p \sum_{i=1}^n \left( x_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\}.
-$$
+-   It is possible to have an interpretation of principal components in terms of *matrix approximation*: $$
+    \text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{j=1}^p \sum_{i=1}^n \left( x_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\}.
+    $$
 
 -   $\mathbf{A}$ is an $n \times M$ matrix whose $(i, m)$ element is $a_{im}$, and $\mathbf{B}$ is a $p \times M$ matrix whose $(j, m)$ element is $b_{jm}$.
 
--   It can be shown that for any value of $M$, the **first** $M$ principal components provide a solution: 
-$$
+-   It can be shown that for any value of $M$, the **first** $M$ principal components provide a solution: $$
     \hat{a}_{im} = z_{im} \quad \text{and} \quad \hat{b}_{jm} = \phi_{jm}.
-$$
+    $$
 
 -   But what to do if the matrix has missing elements?
 
 ## Matrix Completion via Principal Components
 
-We pose instead a modified version of the approximation criterion:
-$$
+We pose instead a modified version of the approximation criterion: $$
 \text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{(i,j) \in \mathcal{O}} \left( x_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\},
-$$
-where $\mathcal{O}$ is the set of all **observed** pairs of indices $(i, j)$, a subset of the possible $n \times p$ pairs.
+$$ where $\mathcal{O}$ is the set of all **observed** pairs of indices $(i, j)$, a subset of the possible $n \times p$ pairs.
 
-- Once we solve this problem:
+-   Once we solve this problem:
 
-  -   We can estimate a missing observation $x_{ij}$ using:
-$$
-  \hat{x}_{ij} = \sum_{m=1}^M \hat{a}_{im}\hat{b}_{jm},
-$$
-where $\hat{a}_{im}$ and $\hat{b}_{jm}$ are the $(i,m)$ and $(j,m)$ elements of the solution matrices $\mathbf{\hat{A}}$ and $\mathbf{\hat{B}}$.
+    -   We can estimate a missing observation $x_{ij}$ using: $$
+        \hat{x}_{ij} = \sum_{m=1}^M \hat{a}_{im}\hat{b}_{jm},
+        $$ where $\hat{a}_{im}$ and $\hat{b}_{jm}$ are the $(i,m)$ and $(j,m)$ elements of the solution matrices $\mathbf{\hat{A}}$ and $\mathbf{\hat{B}}$.
 
-  -   We can (approximately) recover the $M$ principal component scores and loadings, as if data were complete.
+    -   We can (approximately) recover the $M$ principal component scores and loadings, as if data were complete.
 
 ## Iterative Algorithm for Matrix Completion
 
-:::::::: {style="font-size: 80%;"}
-
-::::::: columns
-::::: {.column width="50%" style="justify-content: center; align-items: center;"}
-
+:::::: {style="font-size: 80%;"}
+::::: columns
+::: {.column width="50%" style="justify-content: center; align-items: center;"}
 1.  **Initialize**: create a complete data matrix $\tilde{\mathbf{X}}$ by filling in the missing values using mean imputation.
 
 2.  **Repeat**: steps (a)–(c) until the objective in (c) fails to decrease:
 
-  (a) 
-$$
-      \text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{j=1}^p \sum_{i=1}^n \left( \tilde{x}_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\},
-$$
-by computing the principal components of $\tilde{\mathbf{X}}$.
+<!-- -->
 
-:::::
-::::: {.column width="50%" style="justify-content: center; align-items: center;"}
+(a) $$
+    \text{minimize}_{\mathbf{A} \in \mathbb{R}^{n \times M}, \mathbf{B} \in \mathbb{R}^{p \times M}} \left\{ \sum_{j=1}^p \sum_{i=1}^n \left( \tilde{x}_{ij} - \sum_{m=1}^M a_{im}b_{jm} \right)^2 \right\},
+    $$ by computing the principal components of $\tilde{\mathbf{X}}$.
+:::
 
-  (b) For each missing entry $(i, j) \notin \mathcal{O}$, set:
-$$
-      \tilde{x}_{ij} \leftarrow \sum_{m=1}^M \hat{a}_{im} \hat{b}_{jm}.
-$$
+::: {.column width="50%" style="justify-content: center; align-items: center;"}
+(b) For each missing entry $(i, j) \notin \mathcal{O}$, set: $$
+    \tilde{x}_{ij} \leftarrow \sum_{m=1}^M \hat{a}_{im} \hat{b}_{jm}.
+    $$
 
-  (c) Compute the objective:
-$$
-      \sum_{(i,j) \in \mathcal{O}} \left( x_{ij} - \sum_{m=1}^M \hat{a}_{im} \hat{b}_{jm} \right)^2.
-$$
+(c) Compute the objective: $$
+    \sum_{(i,j) \in \mathcal{O}} \left( x_{ij} - \sum_{m=1}^M \hat{a}_{im} \hat{b}_{jm} \right)^2.
+    $$
+
+<!-- -->
 
 3.  **Return** the estimated missing entries $\tilde{x}_{ij}$, $(i, j) \notin \mathcal{O}$.
-
-:::::::
-::::: 
-
-::::::::
+:::
+:::::
+::::::
 
 ## Example: USAarrests Data
 
-::::::: columns
-::::: {.column width="70%" style="justify-content: center; align-items: center;"}
-
+::::: columns
+::: {.column width="70%" style="justify-content: center; align-items: center;"}
 ```{r  echo=FALSE, out.width = "75%", fig.align="center"}
 knitr::include_graphics("figs/12_1_12-1.png") 
 ```
+:::
 
-::::: 
-::::: {.column width="30%" style="justify-content: center; align-items: center;"}
-
+::: {.column width="30%" style="justify-content: center; align-items: center;"}
 Here $\mathbf{X}$ has 50 rows (states) and four columns: **Murder**, **Assault**, **Rape**, and **UrbanPop**.
 
 -   We selected 20 states at random, and for each, we selected one of the variables at random, and set its value to **NA**.
@@ -428,9 +392,8 @@ Here $\mathbf{X}$ has 50 rows (states) and four columns: **Murder**, **Assault**
 -   Used $M = 1$ principal component in the algorithm.
 
 -   **Correlation**: 0.63 between original and imputed values.
-
-::::::: 
-::::: 
+:::
+:::::
 
 ## Example: USAarrests Data
 
@@ -438,10 +401,9 @@ Here $\mathbf{X}$ has 50 rows (states) and four columns: **Murder**, **Assault**
 
 -   In general, in order to apply this algorithm, we must select $M$, the number of principal components to use for the imputation.
 
--   One approach is to randomly set to **NA** some elements that were actually observed, and select $M$ based on how well those known values are recovered. 
+-   One approach is to randomly set to **NA** some elements that were actually observed, and select $M$ based on how well those known values are recovered.
 
-
-# Clustering  {background-color="#cfb991"}
+# Clustering {background-color="#cfb991"}
 
 ## Clustering
 
@@ -473,29 +435,27 @@ Here $\mathbf{X}$ has 50 rows (states) and four columns: **Murder**, **Assault**
 
 -   In **hierarchical clustering**, we do not know in advance how many clusters we want; in fact, we end up with a tree-like visual representation of the observations, called a **dendrogram**, that allows us to view at once the clusterings obtained for each possible number of clusters, from 1 to $n$.
 
-# K-means clustering  {background-color="#cfb991"}
+# K-means clustering {background-color="#cfb991"}
 
 ## K-means clustering
 
-:::::::: {style="font-size: 80%;"}
-
+::: {style="font-size: 80%;"}
 ```{r  echo=FALSE, out.width = "65%", fig.align="center"}
 knitr::include_graphics("figs/12_7-1.png") 
 ```
 
-A simulated data set with 150 observations in 2-dimensional space. Panels show the results of applying *K-means clustering* with different values of $K$, the number of clusters. The color of each observation indicates the cluster to which it was assigned using the *K-means clustering* algorithm. Note that there is no ordering of the clusters, so the cluster coloring is arbitrary. 
+A simulated data set with 150 observations in 2-dimensional space. Panels show the results of applying *K-means clustering* with different values of $K$, the number of clusters. The color of each observation indicates the cluster to which it was assigned using the *K-means clustering* algorithm. Note that there is no ordering of the clusters, so the cluster coloring is arbitrary.
+:::
 
-::::::::
+## K-means clustering: Details
 
-## K-means clustering: Details 
-
-- Let $C_1, \ldots, C_K$ denote sets containing the indices of the observations in each cluster. These sets satisfy two properties:
+-   Let $C_1, \ldots, C_K$ denote sets containing the indices of the observations in each cluster. These sets satisfy two properties:
 
 1.  $C_1 \cup C_2 \cup \ldots \cup C_K = \{1, \ldots, n\}$. In other words, each observation belongs to at least one of the $K$ clusters.
 
 2.  $C_k \cap C_{k'} = \emptyset$ for all $k \neq k'$. In other words, the clusters are non-overlapping: no observation belongs to more than one cluster.
 
-- For instance, if the $i$-th observation is in the $k$-th cluster, then $i \in C_k$.
+-   For instance, if the $i$-th observation is in the $k$-th cluster, then $i \in C_k$.
 
 ## K-means clustering: Details
 
@@ -503,31 +463,27 @@ A simulated data set with 150 observations in 2-dimensional space. Panels show t
 
 -   The within-cluster variation for cluster $C_k$ is a measure $\text{WCV}(C_k)$ of the amount by which the observations within a cluster differ from each other.
 
--   Hence, we want to solve the problem:
-$$
-  \text{minimize}_{C_1, \ldots, C_K} \left\{ \sum_{k=1}^K \text{WCV}(C_k) \right\}.
-$$
+-   Hence, we want to solve the problem: $$
+      \text{minimize}_{C_1, \ldots, C_K} \left\{ \sum_{k=1}^K \text{WCV}(C_k) \right\}.
+    $$
 
 -   In words, this formula says that we want to partition the observations into $K$ clusters such that the total within-cluster variation, summed over all $K$ clusters, is as small as possible.
 
 ## How to Define Within-Cluster Variation?
 
--   Typically, we use Euclidean distance:
-$$
-  \text{WCV}(C_k) = \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2, \tag{3}
-$$
-where $|C_k|$ denotes the number of observations in the $k$-th cluster.
+-   Typically, we use Euclidean distance: $$
+      \text{WCV}(C_k) = \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2, \tag{3}
+    $$ where $|C_k|$ denotes the number of observations in the $k$-th cluster.
 
--   Combining (2) and (3) gives the optimization problem that defines *K-means clustering*:
-$$
-  \text{minimize}_{C_1, \ldots, C_K} \left\{ \sum_{k=1}^K \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2 \right\}. \tag{4}
-$$
+-   Combining (2) and (3) gives the optimization problem that defines *K-means clustering*: $$
+      \text{minimize}_{C_1, \ldots, C_K} \left\{ \sum_{k=1}^K \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2 \right\}. \tag{4}
+    $$
 
 ## K-Means Clustering Algorithm
 
-1. Randomly assign a number, from 1 to $K$, to each of the observations. These serve as initial cluster assignments for the observations.
+1.  Randomly assign a number, from 1 to $K$, to each of the observations. These serve as initial cluster assignments for the observations.
 
-2. Iterate until the cluster assignments stop changing:
+2.  Iterate until the cluster assignments stop changing:
 
     2.a For each of the $K$ clusters, compute the cluster **centroid**. The $k$-th cluster centroid is the vector of the $p$ feature means for the observations in the $k$-th cluster.
 
@@ -557,17 +513,13 @@ knitr::include_graphics("figs/12_8-1.png")
 
 ## Properties of the Algorithm
 
--   This algorithm is guaranteed to decrease the value of the objective function (4) at each step. **Why?** 
+-   This algorithm is guaranteed to decrease the value of the objective function (4) at each step. **Why?**
 
-- Note that
-$$
-  \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2 = 2 \sum_{i \in C_k} \sum_{j=1}^p (x_{ij} - \bar{x}_{kj})^2,
-$$
-where $\bar{x}_{kj} = \frac{1}{|C_k|} \sum_{i \in C_k} x_{ij}$ is the mean for feature $j$ in cluster $C_k$.
+-   Note that $$
+    \frac{1}{|C_k|} \sum_{i,i' \in C_k} \sum_{j=1}^p (x_{ij} - x_{i'j})^2 = 2 \sum_{i \in C_k} \sum_{j=1}^p (x_{ij} - \bar{x}_{kj})^2,
+    $$ where $\bar{x}_{kj} = \frac{1}{|C_k|} \sum_{i \in C_k} x_{ij}$ is the mean for feature $j$ in cluster $C_k$.
 
 -   However, it is not guaranteed to give the global minimum.
-
-
 
 ## Example: Different Starting Values
 
@@ -585,7 +537,7 @@ knitr::include_graphics("figs/12_9-1.png")
 
 -   Those labeled in **red** all achieved the same best solution, with an objective value of **235.8**.
 
-# Hierarchical Clustering  {background-color="#cfb991"}
+# Hierarchical Clustering {background-color="#cfb991"}
 
 ## Hierarchical Clustering
 
@@ -637,8 +589,7 @@ knitr::include_graphics("figs/12_1_7-1.png")
 
 ## Hierarchical Clustering Algorithm
 
-:::::::: {style="font-size: 90%;"}
-
+:::: {style="font-size: 90%;"}
 The approach in words:
 
 -   Start with each point in its own cluster.
@@ -649,15 +600,12 @@ The approach in words:
 
 -   Ends when all points are in a single cluster.
 
-:::{.fragment}
-
+::: fragment
 ```{r  echo=FALSE, out.width = "40%", fig.align="center"}
 knitr::include_graphics("figs/12_1_8-1.png") 
 ```
-
 :::
-
-::::::::
+::::
 
 ## Hierarchical Clustering: Example
 
@@ -673,86 +621,68 @@ knitr::include_graphics("figs/12_10-1.png")
 
 ## Application of Hierarchical Clustering
 
-:::::::: {style="font-size: 70%;"}
-
+:::::: {style="font-size: 70%;"}
 ```{r  echo=FALSE, out.width = "65%", fig.align="center"}
 knitr::include_graphics("figs/12_11-1.png") 
 ```
 
-::::::: columns
-::::: {.column width="50%" style="justify-content: center; align-items: center;"}
-
+::::: columns
+::: {.column width="50%" style="justify-content: center; align-items: center;"}
 -   Each dendrogram represents different thresholds for determining clusters. The dashed horizontal lines indicate where the data is split into distinct clusters.
 
 -   **Left**: Dendrogram obtained from hierarchically clustering the data from the previous slide, using complete linkage and Euclidean distance. The entire tree is one cluster.
+:::
 
-:::::
-::::: {.column width="50%" style="justify-content: center; align-items: center;"}
-
+::: {.column width="50%" style="justify-content: center; align-items: center;"}
 -   **Center**: The dendrogram in the center panel, cut at a height of 9 (indicated by the dashed line). This cut results in two distinct clusters, shown in different colors.
 
 -   **Right**: The dendrogram from the left-hand panel, now cut at a height of 5. This cut results in three distinct clusters, shown in different colors. Note that the colors were not used in clustering, but are simply used for display purposes in this figure.
-
-:::::::
+:::
 :::::
-
-::::::::
+::::::
 
 ## Types of Linkage
 
-:::::::: {style="font-size: 85%;"}
-
+::: {style="font-size: 85%;"}
 Linkage methods determine how the distance between two clusters is measured when forming a **hierarchical clustering dendrogram**.
 
-| **Linkage**  | **Description** |
-|-------------|----------------|
+| **Linkage** | **Description** |
+|--------------------------------|----------------------------------------|
 | **Complete** | Computes the **maximum** pairwise dissimilarity between clusters. This method tends to create **compact clusters** but is **sensitive to outliers**. |
-| **Single**   | Computes the **minimum** pairwise dissimilarity between clusters. It can lead to **elongated, chain-like clusters** and is **sensitive to noise**. |
-| **Average**  | Computes the **average** pairwise dissimilarity between clusters. It provides a **balance** between complete and single linkage, making it **widely used**. |
+| **Single** | Computes the **minimum** pairwise dissimilarity between clusters. It can lead to **elongated, chain-like clusters** and is **sensitive to noise**. |
+| **Average** | Computes the **average** pairwise dissimilarity between clusters. It provides a **balance** between complete and single linkage, making it **widely used**. |
 | **Centroid** | Computes the dissimilarity between **centroids** (mean vectors) of clusters. However, it may cause **inversions**, where clusters are **not merged in a monotonic order** - a situation where a pair of clusters are merged in a non-monotonic way, meaning that the hierarchical structure does not maintain a proper increasing order of distances. |
-
-::::::::
-
+:::
 
 ## Choice of Dissimilarity Measure
 
-:::::::: {style="font-size: 70%;"}
-
-::::::: columns
-::::: {.column width="60%" style="justify-content: center; align-items: center;"}
-
+::::::: {style="font-size: 70%;"}
+:::::: columns
+:::: {.column width="60%" style="justify-content: center; align-items: center;"}
 -   So far, we have used Euclidean distance to defince the clusters.
 
 -   An alternative is *correlation-based distance*, which considers two observations to be similar if their features are highly correlated.
 
 -   This is an unusual use of correlation, which is normally computed between variables; here, it is computed between the observation profiles for each pair of observations.
 
-:::{.fragment}
-
+::: fragment
 ```{r  echo=FALSE, out.width = "85%", fig.align="center"}
 knitr::include_graphics("figs/12_15-1.png") 
 ```
-
 :::
+::::
 
-:::::
-::::: {.column width="40%" style="justify-content: center; align-items: center;"}
+::: {.column width="40%" style="justify-content: center; align-items: center;"}
+-   The figure shows a **sequence of points over time** for 3 different observations. Each curve represents one such series, and the goal is to assess how **similar the patterns** are across these series.
 
-- The figure shows a **sequence of points over time** for 3 different observations. Each curve represents one such series, and the goal is to assess how **similar the patterns** are across these series. 
+-   If we use **Euclidean distance**, we compare observations based on their absolute coordinates. Here, the **purple and gold observations are numerically closer together**, while the **green observation is farther apart** from both.
 
-- If we use **Euclidean distance**, we compare observations based on their absolute coordinates. Here, the **purple and gold observations are numerically closer together**, while the **green observation is farther apart** from both.
+-   However, if we use **correlation-based distance**, we look at how the values fluctuate over the index rather than their absolute differences. In this case, the **green and gold series exhibit similar trends**, moving **up and down together**, making them **more correlated** than the purple and green observations.
 
-- However, if we use **correlation-based distance**, we look at how the values fluctuate over the index rather than their absolute differences. In this case, the **green and gold series exhibit similar trends**, moving **up and down together**, making them **more correlated** than the purple and green observations.
-  
-- The key idea is that **correlation focuses on shape rather than scale**. If your problem requires detecting **similar trends and patterns** rather than absolute differences in values, **correlation-based distance** is a better choice than **Euclidean distance**.
-
-
+-   The key idea is that **correlation focuses on shape rather than scale**. If your problem requires detecting **similar trends and patterns** rather than absolute differences in values, **correlation-based distance** is a better choice than **Euclidean distance**.
+:::
+::::::
 :::::::
-::::: 
-
-::::::::
-
-
 
 ## Practical Issues
 
@@ -772,6 +702,7 @@ knitr::include_graphics("figs/12_15-1.png")
 
 -   Which features should we use to drive the clustering?
 
+````{=html}
 <!---
 # Example: Breast Cancer Microarray Study
 
@@ -812,6 +743,7 @@ knitr::include_graphics("figs/12_1_10-1.png")
 -   See *The Elements of Statistical Learning*, chapter 14.
 
 --->
+````
 
 # Summary {background-color="#cfb991"}
 
@@ -821,33 +753,31 @@ knitr::include_graphics("figs/12_1_10-1.png")
 ::::::: columns
 :::: {.column width="50%"}
 ::: {style="font-size: 80%;"}
-- **Unsupervised Learning**: Focuses on finding patterns or structures (e.g., subgroups, summaries) within data when no labeled outcome variable is available. Examples include dimensionality reduction and clustering.  
+-   **Unsupervised Learning**: Focuses on finding patterns or structures (e.g., subgroups, summaries) within data when no labeled outcome variable is available. Examples include dimensionality reduction and clustering.
 
-- **Principal Components Analysis (PCA)**:  
-  - Seeks linear combinations of features that capture the greatest variance in the data.  
-  - Often used for visualization or as a pre-processing step to reduce dimensionality.  
-  - The proportion of variance explained (PVE) helps determine how many principal components to retain.
+-   **Principal Components Analysis (PCA)**:
 
-- **Matrix Completion and Missing Values**:  
-  - Exploits correlations among features to impute missing entries in a data matrix.  
-  - Tools like low-rank approximations (via PCA) can effectively fill in missing data under the assumption that the matrix is only partially observed.
+    -   Seeks linear combinations of features that capture the greatest variance in the data.\
+    -   Often used for visualization or as a pre-processing step to reduce dimensionality.\
+    -   The proportion of variance explained (PVE) helps determine how many principal components to retain.
 
-  
+-   **Matrix Completion and Missing Values**:
+
+    -   Exploits correlations among features to impute missing entries in a data matrix.\
+    -   Tools like low-rank approximations (via PCA) can effectively fill in missing data under the assumption that the matrix is only partially observed.
 :::
 ::::
 
 :::: {.column width="50%"}
 ::: {style="font-size: 80%;"}
-- **Clustering Methods**:  
-  - **K-means Clustering**: Partitions data into $K$ clusters by minimizing within-cluster variation, but requires specifying $K$ in advance.  
-  - **Hierarchical Clustering**: Builds a tree (dendrogram) that merges data points (or clusters) iteratively, which can be cut at different heights to form any number of clusters.  
-
-- **Distance & Linkage Choices**:  
-  - In clustering, outcomes vary based on how similarity is measured (e.g., Euclidean distance vs. correlation-based distance) and which linkage criterion (e.g., complete, single, average) is chosen.
-
-- **Practical Considerations**:  
-  - Decide whether to standardize variables (especially if measured in different units).  
-  - Select the number of clusters ($K$) or principal components based on interpretability, domain knowledge, and diagnostic tools (like scree plots).
+-   **Clustering Methods**:
+    -   **K-means Clustering**: Partitions data into $K$ clusters by minimizing within-cluster variation, but requires specifying $K$ in advance.\
+    -   **Hierarchical Clustering**: Builds a tree (dendrogram) that merges data points (or clusters) iteratively, which can be cut at different heights to form any number of clusters.
+-   **Distance & Linkage Choices**:
+    -   In clustering, outcomes vary based on how similarity is measured (e.g., Euclidean distance vs. correlation-based distance) and which linkage criterion (e.g., complete, single, average) is chosen.
+-   **Practical Considerations**:
+    -   Decide whether to standardize variables (especially if measured in different units).\
+    -   Select the number of clusters ($K$) or principal components based on interpretability, domain knowledge, and diagnostic tools (like scree plots).
 :::
 ::::
 :::::::
