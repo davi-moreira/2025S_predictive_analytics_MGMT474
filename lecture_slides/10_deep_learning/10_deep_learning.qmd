@@ -378,6 +378,455 @@ knitr::include_graphics("figs/pytorch_logo.png")
         sandbox="allow-same-origin allow-scripts allow-popups">
 </iframe>
 
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We define our neural network by subclassing `nn.Module`, and initialize
+the neural network layers in `__init__`. Every `nn.Module` subclass
+implements the operations on input data in the `forward` method.
+
+<br>
+
+```{python, echo = T, eval = F}
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+      
+```
+
+:::
+::: {.column width="50%"}
+
+**What Are We Doing?**
+
+We are defining a **neural network class** using PyTorch. This network is designed to work with images, specifically 28×28 grayscale images like those from the **FashionMNIST** dataset. The network will output **10 values**, one for each digit from 0 to 9.
+
+**Step-by-Step Breakdown**
+
+- `class NeuralNetwork(nn.Module):` 
+    
+    - We create a new neural network class called `NeuralNetwork`. It inherits from PyTorch’s `nn.Module`, which is the base class for all neural network models.
+
+- `def __init__(self):` and `super().__init__()`
+    - `__init__` is the **constructor**. It's run when we create the model.
+    - `super().__init__()` tells Python to also run the initialization code from the parent class (`nn.Module`). This is required for PyTorch to keep track of everything inside the model.
+
+- `self.flatten = nn.Flatten()`: 
+    - changes the input from a **2D image (28×28)** into a **1D vector (784 values)**, which is easier for linear layers to handle.
+
+
+::::: 
+:::
+
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We define our neural network by subclassing `nn.Module`, and initialize
+the neural network layers in `__init__`. Every `nn.Module` subclass
+implements the operations on input data in the `forward` method.
+
+<br>
+
+```{python, echo = T, eval = F}
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+      
+```
+
+:::
+::: {.column width="50%"}
+
+**Define a sequence of layers:**
+
+Here we build the main body of the neural network. 
+
+```python
+self.linear_relu_stack = nn.Sequential(
+    nn.Linear(28*28, 512),
+    nn.ReLU(),
+    nn.Linear(512, 512),
+    nn.ReLU(),
+    nn.Linear(512, 10),
+)
+```
+
+In most contexts when we say “how many layers?” we refer to the learnable ones. So this network has **three fully‑connected (Linear) layers, with ReLU activations in between**.
+
+- You can think of the linear layer as a **filter** that projects the image into a **new space with 512 dimensions**. These new values are **not pixels** anymore, but rather **abstract features** learned by the network.
+
+::::: 
+:::
+
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We define our neural network by subclassing `nn.Module`, and initialize
+the neural network layers in `__init__`. Every `nn.Module` subclass
+implements the operations on input data in the `forward` method.
+
+<br>
+
+```{python, echo = T, eval = F}
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+      
+```
+
+:::
+::: {.column width="50%"}
+
+**Define a sequence of layers:**
+
+1. **First layer** `nn.Linear(28*28, 512)`: takes the 784 values from the image and transforms them into 512 values. A `Linear(784, 512)` layer performs:
+    - A **matrix multiplication** between the input vector (length 784) and a **weight matrix** of size `[784 × 512]`, followed by adding a **bias vector** of length 512.
+    - Mathematically:
+$$
+\text{output} = x \cdot W + b
+$$
+    - `x` is the **input vector**: shape `[784]`
+    - `W` is the **weight matrix**: shape `[784 × 512]`
+    - `b` is the **bias vector**: shape `[512]`
+    - The result (`output`) is a new vector of shape `[512]`
+
+- Each of the 512 output values is a **linear combination** of all 784 pixel values in the input image. By default, PyTorch initializes weights using [Kaiming Uniform Initialization](https://en.wikipedia.org/wiki/Weight_initialization){target="_blank"} (a variant of [He initialization](https://en.wikipedia.org/wiki/Weight_initialization){target="_blank"}), which works well with ReLU activation functions.
+
+
+::::: 
+:::
+
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We define our neural network by subclassing `nn.Module`, and initialize
+the neural network layers in `__init__`. Every `nn.Module` subclass
+implements the operations on input data in the `forward` method.
+
+<br>
+
+```{python, echo = T, eval = F}
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+      
+```
+
+:::
+::: {.column width="50%"}
+
+**Define a sequence of layers:**
+
+2. `nn.ReLU()`:  applies the [**ReLU activation function**](https://en.wikipedia.org/wiki/Rectifier_(neural_networks)){target="_blank"}, which keeps positive numbers and turns negative numbers into zero. This adds non-linearity to the model.
+
+3. **Second layer**`nn.Linear(512, 512)`: takes those 512 values and again outputs 512 values. This is a **hidden layer**, helping the model learn more complex patterns.
+
+4. `nn.ReLU()`: Another non-linear transformation.
+
+5. **Third (Final) layer**:`nn.Linear(512, 10)`: takes the 512 values and produces **10 output values**.
+   - These are called **logits**, and each one corresponds to a digit class (0 to 9).
+
+::::: 
+:::
+
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We define our neural network by subclassing `nn.Module`, and initialize
+the neural network layers in `__init__`. Every `nn.Module` subclass
+implements the operations on input data in the `forward` method.
+
+<br>
+
+```{python, echo = T, eval = F}
+
+class NeuralNetwork(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.flatten = nn.Flatten()
+        self.linear_relu_stack = nn.Sequential(
+            nn.Linear(28*28, 512),
+            nn.ReLU(),
+            nn.Linear(512, 512),
+            nn.ReLU(),
+            nn.Linear(512, 10),
+        )
+
+    def forward(self, x):
+        x = self.flatten(x)
+        logits = self.linear_relu_stack(x)
+        return logits
+      
+```
+
+:::
+::: {.column width="50%"}
+
+**Define a sequence of layers:**
+
+- `forward(self, x)`: This is the **forward pass**, the function that runs when we send data through the model.
+
+- Step-by-step:
+
+1. `x = self.flatten(x)`: Convert the 28×28 image into a 1D tensor with 784 values.
+
+2. `logits = self.linear_relu_stack(x)`: Pass the input through the series of layers.
+
+3. `return logits`: Output the final predictions (raw scores for each class).
+
+- In summary this neural network:
+  - Takes an image (28×28) as input,
+  - Flattens it into a vector,
+  - Passes it through two **fully connected layers** with ReLU,
+  - Outputs a vector of size 10 (one for each digit)
+
+::::: 
+:::
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 60%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We create an instance of `NeuralNetwork`, and move it to the `device`,
+and print its structure.
+
+
+```{python, echo = T, eval = F}
+
+model = NeuralNetwork().to(device)
+print(model)
+
+```
+
+To use the model, we pass it the input data.
+
+**Example**:
+
+```{python, echo = T, eval = F}
+
+X = torch.rand(1, 28, 28, device=device)
+logits = model(X)
+pred_probab = nn.Softmax(dim=1)(logits)
+y_pred = pred_probab.argmax(1)
+print(f"Predicted class: {y_pred}")
+
+# To see the image:
+import torch
+import matplotlib.pyplot as plt
+
+# Remove the batch dimension (1, 28, 28) → (28, 28)
+image = X[0]
+
+# Plot the image
+plt.imshow(image, cmap='gray')  # Use 'gray' colormap for grayscale image
+plt.title("Random 28x28 Image")
+plt.axis('off')
+plt.show()
+
+```
+
+
+:::
+::: {.column width="50%"}
+
+- `torch.rand(1, 28, 28, device=device)`: Creates a **random image** with shape `[1, 28, 28]`
+  - `1` is the batch size (just one image)
+  - `28×28` is the image dimension
+  - `device=device` ensures the tensor goes to CPU or GPU (wherever the model is)
+
+:::{.fragment}
+
+```{python, echo = T, eval = F}
+
+# To see tensor:
+print(X)
+
+```
+
+:::
+:::{.fragment}
+
+Let's say the tensor shown is:
+
+```python
+X = torch.tensor([[
+    [0.1177, 0.2669, 0.6367, 0.6148, 0.3085, ...],  # row 0
+    [0.8672, 0.3645, 0.4822, 0.9566, 0.8999, ...],  # row 1
+    ...
+]])
+```
+:::
+
+- This is a **3D tensor** of shape `[1, 28, 28]`:
+  - The first dimension `1` is the batch size,
+  - The next two are height and width of the image.
+
+- The full index of `0.2669` in the 3D tensor is: `X[0, 0, 1]`. 
+  - `0` → first (and only) image in the batch
+  - `0` → first row of the image
+  - `1` → second column in that row
+
+::::: 
+:::
+
+:::
+
+## [Build the Neural Network](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html){target="_blank"}
+
+::: {style="font-size: 70%;"}
+
+::::: columns
+::: {.column width="50%"}
+
+We create an instance of `NeuralNetwork`, and move it to the `device`,
+and print its structure.
+
+```{python, echo = T, eval = F}
+
+model = NeuralNetwork().to(device)
+print(model)
+
+```
+
+To use the model, we pass it the input data.
+
+**Example**:
+
+```{python, echo = T, eval = F}
+
+X = torch.rand(1, 28, 28, device=device)
+logits = model(X)
+pred_probab = nn.Softmax(dim=1)(logits)
+y_pred = pred_probab.argmax(1)
+print(f"Predicted class: {y_pred}")
+
+# To see the image:
+import torch
+import matplotlib.pyplot as plt
+
+# Remove the batch dimension (1, 28, 28) → (28, 28)
+image = X[0]
+
+# Plot the image
+plt.imshow(image, cmap='gray')  # Use 'gray' colormap for grayscale image
+plt.title("Random 28x28 Image")
+plt.axis('off')
+plt.show()
+
+```
+
+
+:::
+::: {.column width="50%"}
+
+- `logits = model(X)`: This **calls the model** with input `X`.  
+  - Behind the scenes, it runs `model.forward(X)`
+  - Output: a **vector of 10 values** (called logits), one for each class (digits 0 through 9)
+
+- **Note**: We do **not** call `model.forward()` directly — `PyTorch` manages hooks and gradients when we use `model(X)`
+
+- `pred_probab = nn.Softmax(dim=1)(logits)`: Applies **softmax** to the raw output logits
+  - Softmax turns logits into **probabilities** (values between 0 and 1 that sum to 1)
+  - `dim=1` means we apply softmax across the 10 output class values (not across the batch)
+
+- `y_pred = pred_probab.argmax(1)`: Picks the **index of the largest probability**, i.e., the **predicted class**
+  - `argmax(1)` returns the class with the highest probability from each row (here we have just one row)
+
+- `print(f"Predicted class: {y_pred}")`: Prints the predicted digit class (0 through 9)
+
+::::: 
+:::
+
+:::
+
 ## [Automatic Differentiation with torch.autograd](https://pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html){target="_blank"}
 
 <iframe src="https://pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html"

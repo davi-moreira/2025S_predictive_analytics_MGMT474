@@ -29,6 +29,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -761,6 +826,353 @@ XXXXXXXXXXXXXXXXx
 <h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
 <iframe src="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" width="100%" height="600" allowfullscreen="" sandbox="allow-same-origin allow-scripts allow-popups">
 </iframe>
+</section>
+<section id="build-the-neural-network-1" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<span id="cb1-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb1-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb1-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb1-5"><a></a>        <span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb1-6"><a></a>            nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb1-7"><a></a>            nn.ReLU(),</span>
+<span id="cb1-8"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb1-9"><a></a>            nn.ReLU(),</span>
+<span id="cb1-10"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb1-11"><a></a>        )</span>
+<span id="cb1-12"><a></a></span>
+<span id="cb1-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb1-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
+<span id="cb1-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
+<span id="cb1-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>What Are We Doing?</strong></p>
+<p>We are defining a <strong>neural network class</strong> using PyTorch. This network is designed to work with images, specifically 28×28 grayscale images like those from the <strong>FashionMNIST</strong> dataset. The network will output <strong>10 values</strong>, one for each digit from 0 to 9.</p>
+<p><strong>Step-by-Step Breakdown</strong></p>
+<ul>
+<li class="fragment"><p><code>class NeuralNetwork(nn.Module):</code></p>
+<ul>
+<li class="fragment">We create a new neural network class called <code>NeuralNetwork</code>. It inherits from PyTorch’s <code>nn.Module</code>, which is the base class for all neural network models.</li>
+</ul></li>
+<li class="fragment"><p><code>def __init__(self):</code> and <code>super().__init__()</code></p>
+<ul>
+<li class="fragment"><code>__init__</code> is the <strong>constructor</strong>. It’s run when we create the model.</li>
+<li class="fragment"><code>super().__init__()</code> tells Python to also run the initialization code from the parent class (<code>nn.Module</code>). This is required for PyTorch to keep track of everything inside the model.</li>
+</ul></li>
+<li class="fragment"><p><code>self.flatten = nn.Flatten()</code>:</p>
+<ul>
+<li class="fragment">changes the input from a <strong>2D image (28×28)</strong> into a <strong>1D vector (784 values)</strong>, which is easier for linear layers to handle.</li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-2" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<span id="cb2-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb2-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb2-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb2-5"><a></a>        <span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb2-6"><a></a>            nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb2-7"><a></a>            nn.ReLU(),</span>
+<span id="cb2-8"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb2-9"><a></a>            nn.ReLU(),</span>
+<span id="cb2-10"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb2-11"><a></a>        )</span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb2-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
+<span id="cb2-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
+<span id="cb2-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Define a sequence of layers:</strong></p>
+<p>Here we build the main body of the neural network.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a></a><span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb3-2"><a></a>    nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb3-3"><a></a>    nn.ReLU(),</span>
+<span id="cb3-4"><a></a>    nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb3-5"><a></a>    nn.ReLU(),</span>
+<span id="cb3-6"><a></a>    nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb3-7"><a></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In most contexts when we say “how many layers?” we refer to the learnable ones. So this network has <strong>three fully‑connected (Linear) layers, with ReLU activations in between</strong>.</p>
+<ul>
+<li class="fragment">You can think of the linear layer as a <strong>filter</strong> that projects the image into a <strong>new space with 512 dimensions</strong>. These new values are <strong>not pixels</strong> anymore, but rather <strong>abstract features</strong> learned by the network.</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-3" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<span id="cb4-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb4-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb4-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb4-5"><a></a>        <span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb4-6"><a></a>            nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb4-7"><a></a>            nn.ReLU(),</span>
+<span id="cb4-8"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb4-9"><a></a>            nn.ReLU(),</span>
+<span id="cb4-10"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb4-11"><a></a>        )</span>
+<span id="cb4-12"><a></a></span>
+<span id="cb4-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb4-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
+<span id="cb4-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
+<span id="cb4-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Define a sequence of layers:</strong></p>
+<ol type="1">
+<li class="fragment"><strong>First layer</strong> <code>nn.Linear(28*28, 512)</code>: takes the 784 values from the image and transforms them into 512 values. A <code>Linear(784, 512)</code> layer performs:
+<ul>
+<li class="fragment">A <strong>matrix multiplication</strong> between the input vector (length 784) and a <strong>weight matrix</strong> of size <code>[784 × 512]</code>, followed by adding a <strong>bias vector</strong> of length 512.</li>
+<li class="fragment">Mathematically: <span class="math display">\[
+\text{output} = x \cdot W + b
+\]</span></li>
+<li class="fragment"><code>x</code> is the <strong>input vector</strong>: shape <code>[784]</code></li>
+<li class="fragment"><code>W</code> is the <strong>weight matrix</strong>: shape <code>[784 × 512]</code></li>
+<li class="fragment"><code>b</code> is the <strong>bias vector</strong>: shape <code>[512]</code></li>
+<li class="fragment">The result (<code>output</code>) is a new vector of shape <code>[512]</code></li>
+</ul></li>
+</ol>
+<ul>
+<li class="fragment">Each of the 512 output values is a <strong>linear combination</strong> of all 784 pixel values in the input image. By default, PyTorch initializes weights using <a href="https://en.wikipedia.org/wiki/Weight_initialization" target="_blank">Kaiming Uniform Initialization</a> (a variant of <a href="https://en.wikipedia.org/wiki/Weight_initialization" target="_blank">He initialization</a>), which works well with ReLU activation functions.</li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-4" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<span id="cb5-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb5-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb5-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb5-5"><a></a>        <span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb5-6"><a></a>            nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb5-7"><a></a>            nn.ReLU(),</span>
+<span id="cb5-8"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb5-9"><a></a>            nn.ReLU(),</span>
+<span id="cb5-10"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb5-11"><a></a>        )</span>
+<span id="cb5-12"><a></a></span>
+<span id="cb5-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb5-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
+<span id="cb5-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
+<span id="cb5-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Define a sequence of layers:</strong></p>
+<ol start="2" type="1">
+<li class="fragment"><p><code>nn.ReLU()</code>: applies the <a href="https://en.wikipedia.org/wiki/Rectifier_(neural_networks)" target="_blank"><strong>ReLU activation function</strong></a>, which keeps positive numbers and turns negative numbers into zero. This adds non-linearity to the model.</p></li>
+<li class="fragment"><p><strong>Second layer</strong><code>nn.Linear(512, 512)</code>: takes those 512 values and again outputs 512 values. This is a <strong>hidden layer</strong>, helping the model learn more complex patterns.</p></li>
+<li class="fragment"><p><code>nn.ReLU()</code>: Another non-linear transformation.</p></li>
+<li class="fragment"><p><strong>Third (Final) layer</strong>:<code>nn.Linear(512, 10)</code>: takes the 512 values and produces <strong>10 output values</strong>.</p>
+<ul>
+<li class="fragment">These are called <strong>logits</strong>, and each one corresponds to a digit class (0 to 9).</li>
+</ul></li>
+</ol>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-5" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We define our neural network by subclassing <code>nn.Module</code>, and initialize the neural network layers in <code>__init__</code>. Every <code>nn.Module</code> subclass implements the operations on input data in the <code>forward</code> method.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a></a><span class="kw">class</span> NeuralNetwork(nn.Module):</span>
+<span id="cb6-2"><a></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb6-3"><a></a>        <span class="bu">super</span>().<span class="fu">__init__</span>()</span>
+<span id="cb6-4"><a></a>        <span class="va">self</span>.flatten <span class="op">=</span> nn.Flatten()</span>
+<span id="cb6-5"><a></a>        <span class="va">self</span>.linear_relu_stack <span class="op">=</span> nn.Sequential(</span>
+<span id="cb6-6"><a></a>            nn.Linear(<span class="dv">28</span><span class="op">*</span><span class="dv">28</span>, <span class="dv">512</span>),</span>
+<span id="cb6-7"><a></a>            nn.ReLU(),</span>
+<span id="cb6-8"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">512</span>),</span>
+<span id="cb6-9"><a></a>            nn.ReLU(),</span>
+<span id="cb6-10"><a></a>            nn.Linear(<span class="dv">512</span>, <span class="dv">10</span>),</span>
+<span id="cb6-11"><a></a>        )</span>
+<span id="cb6-12"><a></a></span>
+<span id="cb6-13"><a></a>    <span class="kw">def</span> forward(<span class="va">self</span>, x):</span>
+<span id="cb6-14"><a></a>        x <span class="op">=</span> <span class="va">self</span>.flatten(x)</span>
+<span id="cb6-15"><a></a>        logits <span class="op">=</span> <span class="va">self</span>.linear_relu_stack(x)</span>
+<span id="cb6-16"><a></a>        <span class="cf">return</span> logits</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><strong>Define a sequence of layers:</strong></p>
+<ul>
+<li class="fragment"><p><code>forward(self, x)</code>: This is the <strong>forward pass</strong>, the function that runs when we send data through the model.</p></li>
+<li class="fragment"><p>Step-by-step:</p></li>
+</ul>
+<ol type="1">
+<li class="fragment"><p><code>x = self.flatten(x)</code>: Convert the 28×28 image into a 1D tensor with 784 values.</p></li>
+<li class="fragment"><p><code>logits = self.linear_relu_stack(x)</code>: Pass the input through the series of layers.</p></li>
+<li class="fragment"><p><code>return logits</code>: Output the final predictions (raw scores for each class).</p></li>
+</ol>
+<ul>
+<li class="fragment">In summary this neural network:
+<ul>
+<li class="fragment">Takes an image (28×28) as input,</li>
+<li class="fragment">Flattens it into a vector,</li>
+<li class="fragment">Passes it through two <strong>fully connected layers</strong> with ReLU,</li>
+<li class="fragment">Outputs a vector of size 10 (one for each digit)</li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-6" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 60%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We create an instance of <code>NeuralNetwork</code>, and move it to the <code>device</code>, and print its structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
+<span id="cb7-2"><a></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To use the model, we pass it the input data.</p>
+<p><strong>Example</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
+<span id="cb8-2"><a></a>logits <span class="op">=</span> model(X)</span>
+<span id="cb8-3"><a></a>pred_probab <span class="op">=</span> nn.Softmax(dim<span class="op">=</span><span class="dv">1</span>)(logits)</span>
+<span id="cb8-4"><a></a>y_pred <span class="op">=</span> pred_probab.argmax(<span class="dv">1</span>)</span>
+<span id="cb8-5"><a></a><span class="bu">print</span>(<span class="ss">f"Predicted class: </span><span class="sc">{</span>y_pred<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb8-6"><a></a></span>
+<span id="cb8-7"><a></a><span class="co"># To see the image:</span></span>
+<span id="cb8-8"><a></a><span class="im">import</span> torch</span>
+<span id="cb8-9"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-10"><a></a></span>
+<span id="cb8-11"><a></a><span class="co"># Remove the batch dimension (1, 28, 28) → (28, 28)</span></span>
+<span id="cb8-12"><a></a>image <span class="op">=</span> X[<span class="dv">0</span>]</span>
+<span id="cb8-13"><a></a></span>
+<span id="cb8-14"><a></a><span class="co"># Plot the image</span></span>
+<span id="cb8-15"><a></a>plt.imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)  <span class="co"># Use 'gray' colormap for grayscale image</span></span>
+<span id="cb8-16"><a></a>plt.title(<span class="st">"Random 28x28 Image"</span>)</span>
+<span id="cb8-17"><a></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb8-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><code>torch.rand(1, 28, 28, device=device)</code>: Creates a <strong>random image</strong> with shape <code>[1, 28, 28]</code>
+<ul>
+<li class="fragment"><code>1</code> is the batch size (just one image)</li>
+<li class="fragment"><code>28×28</code> is the image dimension</li>
+<li class="fragment"><code>device=device</code> ensures the tensor goes to CPU or GPU (wherever the model is)</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a></a><span class="co"># To see tensor:</span></span>
+<span id="cb9-2"><a></a><span class="bu">print</span>(X)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Let’s say the tensor shown is:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a></a>X <span class="op">=</span> torch.tensor([[</span>
+<span id="cb10-2"><a></a>    [<span class="fl">0.1177</span>, <span class="fl">0.2669</span>, <span class="fl">0.6367</span>, <span class="fl">0.6148</span>, <span class="fl">0.3085</span>, ...],  <span class="co"># row 0</span></span>
+<span id="cb10-3"><a></a>    [<span class="fl">0.8672</span>, <span class="fl">0.3645</span>, <span class="fl">0.4822</span>, <span class="fl">0.9566</span>, <span class="fl">0.8999</span>, ...],  <span class="co"># row 1</span></span>
+<span id="cb10-4"><a></a>    ...</span>
+<span id="cb10-5"><a></a>]])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li class="fragment">This is a <strong>3D tensor</strong> of shape <code>[1, 28, 28]</code>:
+<ul>
+<li class="fragment">The first dimension <code>1</code> is the batch size,</li>
+<li class="fragment">The next two are height and width of the image.</li>
+</ul></li>
+<li class="fragment">The full index of <code>0.2669</code> in the 3D tensor is: <code>X[0, 0, 1]</code>.
+<ul>
+<li class="fragment"><code>0</code> → first (and only) image in the batch</li>
+<li class="fragment"><code>0</code> → first row of the image</li>
+<li class="fragment"><code>1</code> → second column in that row</li>
+</ul></li>
+</ul>
+</div></div>
+</div>
+</section>
+<section id="build-the-neural-network-7" class="slide level2 center">
+<h2><a href="https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html" target="_blank">Build the Neural Network</a></h2>
+<div style="font-size: 70%;">
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We create an instance of <code>NeuralNetwork</code>, and move it to the <code>device</code>, and print its structure.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a></a>model <span class="op">=</span> NeuralNetwork().to(device)</span>
+<span id="cb11-2"><a></a><span class="bu">print</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To use the model, we pass it the input data.</p>
+<p><strong>Example</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a></a>X <span class="op">=</span> torch.rand(<span class="dv">1</span>, <span class="dv">28</span>, <span class="dv">28</span>, device<span class="op">=</span>device)</span>
+<span id="cb12-2"><a></a>logits <span class="op">=</span> model(X)</span>
+<span id="cb12-3"><a></a>pred_probab <span class="op">=</span> nn.Softmax(dim<span class="op">=</span><span class="dv">1</span>)(logits)</span>
+<span id="cb12-4"><a></a>y_pred <span class="op">=</span> pred_probab.argmax(<span class="dv">1</span>)</span>
+<span id="cb12-5"><a></a><span class="bu">print</span>(<span class="ss">f"Predicted class: </span><span class="sc">{</span>y_pred<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb12-6"><a></a></span>
+<span id="cb12-7"><a></a><span class="co"># To see the image:</span></span>
+<span id="cb12-8"><a></a><span class="im">import</span> torch</span>
+<span id="cb12-9"><a></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-10"><a></a></span>
+<span id="cb12-11"><a></a><span class="co"># Remove the batch dimension (1, 28, 28) → (28, 28)</span></span>
+<span id="cb12-12"><a></a>image <span class="op">=</span> X[<span class="dv">0</span>]</span>
+<span id="cb12-13"><a></a></span>
+<span id="cb12-14"><a></a><span class="co"># Plot the image</span></span>
+<span id="cb12-15"><a></a>plt.imshow(image, cmap<span class="op">=</span><span class="st">'gray'</span>)  <span class="co"># Use 'gray' colormap for grayscale image</span></span>
+<span id="cb12-16"><a></a>plt.title(<span class="st">"Random 28x28 Image"</span>)</span>
+<span id="cb12-17"><a></a>plt.axis(<span class="st">'off'</span>)</span>
+<span id="cb12-18"><a></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><p><code>logits = model(X)</code>: This <strong>calls the model</strong> with input <code>X</code>.</p>
+<ul>
+<li class="fragment">Behind the scenes, it runs <code>model.forward(X)</code></li>
+<li class="fragment">Output: a <strong>vector of 10 values</strong> (called logits), one for each class (digits 0 through 9)</li>
+</ul></li>
+<li class="fragment"><p><strong>Note</strong>: We do <strong>not</strong> call <code>model.forward()</code> directly — <code>PyTorch</code> manages hooks and gradients when we use <code>model(X)</code></p></li>
+<li class="fragment"><p><code>pred_probab = nn.Softmax(dim=1)(logits)</code>: Applies <strong>softmax</strong> to the raw output logits</p>
+<ul>
+<li class="fragment">Softmax turns logits into <strong>probabilities</strong> (values between 0 and 1 that sum to 1)</li>
+<li class="fragment"><code>dim=1</code> means we apply softmax across the 10 output class values (not across the batch)</li>
+</ul></li>
+<li class="fragment"><p><code>y_pred = pred_probab.argmax(1)</code>: Picks the <strong>index of the largest probability</strong>, i.e., the <strong>predicted class</strong></p>
+<ul>
+<li class="fragment"><code>argmax(1)</code> returns the class with the highest probability from each row (here we have just one row)</li>
+</ul></li>
+<li class="fragment"><p><code>print(f"Predicted class: {y_pred}")</code>: Prints the predicted digit class (0 through 9)</p></li>
+</ul>
+</div></div>
+</div>
 </section>
 <section id="automatic-differentiation-with-torch.autograd" class="slide level2 center">
 <h2><a href="https://pytorch.org/tutorials/beginner/basics/autogradqs_tutorial.html" target="_blank">Automatic Differentiation with torch.autograd</a></h2>
